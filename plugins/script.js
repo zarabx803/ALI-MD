@@ -134,8 +134,8 @@ ${readMore}
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363321386877609@newsletter',
-                    newsletterName: '𝐊𝐄𝐑𝐌 𝐌𝐃 𝐑𝐄𝐏𝐎',
+                    newsletterJid: '120363210705976689@newsletter',
+                    newsletterName: '𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪',
                     serverMessageId: 143
                 }
             }
@@ -151,8 +151,8 @@ ${readMore}
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363321386877609@newsletter',
-                    newsletterName: '𝐊𝐄𝐑𝐌 𝐌𝐃',
+                    newsletterJid: '120363210705976689@newsletter',
+                    newsletterName: '𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪',
                     serverMessageId: 143
                 }
             }
