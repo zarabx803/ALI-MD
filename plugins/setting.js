@@ -71,7 +71,7 @@ cmd({
 │
 ╰──────────────────────────╯
 
-*🌟Developed by KERM-MD-V1🌟*
+*🌟DEVELOPED BY ALI-MD-V1🌟*
 `;
 
         // Send the settings message with the updated format
