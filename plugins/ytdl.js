@@ -95,9 +95,9 @@ function convertYouTubeLink(_0x584404) {
   return _0x584404;
 }
 cmd({
-  'pattern': "play",
+  'pattern': "song",
   'desc': "To download songs.",
-  'react': '☃️',
+  'react': '🎧',
   'category': "download",
   'filename': __filename
 }, async (_0x5351f6, _0x1439a7, _0x278458, {
