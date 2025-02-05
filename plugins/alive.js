@@ -48,7 +48,7 @@ Hi 🫵🏽 ${pushname}
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363321336877609@newsletter',
+                    newsletterJid: '120363318387454868@newsletter',
                     newsletterName: '『𝐀𝐋𝐈-鉂わ笍』',
                     serverMessageId: 143
                 }
