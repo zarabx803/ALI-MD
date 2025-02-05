@@ -200,7 +200,7 @@ cmd({
             },
             'mimetype': "audio/mp3",
             'fileName': _0x20e1e8.title + ".mp3",
-            'caption': "\n> *© Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ʏᴏᴜ Bʏ Kᴇʀᴍ Mᴅ V1 ❤️*\n "
+            'caption': "\n> *© Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ʏᴏᴜ Bʏ Aʟɪ Mᴅ V1♥️*\n "
           }, {
             'quoted': _0x25ddf5
           });
@@ -296,7 +296,7 @@ cmd({
             'video': {
               'url': _0x404514
             },
-            'caption': "\n* Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Kᴇʀᴍ❤️*\n"
+            'caption': "\n* Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Aʟɪ Mᴅ V1♥️*\n"
           }, {
             'quoted': _0x3dce21
           });
@@ -322,7 +322,7 @@ cmd({
               'video': {
                 'url': _0x13f213
               },
-              'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ Kᴇʀᴍ❤️*\n"
+              'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ Aʟɪ Mᴅ V1♥️*\n"
             }, {
               'quoted': _0x3dce21
             });
@@ -348,7 +348,7 @@ cmd({
                 'video': {
                   'url': _0x3e40d4
                 },
-                'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ Kᴇʀᴍ❤️*\n"
+                'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ Aʟɪ Mᴅ V1♥️*\n"
               }, {
                 'quoted': _0x3dce21
               });
@@ -374,7 +374,7 @@ cmd({
                   'video': {
                     'url': _0x14529b
                   },
-                  'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Kᴇʀᴍ❤️*\n"
+                  'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Aʟɪ Mᴅ V1♥️*\n"
                 }, {
                   'quoted': _0x3dce21
                 });
@@ -402,7 +402,7 @@ cmd({
                     },
                     'mimetype': "video/mp4",
                     'fileName': _0x546126.title + ".mp4",
-                    'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Kᴇʀᴍ❤️*\n"
+                    'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Aʟɪ Mᴅ V1♥️*\n"
                   }, {
                     'quoted': _0x3dce21
                   });
@@ -430,7 +430,7 @@ cmd({
                       },
                       'mimetype': "video/mp4",
                       'fileName': _0x546126.title + ".mp4",
-                      'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Kᴇʀᴍ❤️*\n"
+                      'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Aʟɪ Mᴅ V1♥️*\n"
                     }, {
                       'quoted': _0x3dce21
                     });
@@ -458,7 +458,7 @@ cmd({
                         },
                         'mimetype': "video/mp4",
                         'fileName': _0x546126.title + ".mp4",
-                        'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Kᴇʀᴍ❤️*\n"
+                        'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Aʟɪ Mᴅ V1♥️*\n"
                       }, {
                         'quoted': _0x3dce21
                       });
@@ -486,7 +486,7 @@ cmd({
                           },
                           'mimetype': "video/mp4",
                           'fileName': _0x546126.title + ".mp4",
-                          'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Kᴇʀᴍ❤️*\n"
+                          'caption': "\n*Gᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ Yᴏᴜ Bʏ Aʟɪ Mᴅ V1♥️*\n"
                         }, {
                           'quoted': _0x3dce21
                         });
