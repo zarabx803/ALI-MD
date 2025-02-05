@@ -1,15 +1,3 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
-
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 
 const { cmd } = require('../command');
@@ -26,10 +14,10 @@ cmd({
 }, async (conn, mek, m, { reply }) => {
     try {
         // Define the channel link inside the command
-        const channelLink = "https://whatsapp.com/channel/0029Vafn6hc7DAX3fzsKtn45";
+        const channelLink = "https://whatsapp.com/channel/0029VaoRxGmJpe8lgCqT1T2h";
 
         // Send the channel link to the user
-        reply(`Here's 💁🏽 the link to our official WhatsApp Kerm channel:\n\n${channelLink}\n\n> Join us to stay updated with the latest news and announcements🧞‍♂️.`);
+        reply(`*ʜᴇʀᴇ's ᴛʜᴇ ʟɪɴᴋ ᴛᴏ ᴏᴜʀ ᴏғғɪᴄɪᴀʟ ᴡʜᴀᴛsᴀᴘᴘ ᴀʟɪ ᴄʜᴀɴɴᴇʟ*:\n\n${channelLink}\n\n> Join us to stay updated with the latest news and announcements🧞‍♂️.`);
     } catch (error) {
         // Log and notify about any errors
         console.error("Error sending channel link:", error.message);
@@ -47,10 +35,11 @@ cmd({
 }, async (conn, mek, m, { reply }) => {
     try {
         // Define the support link inside the command
-        const supportLink = "https://chat.whatsapp.com/L5MM9j04Caz4y2EZHRnD1Z";
+        const supportLink = "https://chat.whatsapp.com/EBA9W51nC5mHT6bYbsMZHb";
 
         // Send the support link to the user
-        reply(`Need help 💁🏽 or have questions ? Join Kerm support group:\n\n${supportLink}\n\n> Feel free to ask your questions or report issues🙇🏽.`);
+        reply(`*ɴᴇᴇᴅ ʜᴇʟᴘ ᴏʀ ʜᴀᴠᴇ ǫᴜᴇsᴛɪᴏɴs ? Jᴏɪɴ Kᴇʀᴍ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ🪀*\n\n${supportLink}\n\n
+> *ғᴇᴇʟ ғʀᴇᴇ ᴛᴏ ᴀsᴋ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴs ᴏʀ ʀᴇᴘᴏʀᴛ ɪssᴜᴇs🙇🏻‍♂️.*.`);
     } catch (error) {
         // Log and notify about any errors
         console.error("Error sending support link:", error.message);
