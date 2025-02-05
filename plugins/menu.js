@@ -243,6 +243,18 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 `
 
 await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:madeMenu},{quoted:mek})
+    
+            contextInfo: {
+                mentionedJid: [m.sender],
+                forwardingScore: 999,
+                isForwarded: false,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363318387454868@newsletter',
+                    newsletterName: '『𝐀𝐋𝐈-𝐌𝐃 𝚩❍𝐓🍁』',
+                    serverMessageId: 143
+                }
+            }
+        }, { quoted: mek });
 
 }catch(e){
 console.log(e)
