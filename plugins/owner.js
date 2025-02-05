@@ -1,22 +1,11 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const { cmd } = require('../command');
 
 cmd({
     pattern: "owner",
     react: "👑", // Reaction emoji when the command is triggered
-    alias: ["kerm"],
+    alias: ["Ali"],
     desc: "Get owner number",
     category: "main",
     filename: __filename
@@ -48,7 +37,7 @@ async (conn, mek, m, { from }) => {
         await conn.sendMessage(from, {
             text: `This is the owner's contact: ${ownerName}`,
             contextInfo: {
-                mentionedJid: [ownerNumber.replace('+923003588997') + '+923096287432@s.whatsapp.net'], // Mention the owner
+                mentionedJid: [ownerNumber.replace('+923003588997') + '+923003588997@s.whatsapp.net'], // Mention the owner
                 quotedMessageId: sentVCard.key.id // Reference the vCard message
             }
         }, { quoted: mek });
