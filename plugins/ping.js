@@ -1,59 +1,60 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
+const config = require('../config');
+const { cmd, commands } = require('../command');
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
-
-const config = require('../config')
-let fs = require('fs')
-const os = require("os")
-const { cmd, commands } = require('../command')
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 cmd({
     pattern: "ping",
-    react: "📟",
-    alias: ["speed"],
-    desc: "Check bot\'s ping",
+    alias: ["speed","pong"],use: '.ping',
+    desc: "Check bot's response time.",
     category: "main",
-    use: '.ping2',
+    react: "📟",
     filename: __filename
 },
-async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-var inital = new Date().getTime();
-let ping = await conn.sendMessage(from , { text: '*_Zinda huu..._*'  }, { quoted: mek } )
-var final = new Date().getTime();
-await conn.sendMessage(from, { delete: ping.key })
-return await conn.sendMessage(from , { text: '*📍Pong*\n *' + (final - inital) + ' ms📟* '  }, { quoted: mek } )
-} catch (e) {
-reply('*Error !!*')
-l(e)
-}
-})
+async (conn, mek, m, { from, quoted, reply }) => {
+    try {
+        const startTime = Date.now();
+
+        // Add a short delay
+        await new Promise(resolve => setTimeout(resolve, 100)); // 100ms delay
+
+        const endTime = Date.now();
+        const ping = endTime - startTime;
+
+        // Send the ping result
+        await conn.sendMessage(from, { 
+            text: `*📍pong : ${ping} ms*`, 
+            contextInfo: {
+                mentionedJid: [m.sender],
+                forwardingScore: 999,
+                isForwarded: false,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363354023106228@newsletter',
+                    newsletterName: 'JawadTechX',
+                    serverMessageId: 143
+                }
+            }
+        }, { quoted: mek });
+    } catch (e) {
+        console.error(e);
+        reply(`An error occurred: ${e.message}`);
+    }
+});
+
+// ping2 
 
 cmd({
     pattern: "ping2",
-    react: "♻️",
-    alias: ["speed"],
-    desc: "Check bot\'s ping",
+    desc: "Check bot's response time.",
     category: "main",
-    use: '.ping',
+    react: "🍂",
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-const startTime = Date.now()
-        const message = await conn.sendMessage(from, { text: '*_Pinging..._*' })
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        const startTime = Date.now()
+        const message = await conn.sendMessage(from, { text: '*PINGING...*' })
         const endTime = Date.now()
         const ping = endTime - startTime
-        await conn.sendMessage(from, { text: `*_🧞‍♂️Kerm Speed... : ${ping}ms_*`}, { quoted: message })
+        await conn.sendMessage(from, { text: `*☇ ᴀʟɪ ꜱᴩᷨᴇͦᴇͭᴅ 🍁 : ${ping} ᴍꜱ*` }, { quoted: message })
     } catch (e) {
         console.log(e)
         reply(`${e}`)
