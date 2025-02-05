@@ -1,7 +1,7 @@
 {
-  "name": "KERM-MD-V1",
+  "name": "ALi-MD-V1",
   "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ Kɢ ᴛᴇᴄʜ",
-  "logo": "https://files.catbox.moe/yw2ty2.jpeg",
+  "logo": "https://i.ibb.co/0j6SKpF9/mrfrankofc.jpg",
   "keywords": ["bot"],
   "success_url": "/",
 
@@ -16,13 +16,13 @@
     "ALIVE_IMG": {
       "description": "paste your image url if you don't have you can use this public url.",
       "required": true,
-      "value": "https://files.catbox.moe/yw2ty2.jpeg"
+      "value": "https://i.ibb.co/0j6SKpF9/mrfrankofc.jpg"
     }, 
     
     "ALIVE_MSG": {
       "description": "paste your alive message hear.",
       "required": true,
-      "value": "_Hi bro am alive now🥷🏽🤝🏾._"
+      "value": "_Hi bro am alive now👋🏻._"
     },
     
     "PREFIX": {
@@ -95,7 +95,7 @@
     "BOT_NAME": {
       "description": "write hear your name.",
       "required": true,
-      "value": "✦『𝗞𝗘𝗥𝗠 𝗠𝗗 𝗩1』✦"
+      "value": "✦『𝗔𝗟𝗜 𝗠𝗗 𝗩1』✦"
     }, 
 
     "HEART_REACT": {
