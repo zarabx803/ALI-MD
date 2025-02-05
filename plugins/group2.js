@@ -17,7 +17,7 @@ cmd({
         const channelLink = "https://whatsapp.com/channel/0029VaoRxGmJpe8lgCqT1T2h";
 
         // Send the channel link to the user
-        reply(`*ʜᴇʀᴇ's ᴛʜᴇ ʟɪɴᴋ ᴛᴏ ᴏᴜʀ ᴏғғɪᴄɪᴀʟ ᴡʜᴀᴛsᴀᴘᴘ ᴀʟɪ ᴄʜᴀɴɴᴇʟ*:\n\n${channelLink}\n\n> Join us to stay updated with the latest news and announcements🧞‍♂️.`);
+        reply(`*ʜᴇʀᴇ's ᴛʜᴇ ʟɪɴᴋ ᴛᴏ ᴏᴜʀ ᴏғғɪᴄɪᴀʟ ᴡʜᴀᴛsᴀᴘᴘ ᴀʟɪ ᴄʜᴀɴɴᴇʟ*:\n\n${channelLink}\n\n> *ᴊᴏɪɴ ᴜs ᴛᴏ sᴛᴀʏ ᴜᴘᴅᴀᴛᴇᴅ ᴡɪᴛʜ ᴛʜᴇ ʟᴀᴛᴇsᴛ ɴᴇᴡs ᴀɴᴅ ᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛs🧞‍♂️.*`);
     } catch (error) {
         // Log and notify about any errors
         console.error("Error sending channel link:", error.message);
@@ -38,7 +38,7 @@ cmd({
         const supportLink = "https://chat.whatsapp.com/EBA9W51nC5mHT6bYbsMZHb";
 
         // Send the support link to the user
-        reply(`*ɴᴇᴇᴅ ʜᴇʟᴘ ᴏʀ ʜᴀᴠᴇ ǫᴜᴇsᴛɪᴏɴs ? Jᴏɪɴ Kᴇʀᴍ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ🪀*\n\n${supportLink}\n\n
+        reply(`*ɴᴇᴇᴅ ʜᴇʟᴘ ᴏʀ ʜᴀᴠᴇ ǫᴜᴇsᴛɪᴏɴs ? ᴊᴏɪɴ ᴀʟɪ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ🪀*\n\n${supportLink}\n\n
 > *ғᴇᴇʟ ғʀᴇᴇ ᴛᴏ ᴀsᴋ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴs ᴏʀ ʀᴇᴘᴏʀᴛ ɪssᴜᴇs🙇🏻‍♂️.*.`);
     } catch (error) {
         // Log and notify about any errors
