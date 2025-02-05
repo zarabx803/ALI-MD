@@ -1,25 +1,18 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
-
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
-
-const config = require('../config');
-const { Sticker, StickerTypes } = require('wa-sticker-formatter');
 const { cmd } = require('../command');
-const { getRandom } = require('../lib/functions');
+const crypto = require('crypto');
+const webp = require('node-webpmux');
+const axios = require('axios');
+const fs = require('fs-extra');
+const { exec } = require('child_process');
+const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
+const Config = require('../config');
+
+// Take Sticker 
 
 cmd(
     {
         pattern: 'take',
-        alias: ['steal', 'stake'],
+        alias: ['rename', 'stake'],
         desc: 'Create a sticker with a custom pack name.',
         category: 'sticker',
         use: '<reply media or URL>',
@@ -55,17 +48,17 @@ cmd(
 cmd(
     {
         pattern: 'sticker',
-        react: '🚀',
-        alias: ['s', 'stickers'],
+        react: '♻️',
+        alias: ['s', 'stickergif'],
         desc: 'Create a sticker from an image, video, or URL.',
         category: 'sticker',
         use: '<reply media or URL>',
         filename: __filename,
     },
     async (conn, mek, m, { quoted, args, q, reply, from }) => {
-        if (!mek.quoted) return reply(`*Reply to any Image or Video, Sir.*`);
+        if (!mek.quoted) return reply(`*_Reply to any Image or Video, baka!_*`);
         let mime = mek.quoted.mtype;
-        let pack = Config.STICKER_NAME || "ᵏᵉʳᵐ ᵐᵈ ᵛ¹🐲";
+        let pack = Config.STICKER_NAME || "мα∂є ву αℓιι;🍁";
         
         if (mime === "imageMessage" || mime === "stickerMessage") {
             let media = await mek.quoted.download();
@@ -80,7 +73,9 @@ cmd(
             const buffer = await sticker.toBuffer();
             return conn.sendMessage(mek.chat, { sticker: buffer }, { quoted: mek });
         } else {
-            return reply("*Uhh, Please reply to an image.*");
+            return reply("*_Uhh, Please reply to an image._*");
         }
     }
 );
+
+// mf
