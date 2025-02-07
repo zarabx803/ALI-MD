@@ -45,7 +45,7 @@ cmd({
                   `*Producer:* ${stickers.data.result.name}\n` +
                   `*Type:* ${type}\n` +
                   `*Length:* ${stickers.data.result.stickers.length}\n\n` +
-                  `> *ᴀʟɪ-ᴍᴅ sᴛɪᴄᴋᴇʀs sᴇɴᴅɪɴɢ`;
+                  `> *ᴀʟɪ-ᴍᴅ sᴛɪᴄᴋᴇʀs sᴇɴᴅɪɴɢ*`;
 
    // await reply(message);
 await conn.sendMessage(
