@@ -22,7 +22,7 @@ cmd({
 
     // Check if a Telegram sticker link is provided
     if (!args[0]) {
-      reply('Please provide a Telegram sticker pack link.\n\n Example `.tgs` https://t.me/addstickers/telegramkerm ');
+      reply('*ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴛᴇʟᴇɢʀᴀᴍ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʟɪɴᴋ.*\n\n *ᴇxᴀᴍᴘʟᴇ* `.tgs` https://t.me/addstickers/telegramali ');
       return;
     }
 
@@ -41,25 +41,25 @@ cmd({
 
     let type = stickers.data.result.is_animated ? 'animated sticker' : 'not animated sticker';
 
-    let message = `*🧩ALI TELEGEAM STICKERS🧩*\n\n` +
+    let message = `*🧩ᴀʟɪ ᴛᴇʟᴇɢʀᴀᴍ sᴛɪᴄᴋᴇʀs🧩*\n\n` +
                   `*Producer:* ${stickers.data.result.name}\n` +
                   `*Type:* ${type}\n` +
                   `*Length:* ${stickers.data.result.stickers.length}\n\n` +
-                  `> Please wait...`;
+                  `> *ᴀʟɪ-ᴍᴅ sᴛɪᴄᴋᴇʀs sᴇɴᴅɪɴɢ`;
 
    // await reply(message);
 await conn.sendMessage(
             from,
             {
-                image: { url: `https://i.ibb.co/dwmbSTkL/mrfrankofc.jpg` },
+                image: { url: `https://i.ibb.co/kgL73wq8/mrfrankofc.jpg` },
                 caption: message,
                 contextInfo: {
                     mentionedJid: [m.sender],
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363304325601080@newsletter',
-                        newsletterName: '❄️『 𝐒𝐔𝐁𝐙𝐄𝐑𝐎 𝐌𝐃 』❄️ ',
+                        newsletterJid: '120363318387454868@newsletter',
+                        newsletterName: '『𝐀ɭι̇ι̇ 鉂笍』',
                         serverMessageId: 143
                     }
                 }
