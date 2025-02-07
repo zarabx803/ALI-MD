@@ -17,7 +17,7 @@ const url = data.url
     
     
 let desc = `
-⫷⦁*KERM-MD-V1 MUSⵊC DOWNLOADⵊNG*⦁⫸
+*⫷⦁ALI-MD-V1 MUSⵊC DOWNLOADⵊNG⦁⫸*
 
 🎵 *MUSⵊC FOUND!* 
 
@@ -29,9 +29,9 @@ let desc = `
 
 🎧 *ENJOY THE MUSIC BROUGHT TO YOU!*
 
-> *KERM-MD-V1 WHATSAPP BOT* 
+> *ALI-MD-V1 WHATSAPP BOT* 
 
-> *© ᴄʀᴇᴀᴛᴇᴅ ʙʏ Kᴇʀᴍ-ᴍᴅ-ᴠ1* 
+> *© ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀʟɪ-ᴍᴅ-ᴠ1* 
 `
 
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
@@ -70,7 +70,7 @@ const url = data.url
     
     
 let desc = `
-⫷⦁*•KERM-MD-V1 VⵊDEO DOWNLOADⵊNG*⦁⫸ 
+*⫷⦁ALI-MD-V1 VⵊDEO DOWNLOADⵊNG⦁⫸*
 
 🎥 *VⵊDEO FOUND!* 
 
@@ -82,9 +82,9 @@ let desc = `
 
 🎬 *ENJOY THE VIDEO BROUGHT TO YOU!*
 
-> *KERM-MD-V1 WHATSAPP BOT* 
+> *ALI-MD-V1 WHATSAPP BOT* 
 
-> *© ᴄʀᴇᴀᴛᴇᴅ ʙʏ Kᴇʀᴍ-ᴍᴅ-ᴠ1*
+> *© ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀʟɪ-ᴍᴅ-ᴠ1*
 `
 
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
@@ -174,13 +174,13 @@ cmd({
     const messagePayload = {
       video: { url: downloadUrl },
       mimetype: 'video/mp4',
-      caption: `*${videoDetails.title || 'Downloaded by SUBZERO-MD'}*`,
+      caption: `*${videoDetails.title || 'Downloaded by ALI-MD'}*`,
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title || 'SUBZERO-MD Video Download',
-          body: 'Powered by SUBZERO-MD',
+          title: videoDetails.title || 'ALI-MD Video Download',
+          body: 'Powered by ALI-MD',
           mediaType: 1,
-          sourceUrl: 'https://github.com/MrFrank-ofc/SUBZERO-BOT', // Replace with your desired link
+          sourceUrl: 'https://github.com/MrFrank-ofc/SUZERO-BOT', // Replace with your desired link
           thumbnailUrl: firstVideo.thumbnail || 'https://i.imgur.com/v9gJCSD.jpeg',
           renderLargerThumbnail: true,
         },
