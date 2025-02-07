@@ -40,7 +40,7 @@ cmd({
     try {
         // Envoi de la réponse avec l'image et la liste de la famille
         await conn.sendMessage(m.chat, {
-            image: { url: "https://files.catbox.moe/7pa8tx.jpeg" },
+            image: { url: "https://i.ibb.co/mFCrdBF1/mrfrankofc.jpg" },
             caption: familyList.trim()
         }, { quoted: mek });
     } catch (error) {
@@ -142,7 +142,7 @@ cmd(
 
             // Define the new group settings here
             const groupName = "𓆩ု᪳𝐀𝐋𝐈-𝐌𝐃ှ᪳𓆪";
-            const imageUrl = "https://i.imgur.com/hREsV5N.jpeg"; // Replace with the actual image URL
+            const imageUrl = "https://i.ibb.co/mFCrdBF1/mrfrankofc.jpg"; // Replace with the actual image URL
             const groupDescription = `
 ༒🔱𝐏𝐑𝐈𝐄𝐑𝐄 𝐃𝐔 𝐂𝐋𝐀𝐍 𝐄𝐗𝐎𝐑𝐂𝐈𝐒𝐓𝐄🔱༒
 
