@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const { cmd } = require("../command"); // Gestion des commandes
 const fs = require("fs"); // Gestion des fichiers
@@ -17,7 +6,7 @@ const path = require("path"); // Gestion des chemins de fichiers
 
 cmd({
   pattern: "delete",
-  react: "❌",
+  react: "🗑️",
   alias: ["del"],
   desc: "Delete the bot's messages or other messages (requires admin for others).",
   category: "group",
