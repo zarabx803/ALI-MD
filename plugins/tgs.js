@@ -59,7 +59,7 @@ await conn.sendMessage(
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363318387454868@newsletter',
-                        newsletterName: '『𝐀ɭι̇ι̇ 鉂笍』',
+                        newsletterName: '『𝐀ɭι̇ι̇ 鉂笍 𝐓𝐄𝐂𝐇™』',
                         serverMessageId: 143
                     }
                 }
@@ -80,7 +80,7 @@ await conn.sendMessage(
 
       // Create a WhatsApp sticker
       const sticker = new Sticker(buffer.data, {
-        pack: '𝐀ɭι̇ι̇ 鉂笍',
+        pack: '𝐀ɭι̇ι̇ 𝐈ƞ̽ʂ̚ɪɖ𝛆̽',
         author: '🐝',
         type: StickerTypes.FULL,
         categories: ['🤩', '🎉'],
@@ -102,7 +102,7 @@ await conn.sendMessage(
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
-    reply('Sticker pack download complete!');
+    reply('_*Sticker Pack Download Complete!*_');
 
   } catch (error) {
     console.error('Error processing Telegram sticker pack:', error);
