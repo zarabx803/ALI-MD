@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 /*
 const config = require('../config')
@@ -27,16 +16,16 @@ try{
 let repo =`
 *╭──────────────●●►*
 > *BOT OWNER:*
-*|* *KG TECH🇨🇲*
+*|* *ALI*
 
-> *KERM-MD-V1 REPO:*
-*|* https://github.com/Kgtech-cmr/KERM-MD-V1
+> *ALI-MD-V1 REPO:*
+*|* https://github.com/itx-alii-raza/ALI-MD
 
 > *SUPPORT GROUP:*
-*|* https://whatsapp.com/channel/0029Vafn6hc7DAX3fzsKtn45
+*|* https://whatsapp.com/channel/0029VaoRxGmJpe8lgCqT1T2h
 *╰──────────────●●►*
 
-> *CREATED BY KG TECH*
+> *CREATED BY ALI TECH*
 `
 await conn.sendMessage(from, { text: repo ,
   contextInfo: {
@@ -45,16 +34,16 @@ await conn.sendMessage(from, { text: repo ,
     forwardingScore: 999,
     isForwarded: false,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363321386877609@newsletter',
-      newsletterName: "ᴋᴇʀᴍ ᴄʜᴀɴɴᴇʟ",
+      newsletterJid: '120363318387454868@newsletter',
+      newsletterName: "𝐀ɭι̇ι̇ 𝐌Ɗ 🍁",
       serverMessageId: 999
     },
 externalAdReply: { 
-title: 'Kᴇʀᴍ-Mᴅ-V1',
+title: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
 body: `${pushname}`,
 mediaType: 1,
-sourceUrl: "https://github.com/Kgtech-cmr/KERM-MD-V1" ,
-thumbnailUrl: "https://files.catbox.moe/osriwc.jpg" ,
+sourceUrl: "https://github.com/itx-alii-raza/ALI-MD" ,
+thumbnailUrl: "https://i.ibb.co/8Dzbtwj2/mrfrankofc.jpg" ,
 renderLargerThumbnail: true,
 showAdAttribution: true
 }
@@ -81,7 +70,7 @@ cmd({
     filename: __filename,
 },
 async (conn, mek, m, { from, reply }) => {
-    const githubRepoURL = 'https://github.com/Kgtech-cmr/KERM-MD-V1';
+    const githubRepoURL = 'https://github.com/itx-alii-raza/ALI-MD';
 
     try {
         // Extract username and repo name from the URL
@@ -97,15 +86,15 @@ async (conn, mek, m, { from, reply }) => {
         const repoData = await response.json();
 
         // Format the repository information
-        const formattedInfo = `*Hello There KERM W.A BOT User! 😄👋* 
+        const formattedInfo = `*𝐇𝐄𝐋𝐋𝐎 𝐓𝐇𝐄𝐑𝐄 𝐀𝐋𝐈-𝐌𝐃 𝐖.𝐀 𝐁𝐎𝐓 𝐔𝐒𝐄𝐑!😇👑* 
 
-> Simple, Icy, Cold  & Rich Loaded Bot With Amazing Features, Kerm WhatsApp Bot. ❄️
+> *sɪᴍᴘʟᴇ, ɪᴄʏ, ᴄᴏʟᴅ  & ʀɪᴄʜ ʟᴏᴀᴅᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ᴀᴍᴀᴢɪɴɢ ғᴇᴀᴛᴜʀᴇs, ᴋᴇʀᴍ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ.*❄️
 
-*Thanks for using Kerm MD🫶* 
+*𝐓𝐇𝐀𝐍𝐊𝐒 𝐅𝐎𝐑 𝐔𝐒𝐄𝐈𝐍𝐆 𝐀𝐋𝐈-𝐌𝐃🫶* 
 
-> Don't forget to star & fork the repo🌟🍴
+> *ᴅᴏɴ'ᴛ ғᴏʀɢᴇᴛ ᴛᴏ sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ🌟🍴*
 
-https://github.com/Kgtech-cmr/KERM-MD-V1
+https://github.com/itx-alii-raza/ALI-MD
 ──────────────────
 ${readMore}
 \`BOT NAME:\`❄️
@@ -123,7 +112,7 @@ ${readMore}
 \`DESCRIPTION:\`📃
 > ${repoData.description || 'No description'}\n
 ──────────────────
-\n> *© POWERED BY KERM* 🎐`;
+\n> *© POWERED BY ALI* 🎐`;
 
         // Send an image with the formatted info as a caption and context info
         await conn.sendMessage(from, {
@@ -134,8 +123,8 @@ ${readMore}
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363210705976689@newsletter',
-                    newsletterName: '𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪',
+                    newsletterJid: '120363318387454868@newsletter',
+                    newsletterName: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
                     serverMessageId: 143
                 }
             }
@@ -151,8 +140,8 @@ ${readMore}
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363210705976689@newsletter',
-                    newsletterName: '𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪',
+                    newsletterJid: '120363318387454868@newsletter',
+                    newsletterName: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
                     serverMessageId: 143
                 }
             }
