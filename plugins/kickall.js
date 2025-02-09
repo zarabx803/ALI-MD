@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const config = require('../config');
 const { cmd, commands } = require('../command');
@@ -40,13 +29,13 @@ cmd({
 }) => {
     try {
         // Check if the command is used in a group
-        if (!isGroup) return reply(`❌ This command can only be used in groups.`);
+        if (!isGroup) return reply(`*_📛This command can only be used in groups._*`);
 
         // Check if the user is an admin
-        if (!isAdmins) return reply(`❌ Only group admins can use this command.`);
+        if (!isAdmins) return reply(`*_📛Only group admins can use this command._*`);
 
         // Check if the bot has admin privileges
-        if (!isBotAdmins) return reply(`❌ I need admin privileges to remove group members.`);
+        if (!isBotAdmins) return reply(`*_📛I need admin privileges to remove group members._*`);
 
         stopKickall = false; // Reset the stop flag
 
@@ -92,10 +81,10 @@ cmd({
 cmd({
     pattern: "restart",
     desc: "Stops the kickall command.",
-    react: "⏹️",
+    react: "✅",
     category: "group",
     filename: __filename,
 }, async (conn, mek, m, { reply }) => {
     stopKickall = true; // Set the stop flag to true
-    reply(`✅ *Kickall operation has been canceled.*`);
+    reply(`_*Restarting*_`);
 });
