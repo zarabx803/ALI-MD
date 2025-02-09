@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const { cmd } = require("../command");
 
@@ -96,7 +85,7 @@ cmd({
 27. Revelation
 
 
-❤️BY KERM MD V1❤️
+❤️BY ALI MD V1❤️
 `;
 
         // Remplacer ce lien par l'URL de l'image que tu m'enverras
@@ -110,7 +99,7 @@ cmd({
         // Envoi de la réponse avec l'image et la liste des livres de la Bible
         await conn.sendMessage(m.chat, {
             image: { url: imageUrl },
-            caption: `📖 *Bible List By Kerm Md*:\n\n` +
+            caption: `📖 *BIBLE LIST BY ALI MD*:\n\n` +
                      `Here is the complete list of books in the Bible:\n\n` +
                      bibleList.trim() // Ajout du texte des livres de la Bible
         }, { quoted: mek });
