@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const axios = require('axios');
 const config = require('../config');
@@ -59,9 +48,9 @@ cmd({
 
     let message = '';
     if (currentVersion === latestVersion) {
-      message = `Kerm Md bot is up-to-date! 😊\n Current version is: ${currentVersion}`;
+      message = `*ᴀʟɪ ᴍᴅ ʙᴏᴛ ɪs ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ! 😊*\n *ᴄᴜʀʀᴇɴᴛ ᴠᴇʀsɪᴏɴ ɪs:* ${currentVersion}`;
     } else {
-      message = `Kerm Md bot is outdated 😵!\n\n  Current version: ${currentVersion} \n Latest version: ${latestVersion}`;
+      message = `*ᴀʟɪ ᴍᴅ ʙᴏᴛ ɪs ᴏᴜᴛᴅᴀᴛᴇᴅ! 😵*\n\n  *ᴄᴜʀʀᴇɴᴛ ᴠᴇʀsɪᴏɴ ɪs:* ${currentVersion} \n *ʟᴀᴛᴇsᴛ ᴠᴇʀsɪᴏɴ:* ${latestVersion}`;
     }
 
    // await reply(message);
@@ -80,15 +69,15 @@ cmd({
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363321386877609@newsletter',
-                    newsletterName: '𝐊𝐄𝐑𝐌 𝐌𝐃',
+                    newsletterJid: '120363318387454868@newsletter',
+                    newsletterName: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
                     serverMessageId: 143
                 }
             }
         }, { quoted: mek });
 
     } catch (e) {
-        console.error("Error in Subzero checking Version:", e);
+        console.error("Error in ali checking Version:", e);
         reply(`An error Occured Fetching Version 😕`);
     }
 });
