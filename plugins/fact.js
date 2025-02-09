@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const axios = require('axios');
 const { cmd } = require('../command');
@@ -28,7 +17,7 @@ async (conn, mek, m, { from, q, reply }) => {
         const fact = response.data.text;
 
         const funFact = `
-🤣 *KERM-MD-V1 RANDOM FACT* 🤣
+🤣 *ALI-MD-V1 RANDOM FACT* 🤣
 
 ${fact}
 
@@ -60,7 +49,7 @@ async (conn, mek, m, { from, q, reply }) => {
 *${joke.setup}*
 ${joke.punchline} 😄
 
-> *POWERED BY KG TECH*
+> *POWERED BY ALI TECH*
 `;
         return reply(jokeMessage);
     } catch (e) {
@@ -114,7 +103,7 @@ cmd({
         await new Promise(resolve => setTimeout(resolve, duration));
 
         // Send message after the time is up
-        reply(`⏰ Time's up! ${timeValue}${timeUnit} have passed.\n\n> POWERED BY KERM🧞‍♂️.`);
+        reply(`⏰ Time's up! ${timeValue}${timeUnit} have passed.\n\n> POWERED BY ALI🧞‍♂️.`);
     } catch (error) {
         console.error("Error in minutor command:", error);
         reply("❌ An error occurred while starting the timer. Please try again.");
