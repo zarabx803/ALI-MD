@@ -14,7 +14,7 @@ cmd({
 }, async (conn, mek, m, { from, args, q, reply }) => {
     try {
         // Vérification de l'entrée utilisateur
-        if (!q) return reply("⚠️ Please provide a query for ChatGPT.\n\nExample:\n.gpt What is AI?");
+        if (!q) return reply("*⚠️ Please provide a query for ChatGPT.*\n\n*Example:*\n*.gpt What is AI?*");
 
         // Utilisation de `${text}` dans le endpoint API
         const text = q;  // Texte de la requête de l'utilisateur
@@ -48,10 +48,10 @@ cmd({
         }
 
         // Image AI à envoyer
-        const ALIVE_IMG = 'https://i.imgur.com/R4ebueM.jpeg'; // Remplacez par l'URL de votre image AI
+        const ALIVE_IMG = 'https://i.ibb.co/8Dzbtwj2/mrfrankofc.jpg'; // Remplacez par l'URL de votre image AI
 
         // Légende avec des informations formatées
-        const formattedInfo = `🤖 *ChatGPT Response:*\n\n${gptResponse}`;
+        const formattedInfo = `*🤖 ᴄʜᴀᴛ.ɢᴘᴛ ʀᴇsᴘᴏɴsᴇ:*\n\n${gptResponse}`;
 
         // Envoyer le message avec image et légende
         await conn.sendMessage(from, {
@@ -62,8 +62,8 @@ cmd({
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363321386877609@newsletter',
-                    newsletterName: '𝐊𝐄𝐑𝐌 𝐀𝐈',
+                    newsletterJid: '120363318387454868@newsletter',
+                    newsletterName: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
                     serverMessageId: 143
                 }
             }
