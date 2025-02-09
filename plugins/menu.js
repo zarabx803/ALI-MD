@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const config = require('../config')
 const {cmd , commands} = require('../command')
@@ -40,13 +29,13 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 *┌─〈 ${config.BOT_NAME} 〉─◆*
 *│╭─────────────···▸*
 *┴│▸*
-*❖│▸* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
-*❖│▸* *ᴍᴏᴅᴇ* : *${config.MODE}*
-*❖│▸* *ᴘʀᴇғɪx* : *${config.PREFIX}*
-*❖│▸* *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-*❖│▸* *ᴄʀᴇᴀᴛᴏʀ* : *𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪*
-*❖│▸* *ᴀʟᴡᴀʏs ᴏɴʟɪɴᴇ* : *${config.ALWAYS_ONLINE}*
-*❖│▸* *ᴠᴇʀsɪᴏɴs* : *ᴠ.4.1.0*
+*❍│▸* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
+*❍│▸* *ᴍᴏᴅᴇ* : *${config.MODE}*
+*❍│▸* *ᴘʀᴇғɪx* : *${config.PREFIX}*
+*❍│▸* *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+*❍│▸* *ᴄʀᴇᴀᴛᴏʀ* : *𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪*
+*❍│▸* *ᴀʟᴡᴀʏs ᴏɴʟɪɴᴇ* : *${config.ALWAYS_ONLINE}*
+*❍│▸* *ᴠᴇʀsɪᴏɴs* : *ᴠ.4.1.0*
 *┬│▸*
 *└──────────────···▸*
   *ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʙᴏᴛ ᴄᴏɴᴛᴀᴄᴛ ᴛᴏ .ᴏᴡɴᴇʀ*
