@@ -24,7 +24,7 @@ cmd({
 
         const formattedInfo = `
 🌟 *ALI MD V1 STATUS* 🌟
-Hi 🫵🏽 ${pushname}
+Hey 👋🏻 ${pushname}
 🕒 *Time*: ${currentTime}
 📅 *Date*: ${currentDate}
 ⏳ *Uptime*: ${runtimeHours} hours, ${runtimeMinutes} minutes, ${runtimeSeconds} seconds
@@ -49,7 +49,7 @@ Hi 🫵🏽 ${pushname}
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363318387454868@newsletter',
-                    newsletterName: '『𝐀𝐋𝐈-鉂わ笍』',
+                    newsletterName: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
                     serverMessageId: 143
                 }
             }
