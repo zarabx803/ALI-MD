@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const { cmd } = require('../command')
 const fs = require('fs');
@@ -76,7 +65,7 @@ cmd({
             await conn.sendMessage(from, { delete: mek.key }, { quoted: mek });
 
             // Warn the user
-            await conn.sendMessage(from, { text: `⚠️ Links are not allowed in this group.\n@${sender.split('@')[0]} has been removed. 🚫`, mentions: [sender] }, { quoted: mek });
+            await conn.sendMessage(from, { text: `⚠️ ʟɪɴᴋs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.\n@${sender.split('@')[0]} ʙʏᴇ ʙʏᴇ 😂`, mentions: [sender] }, { quoted: mek });
 
             // Remove the user from the group
             await conn.groupParticipantsUpdate(from, [sender], 'remove');
