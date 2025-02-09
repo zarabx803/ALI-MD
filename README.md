@@ -99,4 +99,3 @@
 
 ---------
 
-<a href='https://app.koyeb.com/auth/signin' target="_blank"><img alt='DEPLOY' src='https://img.shields.
