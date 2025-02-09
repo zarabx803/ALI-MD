@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const config = require('../config')
 const { cmd, commands } = require('../command')
@@ -40,7 +29,7 @@ if (!isAdmins) return reply(ADMIN)
                 reply(`Open time ${q} starting from now`)
                 setTimeout(() => {
                     var nomor = mek.participant
-                    const open = `*OPEN TIME* THE GROUP WAS OPENED BY KERM_MD-V4 TO APPROVED ADMIN\n NOW MEMBERS CAN SEND MESSAGES 🔓`
+                    const open = `*OPEN TIME* THE GROUP WAS OPENED BY ALI-MD TO APPROVED ADMIN\n NOW MEMBERS CAN SEND MESSAGES 🔓`
                     conn.groupSettingUpdate(from, 'not_announcement')
                     reply(open)
                 }, timer)
@@ -77,7 +66,7 @@ if (!isAdmins) return reply(ADMIN)
                 reply(`Close time ${q} starting from now`)
                 setTimeout(() => {
                     var nomor = m.participant
-                    const close = `*CLOSE TIME* GROUP CLOSED BY KERM_MD-V4 AT APPROVED ADMIN\nNOW ONLY ADMIN CAN SEND MESSAGES 🔐`
+                    const close = `*CLOSE TIME* GROUP CLOSED BY ALI-MD AT APPROVED ADMIN\nNOW ONLY ADMIN CAN SEND MESSAGES 🔐`
                     conn.groupSettingUpdate(from, 'announcement')
                     reply(close)
                 }, timer)
@@ -109,7 +98,7 @@ try{
             return reply('There are no admins in this group.');
         }
         // Create a message with all admin tags
-        let adminTagMessage = '*TAGGING ALL ADMINS IN THE GROUP 🔳:*\n\n';
+        let adminTagMessage = 'hh\n\n';
         for (let admin of admins) {
             adminTagMessage += `@${admin.split('@')[0]}\n`;  // Mention each admin by their number
         }
@@ -142,7 +131,7 @@ if (!isBotAdmins) return reply(mg.needbotadmins);
             return await conn.sendMessage(m.chat, { react: { text: '🔒', key: mass.key } });
 } catch(e) {
 console.log(e);
-reply('*PLEASE GIVE ME A ADDMIN ROLE❗👻*')    
+reply('*BAKA! GIVE ME A ADDMIN ROLE❗👻*')    
 } 
 })
 
@@ -167,7 +156,7 @@ if (!isBotAdmins) return reply(mg.needbotadmins);
             return await conn.sendMessage(m.chat, { react: { text: '🔒', key: mass.key } });
 } catch(e) {
 console.log(e);
-reply('*PLEASE GIVE ME A ADDMIN ROLE❗👻*')    
+reply('*BAKA! GIVE ME A ADDMIN ROLE❗👻*')    
 } 
 })
 
