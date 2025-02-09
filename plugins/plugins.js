@@ -3,8 +3,8 @@ const axios = require('axios'); // For making HTTP requests to GitHub API
 const fs = require('fs'); // For saving downloaded files
 
 // GitHub repository details
-const REPO_OWNER = 'kgtech-cmr';
-const REPO_NAME = 'KERM-MD-V1';
+const REPO_OWNER = 'itx-alii-raza';
+const REPO_NAME = 'ALI-MD';
 const PLUGINS_FOLDER = 'plugins'; // Folder where plugins are stored
 
 // GitHub API base URL
@@ -38,7 +38,7 @@ async (conn, mek, m, { from, reply }) => {
         pluginListCache = plugins;
 
         // Construct a list of plugins
-        let pluginList = "📂 *KERM MD V1 Plugins:*\n\n";
+        let pluginList = "📂 *ALI MD V1 PLUGINS:*\n\n";
         plugins.forEach((plugin, index) => {
             pluginList += `${index + 1}. ${plugin.name}\n> `; // Add plugin name to the list
         });
@@ -72,7 +72,7 @@ async (conn, mek, m, { from, reply, args, senderNumber }) => {
         // If the user is replying to a message, check if it's a number
         if (m.quoted && m.quoted.key.fromMe) {
             const quotedText = m.quoted.text;
-            if (/📂 \*KERM MD V1 Plugins:\*/i.test(quotedText)) {
+            if (/📂 \*ALI MD V1 PLUGINS:\*/i.test(quotedText)) {
                 // Extract the number from the reply
                 const fileNumber = parseInt(pluginName);
                 if (!isNaN(fileNumber) && fileNumber > 0 && fileNumber <= pluginListCache.length) {
@@ -99,15 +99,15 @@ async (conn, mek, m, { from, reply, args, senderNumber }) => {
 
         // Status message with image and caption
         const statusMessage = {
-            image: { url: `https://i.ibb.co/5x444Mnp/mrfrankofc.jpg` }, // Replace with your image URL
+            image: { url: `https://i.ibb.co/8Dzbtwj2/mrfrankofc.jpg` }, // Replace with your image URL
             caption: `*Successfully downloaded ${pluginName} ✅*`,
             contextInfo: {
                 mentionedJid: [senderNumber],
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363321386877609@newsletter',
-                    newsletterName: '𝐊𝐄𝐑𝐌 𝐌𝐃',
+                    newsletterJid: '120363318387454868@newsletter',
+                    newsletterName: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
                     serverMessageId: 143
                 }
             }
