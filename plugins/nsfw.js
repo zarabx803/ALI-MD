@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const { cmd } = require('../command'); // Assurez-vous que cmd est bien défini dans votre projet
 const axios = require('axios');
@@ -26,7 +15,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
     try {
         // Liste des options NSFW
         const nsfwList = `
-*[{• KERM MD V1 NSFW🤤🔞•}]*
+*•ALI MD V1 NSFW🤤🔞•*
 
 1️⃣ *EJACULATION*
 2️⃣ *PENIS*
@@ -77,7 +66,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image avec le caption
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: `Here your ${command} image 🔞🍆🍑.\n> KERM🍑🔞.`,
+                caption: `Here your ${command} image 🔞🍆🍑.\n> AHOO🍑🔞.`,
             }, { quoted: mek });
         } else {
             await reply('❌ No image found for this category.');
@@ -109,7 +98,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image avec le caption
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: `Here your ${command} image 🔞🍆🍑.\n> KERM🍑🔞.`,
+                caption: `Here your ${command} image 🔞🍆🍑.\n> AHOO🍑🔞.`,
             }, { quoted: mek });
         } else {
             await reply('❌ No image found for this category.');
@@ -141,7 +130,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image avec le caption
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: `Here your ${command} image 🔞🍆🍑.\n> KERM🍑🔞.`,
+                caption: `Here your ${command} image 🔞🍆🍑.\n> AHOO🍑🔞.`,
             }, { quoted: mek });
         } else {
             await reply('❌ No image found for this category.');
@@ -175,7 +164,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image dans le chat
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: 'Here is your nude NSFW image 🔞🔥.\n> KERM🔥🔞.'
+                caption: 'Here is your nude NSFW image 🔞🔥.\n> AHOO🔥🔞.'
             }, { quoted: mek });
         } else {
             reply('❌ Unable to fetch image. Please try again later.');
@@ -209,7 +198,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image dans le chat
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: 'Here is your sex NSFW image 🔞🔥.\n> KERM🔥🔞.'
+                caption: 'Here is your sex NSFW image 🔞🔥.\n> AHOO🔥🔞.'
             }, { quoted: mek });
         } else {
             reply('❌ Unable to fetch image. Please try again later.');
@@ -243,7 +232,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image dans le chat
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: 'Here is your cute NSFW image 🔞💖.\n> KERM💖🔞.'
+                caption: 'Here is your cute NSFW image 🔞💖.\n> AHOO💖🔞.'
             }, { quoted: mek });
         } else {
             reply('❌ Unable to fetch image. Please try again later.');
@@ -277,7 +266,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image dans le chat
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: 'Here is your orgasm NSFW image 🔞💥.\n> KERM💥🔞.'
+                caption: 'Here is your orgasm NSFW image 🔞💥.\n> AHOO💥🔞.'
             }, { quoted: mek });
         } else {
             reply('❌ Unable to fetch image. Please try again later.');
@@ -311,7 +300,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image dans le chat
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: 'Here is your anal NSFW image 🔞🔥.\n> KERM🔥🔞.'
+                caption: 'Here is your anal NSFW image 🔞🔥.\n> AHOO🔥🔞.'
             }, { quoted: mek });
         } else {
             reply('❌ Unable to fetch image. Please try again later.');
@@ -345,7 +334,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image dans le chat
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: 'Here is your suspension NSFW image 🔞🔥.\n> KERM🔥🔞.'
+                caption: 'Here is your suspension NSFW image 🔞🔥.\n> AHOO🔥🔞.'
             }, { quoted: mek });
         } else {
             reply('❌ Unable to fetch image. Please try again later.');
@@ -379,7 +368,7 @@ async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, 
             // Envoi de l'image dans le chat
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: 'Here is your kiss NSFW image 🔞💋.\n> KERM💋🔞.'
+                caption: 'Here is your kiss NSFW image 🔞💋.\n> AHOO💋🔞.'
             }, { quoted: mek });
         } else {
             reply('❌ Unable to fetch image. Please try again later.');
