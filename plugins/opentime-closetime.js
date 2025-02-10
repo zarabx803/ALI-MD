@@ -98,9 +98,11 @@ try{
             return reply('There are no admins in this group.');
         }
         // Create a message with all admin tags
-        let adminTagMessage = 'hh\n\n';
+        let adminTagMessage = '*╭┈───────────────•⟢*
+*│𝐀𝐋𝐈-𝐌𝐃 𝐓𝐀𝐆𝐆𝐈𝐍𝐆 𝐀𝐃𝐌𝐈𝐍°👑*
+*╰┈───────────────•⟢*\n\n';
         for (let admin of admins) {
-            adminTagMessage += `@${admin.split('@')[0]}\n`;  // Mention each admin by their number
+            adminTagMessage += `🎗️@${admin.split('@')[0]}\n`;  // Mention each admin by their number
         }
         // Send the message and tag the admins
         await conn.sendMessage(from, { text: adminTagMessage, mentions: admins }, { quoted: mek });
