@@ -98,7 +98,7 @@ try{
             return reply('There are no admins in this group.');
         }
         // Create a message with all admin tags
-        let adminTagMessage = '*╭┈────────*\n\n';
+        let adminTagMessage = '*╭┈───────────────•⟢* *│ᴀʟɪ-ᴍᴅ ᴛᴀɢɢɪɴɢ ᴀᴅᴍɪɴs°👑* *╰┈───────────────•⟢*\n\n';
         for (let admin of admins) {
             adminTagMessage += `🎗️@${admin.split('@')[0]}\n`;  // Mention each admin by their number
         }
