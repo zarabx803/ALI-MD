@@ -6,7 +6,6 @@
 
 
 
-
 const fs = require('fs');
 const path = require('path');
 const { CURRENT_STATUS, ALWAYS_ONLINE, FAKE_TYPING } = require('../config'); 
