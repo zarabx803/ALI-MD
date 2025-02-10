@@ -1,15 +1,4 @@
-/*
-_  ______   _____ _____ _____ _   _
-| |/ / ___| |_   _| ____/___ | | | |
-| ' / |  _    | | |  _|| |   | |_| |
-| . \ |_| |   | | | |__| |___|  _  |
-|_|\_\____|   |_| |_____\____|_| |_|
 
-ANYWAY, YOU MUST GIVE CREDIT TO MY CODE WHEN COPY IT
-CONTACT ME HERE +237656520674
-YT: KermHackTools
-Github: Kgtech-cmr
-*/
 
 const { cmd } = require("../command");
 const fetch = require("node-fetch"); // Assurez-vous que node-fetch est installé
@@ -60,7 +49,7 @@ cmd({
   try {
     if (!q) return reply('Please provide a URL to shorten.');
 
-    await reply('> *Kerm Processing...*');
+    await reply('> *ALI PROCESSING...*');
 
     // Construire l'URL de l'API selon la commande utilisée
     let apiUrl = '';
@@ -77,19 +66,19 @@ cmd({
     const result = response.result;
 
     // Construire la légende avec l'URL raccourcie
-    const caption = ` \`KERM URL SHORTENER\` \n\n\n*Original Link:* ${q}\n\n*Shortened Link:* ${result}\n\n> 𝖯𝖮𝖶𝖤𝖱𝖤𝖣 𝖡𝖸 𝖪𝖤𝖱𝖬`;
+    const caption = ` \`ALI URL SHORTENER\` \n\n\n*Original Link:* ${q}\n\n*Shortened Link:* ${result}\n\n> 𝖯𝖮𝖶𝖤𝖱𝖤𝖣 𝖡𝖸 ALI`;
 
     // Envoyer le message avec une image
     await conn.sendMessage(from, { 
-      image: { url: `https://files.catbox.moe/heu4tc.png` }, // Image URL
+      image: { url: `https://i.ibb.co/8Dzbtwj2/mrfrankofc.jpg` }, // Image URL
       caption: caption,
       contextInfo: {
         mentionedJid: [m.sender],
         forwardingScore: 999,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363321386877609@newsletter',
-          newsletterName: '𝐊𝐄𝐑𝐌 𝐌𝐃',
+          newsletterJid: '120363318387454868@newsletter',
+          newsletterName: '𝐀ɭι̇ι̇ 𝐌Ɗ 🍁',
           serverMessageId: 143
         }
       }
