@@ -132,7 +132,7 @@ ${readMore}
 
         // Send the audio file with context info
         await conn.sendMessage(from, {
-            audio: { url: 'https://github.com/mrfrank-ofc/SUBZERO-MD-DATABASE/raw/refs/heads/main/audios/subzero-menu.mp3' },
+            audio: { url: 'https://cdn.ironman.my.id/i/bfptlv.mp4' },
             mimetype: 'audio/mp4',
             ptt: true,
             contextInfo: { 
