@@ -170,7 +170,7 @@ cmd({
                 'mediaType': 0x1,
                 'sourceUrl': _0x20e1e8.url,
                 'thumbnailUrl': _0x20e1e8.thumbnail,
-                'renderLargerThumbnail': true,
+                'renderLargerThumbnail': false,
                 'showAdAttribution': true
               }
             }
