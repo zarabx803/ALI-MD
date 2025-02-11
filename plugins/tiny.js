@@ -1,5 +1,3 @@
-
-
 const { cmd } = require("../command");
 const fetch = require("node-fetch"); // Assurez-vous que node-fetch est installé
 
@@ -54,9 +52,9 @@ cmd({
     // Construire l'URL de l'API selon la commande utilisée
     let apiUrl = '';
     if (command === 'tiny' || command === 'tinyurl') {
-      apiUrl = `https://api.dreaded.site/api/shorten-url?url=${encodeURIComponent(q)}`;
+      apiUrl = `https://api.davidcyriltech.my.id/tinyurl?url=${encodeURIComponent(q)}`;
     } else {
-      apiUrl = `https://api.dreaded.site/api/shorten-url?url=${encodeURIComponent(q)}`;
+      apiUrl = `https://api.davidcyriltech.my.id/tinyurl?url=${encodeURIComponent(q)}`;
     }
 
     await reply('> *Shortening URL...*');
@@ -70,7 +68,7 @@ cmd({
 
     // Envoyer le message avec une image
     await conn.sendMessage(from, { 
-      image: { url: `https://i.ibb.co/8Dzbtwj2/mrfrankofc.jpg` }, // Image URL
+      image: { url: `https://files.catbox.moe/heu4tc.png` }, // Image URL
       caption: caption,
       contextInfo: {
         mentionedJid: [m.sender],
