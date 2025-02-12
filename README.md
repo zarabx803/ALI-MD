@@ -32,14 +32,18 @@
 ----------
 1. USE SESSION 1.
 <p align="center">
-<a href="https://pair-session-kermv4-pair.onrender.com"><img height= "35" title="Author" src="https://img.shields.io/badge/GET SESSION ID:1-black?style=for-the-badge&logo=render"></a>
-<p/>
-2. USE SESSION 2 IF SESSION:1 DOESN'T WORK.
-<p align="center">
-<a href="https://defiant-filippa-arol22-59efdacb.koyeb.app/"><img height= "35" title="Author" src="https://img.shields.io/badge/GET SESSION ID:2-black?style=for-the-badge&logo=render"></a>
+<a href="https://ali-md.onrender.com"><img height= "35" title="Author" src="https://img.shields.io/badge/GET SESSION ID:1-black?style=for-the-badge&logo=render"></a>
 <p/>
 
 ---------------
+
+### <br>   ❖ DEPLOY_HEROKU ❖
+
+`✠ IF YOU WANT TO DEPLOY ALI MD V1 BOT ON HEROKU SO FIRST GET YOUR SESSION_ID THEN CLICK THIS BLUE BUTTON [DEPLOY TO HEROKU] THEN YOU CAN ENJOY THIS BOT ✠`
+
+------------
+ 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new-app?template=https://github.com/itx-alii-raza/ALI-MD)
 
 🥂 `THIS BOT IS CREATED TO DOWNLOAD'S AND FIND VARIOUS TYPES THINGS QUICKLY **EXAMPLE** LOGO, PHOTO, STICKERS, VIDEOS, MOVIES, ADULT, AND MANY MORE FEATURES BY USING THIS BOT™ THIS BOT IS CREATED TO USING` 🥂 **[Baileys](https://github.com/WhiskeySockets/Baileys)**
 
@@ -65,15 +69,6 @@
 
 --------------
  
-### <br>   ❖ DEPLOY_HEROKU ❖
-
-`✠ IF YOU WANT TO DEPLOY ALI MD V1 BOT ON HEROKU SO FIRST GET YOUR SESSION_ID THEN CLICK THIS BLUE BUTTON [DEPLOY TO HEROKU] THEN YOU CAN ENJOY THIS BOT ✠`
-
-------------
- 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new-app?template=https://github.com/itx-alii-raza/ALI-MD)
-
-----------
 
 ### <br>    ❖ DEPLOY_TALKDROVE ❖
 
