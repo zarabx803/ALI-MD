@@ -25,12 +25,11 @@ cmd({
 async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 
 try{
-let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
-*╭══〘〘 ${config.BOT_NAME} 〙〙*
-*┃❍ ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
+let madeMenu = `*╭══〘〘 ${config.BOT_NAME} 〙〙*
+*┃❍ ʀᴜɴ : ${runtime(process.uptime())}*
 *┃❍ ᴍᴏᴅᴇ* : *${config.MODE}*
 *┃❍ ᴘʀᴇғɪx* : *${config.PREFIX}*
-*┃❍ sᴇʀᴠᴇʀ ʀᴀᴍ* : *34.56 ɢʙ/60.79*
+*┃❍ ʀᴀᴍ* : *34.56 ɢʙ/60.79*
 *┃❍ ᴄʀᴇᴀᴛᴏʀ* : *𝐀ɭι̇ι̇ 輪*
 *┃❍ ᴀʟᴡᴀʏs ᴏɴʟɪɴᴇ* : *${config.ALWAYS_ONLINE}*
 *┃❍ ᴠᴇʀsɪᴏɴs* : *ᴠ.4.1.0*
