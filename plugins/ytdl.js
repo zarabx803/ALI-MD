@@ -171,7 +171,7 @@ cmd({
                 'sourceUrl': _0x20e1e8.url,
                 'thumbnailUrl': _0x20e1e8.thumbnail,
                 'renderLargerThumbnail': false,
-                'showAdAttribution': true
+                'showAdAttribution': false
               }
             }
           }, {
