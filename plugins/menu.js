@@ -30,8 +30,8 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 *┃❍ ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
 *┃❍ ᴍᴏᴅᴇ* : *${config.MODE}*
 *┃❍ ᴘʀᴇғɪx* : *${config.PREFIX}*
-*┃❍ ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-*┃❍ ᴄʀᴇᴀᴛᴏʀ* : *𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪*
+*┃❍ sᴇʀᴠᴇʀ ʀᴀᴍ* : *34.56 ɢʙ/60.79*
+*┃❍ ᴄʀᴇᴀᴛᴏʀ* : *𝐀ɭι̇ι̇ 輪*
 *┃❍ ᴀʟᴡᴀʏs ᴏɴʟɪɴᴇ* : *${config.ALWAYS_ONLINE}*
 *┃❍ ᴠᴇʀsɪᴏɴs* : *ᴠ.4.1.0*
 *╰═════════════════⊷*
