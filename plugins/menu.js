@@ -35,7 +35,7 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 *❍│▸* *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 *❍│▸* *ᴄʀᴇᴀᴛᴏʀ* : *𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪*
 *❍│▸* *ᴀʟᴡᴀʏs ᴏɴʟɪɴᴇ* : *${config.ALWAYS_ONLINE}*
-*❍│▸* *ᴠᴇʀsɪᴏɴs* : *${package.version}*
+*❍│▸* *ᴠᴇʀsɪᴏɴs* : *ᴠ.4.1.0
 *❍│▸*
 *└──────────────···▸*
   *ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʙᴏᴛ ᴄᴏɴᴛᴀᴄᴛ ᴛᴏ .ᴏᴡɴᴇʀ*
