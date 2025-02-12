@@ -1,6 +1,6 @@
 {
   "name": "ALI-MD-V1",
-  "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ Kɢ ᴛᴇᴄʜ",
+  "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀʟɪ ᴛᴇᴄʜ",
   "logo": "https://i.ibb.co/60pdvSxw/mrfrankofc.jpg",
   "keywords": ["bot"],
   "success_url": "/",
@@ -16,7 +16,7 @@
     "ALIVE_IMG": {
       "description": "paste your image url if you don't have you can use this public url.",
       "required": true,
-      "value": "https://i.ibb.co/60pdvSxw/mrfrankofc.jpg"
+      "value": "https://cdn.ironman.my.id/i/2du3i5.jpg"
     }, 
     
     "ALIVE_MSG": {
