@@ -79,19 +79,19 @@ require("./plugins/" + plugin);
 }
 });
 console.log('PLUGINS FILES INSTALL SUCCESSFULLY ✅')
-console.log('KERM_ALI-V1 CONNECTED TO WHATSAPP ENJOY ✅')
+console.log('ALI_ALI-V1 CONNECTED TO WHATSAPP ENJOY ✅')
 
 let up = `*╭──────────────●●►*
-> *➺ᴀʟɪ_ᴍᴅ-ᴠ1 ᴄᴏɴɴᴇᴄᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʏ ᴛʏᴘᴇ .ᴍᴇɴᴜ ᴛᴏ ᴄᴏᴍᴍᴀɴᴅ ʟɪsᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ 𓆩ု᪳𝐀𝐋𝐈 𝐈𝐍𝅦𝐒i͜͡𝐃𝐄ှ᪳𓆪*
+> *➺ᴀʟɪ_ᴍᴅ-ᴠ1 ᴄᴏɴɴᴇᴄᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʏ ᴛʏᴘᴇ .ᴍᴇɴᴜ ᴛᴏ ᴄᴏᴍᴍᴀɴᴅ ʟɪsᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ 𝐀ɭι̇ι̇*
 
-> *❁ᴊᴏɪɴ ᴏᴜʀ ᴡʜᴀᴛsᴀᴘᴘ ᴄʜᴀɴɴᴇʟ ғᴏʀ ᴜᴘᴅᴀᴛᴇs ᴀʟɪ_ᴍᴅ-ᴠ1❁*
+> *❁ᴊᴏɪɴ ᴏᴜʀ ᴡʜᴀᴛsᴀᴘᴘ ᴄʜᴀɴɴᴇʟ ғᴏʀ ᴜᴘᴅᴀᴛᴇs ᴀʟɪ_ᴍᴅ*
 
-*https://chat.whatsapp.com/EBA9W51nC5mHT6bYbsMZHb*
+*https://whatsapp.com/channel/0029VaoRxGmJpe8lgCqT1T2h*
 
 *YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\n*PREFIX: ${prefix}*
 
 *╰──────────────●●►*`;
-conn.sendMessage(conn.user.id, { image: { url: `https://i.ibb.co/60pdvSxw/mrfrankofc.jpg` }, caption: up })
+conn.sendMessage(conn.user.id, { image: { url: `https://cdn.ironman.my.id/i/2du3i5.jpg` }, caption: up })
 
 }
 })
