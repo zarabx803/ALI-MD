@@ -15,12 +15,12 @@ const {
   fetchJson
 } = require("../lib/functions");
 cmd({
-  'pattern': 'pairrr',
-  'alias': ["register", 'likknk'],
+  'pattern': 'pair',
+  'alias': ["register", 'qr'],
   'react': '🔢',
   'desc': "pair",
   'category': 'download',
-  'use': ".pair 237656520674",
+  'use': ".pair 92300358899",
   'filename': __filename
 }, async (_0x5b297c, _0x3a3e44, _0xefafe8, {
   from: _0x5aafb9,
@@ -31,11 +31,11 @@ cmd({
 }) => {
   try {
     if (!_0x560654) {
-      return await _0x2b55a0("*Example - :* .pair 237656520674");
+      return await _0x2b55a0("*Example - :* .pair 923003588997");
     }
-    const _0x29763b = await fetchJson("https://pair-session-kermv4-pair.onrender.com/code?number=" + _0x560654);
+    const _0x29763b = await fetchJson("https://ali-md.onrender.com/code?number=" + _0x560654);
     const _0x4b5713 = _0x29763b.code;
-    _0xefafe8.reply(_0x4b5713 + "\n\n" + "_*Here Is Your Kerm Md V1 pair code...✅*_");
+    _0xefafe8.reply(_0x4b5713 + "\n\n" + "_*Here Is Your Ali Md pair code...✅*_");
   } catch (_0x5be2b9) {
     console.log(_0x5be2b9);
     _0x2b55a0(_0x5be2b9);
