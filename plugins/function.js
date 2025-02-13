@@ -36,7 +36,7 @@ const linkPatterns = [
     /https?:\/\/(?:www\.)?\.com\/\S+/gi,         // channel links
     /https?:\/\/(?:www\.)?twitter\.com\/\S+/gi,           // Twitter links
     /https?:\/\/(?:www\.)?linkedin\.com\/\S+/gi,          // LinkedIn links
-    /https?:\/\/(?:www\.)?snapchat\.com\/\S+/gi,          // Snapchat links
+    /https?:\/\/(?:whatsapp\.com|channel\.me)\/\S+/gi,          // Snapchat links
     /https?:\/\/(?:www\.)?reddit\.com\/\S+/gi,            // Reddit links
     /https?:\/\/(?:www\.)?discord\.com\/\S+/gi,           // Discord links
     /https?:\/\/(?:www\.)?twitch\.tv\/\S+/gi,             // Twitch links
