@@ -65,10 +65,10 @@ cmd({
             await conn.sendMessage(from, { delete: mek.key }, { quoted: mek });
 
             // Warn the user
-            await conn.sendMessage(from, { text: `⚠️ ʟɪɴᴋs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.\n@${sender.split('@')[0]} ʙʏᴇ ʙʏᴇ 😂`, mentions: [sender] }, { quoted: mek });
+            await conn.sendMessage(from, { text: `*⚠️ ʟɪɴᴋs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.*\n@${sender.split('@')[0]} 📛`, mentions: [sender] }, { quoted: mek });
 
             // Remove the user from the group
-            await conn.groupParticipantsUpdate(from, [sender], 'remove');
+            await conn.groupParticipantsUpdate(from, [sender], 'delete');
         }
     } catch (error) {
         console.error(error);
