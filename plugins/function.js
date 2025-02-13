@@ -38,7 +38,7 @@ const linkPatterns = [
     /https?:\/\/(?:www\.)?linkedin\.com\/\S+/gi,          // LinkedIn links
     /https?:\/\/(?:www\.)?snapchat\.com\/\S+/gi,          // Snapchat links
     /https?:\/\/(?:www\.)?reddit\.com\/\S+/gi,            // Reddit links
-    /https?:\/\/(?:chat\.whatsapp\.com|channel\.me)\/\S+/gi,                              // NGL links
+    /https?:\/\/(?:whatsapp\.com.channel\/\S+/gi,                              // NGL links
     /https?:\/\/(?:www\.)?discord\.com\/\S+/gi,           // Discord links
     /https?:\/\/(?:www\.)?twitch\.tv\/\S+/gi,             // Twitch links
     /https?:\/\/(?:www\.)?vimeo\.com\/\S+/gi,             // Vimeo links
