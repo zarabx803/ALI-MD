@@ -35,7 +35,7 @@ cmd({
 }, async (conn, mek, m, { reply }) => {
     try {
         // Define the support link inside the command
-        const supportLink = "https://chat.whatsapp.com/EBA9W51nC5mHT6bYbsMZHb";
+        const supportLink = "https://chat.whatsapp.com/Lx7sDv7jSy0CCTm5AliPdq";
 
         // Send the support link to the user
         reply(`*ɴᴇᴇᴅ ʜᴇʟᴘ ᴏʀ ʜᴀᴠᴇ ǫᴜᴇsᴛɪᴏɴs ? ᴊᴏɪɴ ᴀʟɪ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ🪀*\n\n${supportLink}\n\n
