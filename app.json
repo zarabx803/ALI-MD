@@ -91,8 +91,7 @@
       }, 
 
     "ANTI_LINK": {
-      "description": "Make it true if you want bot auto remove group link.",
-      "required"ion": "Make it true if you want bot auto delete bad words.",
+      "description": "Make it true if you want bot auto remove group link.", 
       "required": false,
       "value": "false"
     }, 
