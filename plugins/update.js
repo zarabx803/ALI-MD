@@ -5,14 +5,14 @@ const { cmd } = require('../command');
 
 cmd({
     pattern: "update",
-    react: "💜",
+    react: "👾",
     desc: "Update Repo GitHub",
     category: "system",
     use: '.update',
     filename: __filename
 }, async (conn, mek, m, { from, reply }) => {
     try {
-        const repoUrl = 'https://github.com/itx-alii-raza/ALI-MD-TEST.git'; 
+        const repoUrl = 'https://github.com/itx-alii-raza/ALI-MD.git'; 
         const targetFolder = 'plugins';
 
         
@@ -39,6 +39,6 @@ cmd({
         await conn.sendMessage(from, { text: '*✅ Update completed successfully!*' }, { quoted: mek });
     } catch (error) {
         console.error(error);
-        reply(`*redeploy bot update bot throw command will be available soon`);
+        reply(`_*ʀᴇᴅᴇᴘʟᴏʏ ʙᴏᴛ ᴜᴘᴅᴀᴛᴇ ʙᴏᴛ ᴛʜʀᴏᴡ ᴄᴏᴍᴍᴀɴᴅ ᴡɪʟʟ ʙᴇ ᴀᴠᴀɪʟᴀʙʟᴇ sᴏᴏɴ..*_`);
     }
 });
