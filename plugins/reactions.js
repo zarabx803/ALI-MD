@@ -361,10 +361,10 @@ cmd(
 
 cmd(
     {
-        pattern: "yeet",
+        pattern: "kick",
         desc: "Send a yeet reaction GIF.",
         category: "fun",
-        react: "💨",
+        react: "🔪",
         filename: __filename,
         use: "@tag (optional)",
     },
@@ -375,7 +375,7 @@ cmd(
             let isGroup = m.isGroup;
 
             let message = mentionedUser
-                ? `${sender} yeeted @${mentionedUser.split("@")[0]}`
+                ? `${sender} kicked @${mentionedUser.split("@")[0]}`
                 : isGroup
                 ? `${sender} is yeeting everyone!`
                 : `> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀʟɪ 🎐*`;
