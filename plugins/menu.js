@@ -247,3 +247,18 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             },
             { quoted: mek }
         );
+
+        // Send audio
+        await conn.sendMessage(from, {
+            audio: { url: 'https://cdn.ironman.my.id/i/hpfd7a.mp4' },
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: mek });
+        
+    } catch (e) {
+        console.log(e);
+        reply(`${e}`);
+    }
+});
+;
+
