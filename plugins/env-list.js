@@ -19,12 +19,12 @@ cmd({
 async (conn, mek, m, { from, quoted, reply }) => {
     try {
         // Define the settings message with the correct boolean checks
-        let envSettings = `╭━━〔 *𓆩ု᪳𝐀𝐋𝐈-𝐌𝐃ှ᪳𓆪* 〕━┈⊷
+        let envSettings = `╭━━━〔 *𓆩ု᪳𝐀𝐋𝐈-𝐌𝐃ှ᪳𓆪* 〕━━┈⊷
 ┃▸╭───────────···๏
 ┃▸├❒ *⚙️ENV SETTINGS⚙️*
 ┃▸└───────────···๏
 ╰────────────────┈⊷
-╭━━〔 *Enabled Disabled*〕 ━┈⊷
+╭━━〔 *Enabled Disabled* 〕━┈⊷
 ├❒ *Status View:* ${isEnabled(config.AUTO_STATUS_SEEN) ? "Enabled ✅" : "Disabled ❌"}
 ├❒ *Status Reply:* ${isEnabled(config.AUTO_STATUS_REPLY) ? "Enabled ✅" : "Disabled ❌"}
 ├❒ *Auto Reply:* ${isEnabled(config.AUTO_REPLY) ? "Enabled ✅" : "Disabled ❌"}
@@ -62,3 +62,19 @@ async (conn, mek, m, { from, quoted, reply }) => {
             },
             { quoted: mek }
         );
+
+               // Send an audio file
+        await conn.sendMessage(from, {
+            audio: { url: 'https://cdn.ironman.my.id/i/hmxjch.mp4' }, // Audio URL
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: mek });
+
+    } catch (error) {
+        console.log(error);
+        reply(`Error: ${error.message}`);
+    }
+});
+
+
+   
