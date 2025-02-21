@@ -240,7 +240,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363318387454868@newsletter',
-                        newsletterName: '☇ 𝐀ɭι̇ι̇ 𝚩❍𝐓 𝐌𝛆፝֟፝֟ƞ̽ʊ̊ ꜜ🌸🤖͎᪳᪳𝆺𝅥',
+                        newsletterName: '𓆩ྀི͛𝐀ɭīī 𝐌Ɗ 𝚩❍𝐓 𝐌𝛆፝֟፝֟ƞ̽ʊྀི̊𓆪͛',
                         serverMessageId: 143
                     }
                 }
@@ -250,7 +250,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
         // Send audio
         await conn.sendMessage(from, {
-            audio: { url: 'https://cdn.ironman.my.id/i/hpfd7a.mp4' },
+            audio: { url: 'https://cdn.ironman.my.id/i/8b2cp4.mp4' },
             mimetype: 'audio/mp4',
             ptt: true
         }, { quoted: mek });
