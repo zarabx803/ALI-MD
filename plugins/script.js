@@ -132,7 +132,7 @@ ${readMore}
 
         // Send the audio file with context info
         await conn.sendMessage(from, {
-            audio: { url: 'https://cdn.ironman.my.id/i/bfptlv.mp4' },
+            audio: { url: 'https://cdn.ironman.my.id/i/wp4a7x.mp4' },
             mimetype: 'audio/mp4',
             ptt: true,
             contextInfo: { 
