@@ -307,7 +307,6 @@ cmd({
 
 cmd({
   pattern: "ask",
-  alias: ["send", "sm"],
   desc: "Send a message multiple times, one by one.",
   category: "fun",
   filename: __filename
@@ -320,7 +319,7 @@ cmd({
     }
 
     if (!args[0]) {
-      return reply("✳️ Use this command like:\n *Example:* .ask 10,I love you");
+      return reply("✳️ Use this command like:\n *Example:* .send 10,I love you");
     }
 
     const [countStr, ...messageParts] = args.join(" ").split(",");
