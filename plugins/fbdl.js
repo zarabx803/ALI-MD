@@ -4,7 +4,7 @@ const axios = require('axios');
 
 cmd({
   pattern: 'fb',
-  alias: ['fbdl', 'facebook'],
+  alias: ['fbdl', 'Facebook'],
   desc: 'Download Facebook videos and reels by providing the video URL.',
   category: 'utility',
   use: '.fbdl <facebook_url>',
