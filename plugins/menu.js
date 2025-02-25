@@ -86,6 +86,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *╭────❒⁠⁠⁠⁠* *🔎 SEARCH-CMD 🔍* *❒⁠⁠⁠⁠* 
 *├◈ .ʏᴛꜱ*
 *├◈ .ʏᴛᴀ*
+*├◈ .ᴄᴏᴜɴᴛʀʏ*
 *├◈ .ʟᴏʟɪ*
 *├◈ .ᴍᴏᴠɪᴇɪɴғᴏ*
 *├◈ .ᴍᴏᴠɪᴇ*
@@ -182,6 +183,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *╭────❒⁠⁠⁠⁠* *🎡 CONVERTER-CMD 🎡* *❒⁠⁠⁠⁠* 
 *├◈ .sᴛɪᴄᴋᴇʀ*
 *├◈ .ᴛʀᴛ*
+*├◈ .ᴄᴜʀʀᴇɴᴄʏ*
+*├◈ .ᴄᴏɴᴠᴇʀᴛᴍᴏɴᴇʏ*
 *├◈ .ᴛᴛs*
 *├◈ .ꜰᴀɴᴄʏ*
 *├◈ .ᴜʀʟ*
