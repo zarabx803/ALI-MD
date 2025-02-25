@@ -4,7 +4,7 @@ const axios = require('axios');
 
 cmd({
   pattern: 'fb',
-  alias: ['fbdl', 'Facebook'],
+  alias: ['fbdl', 'facebook'],
   desc: 'Download Facebook videos and reels by providing the video URL.',
   category: 'utility',
   use: '.fbdl <facebook_url>',
@@ -22,7 +22,7 @@ cmd({
     const response = await axios.get(apiUrl);
 
     if (!response.data || !response.data.result || !response.data.result.sd) {
-      return reply('❌ Unable to fetch the Facebook video. Please check the URL and try again.');
+      return reply('*𝐏ℓєαʂє 𝐏ɼ๏νιɖє 𝐀 fb҇ 𝐕ιɖє๏ ๏ɼ ɼєєℓ 𝐔ɼℓ..*');
     }
 
     const { thumb, title, desc, sd } = response.data.result;
