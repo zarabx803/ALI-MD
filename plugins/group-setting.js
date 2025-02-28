@@ -426,14 +426,14 @@ async(conn, mek, m, { from, quoted, isGroup, senderNumber, botNumber, groupAdmin
 
         // Ensure only group admins can use this command
         if (!groupAdmins.includes(senderNumber + "@s.whatsapp.net")) {
-            return reply("❌ Only group admins can use this command.");
+            return reply("*📛 ᴏɴʟʏ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴs ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.*");
         }
 
-        if (!isBotAdmins) return reply("*📛 I need to be an admin to kick members.*");
+        if (!isBotAdmins) return reply("*📛 ɪ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴋɪᴄᴋ ᴍᴇᴍʙᴇʀs.*");
 
         // Fetch mentioned user or replied user
         let users = quoted ? quoted.sender : (m.mentionedJid ? m.mentionedJid[0] : false);
-        if (!users) return reply("❌ *Couldn't find any user in context*");
+        if (!users) return reply("*📛 ᴘʟᴇᴀsᴇ ᴍᴇɴᴛɪᴏɴ ᴀ ɢᴀʏ ᴇxᴀᴍᴘʟᴇ .ᴋɪᴄᴋ @⁨ᴜsᴇʀ*");
 
         // Prevent kicking bot itself
         if (users === botNumber) return reply("❌ I can't kick myself!");
