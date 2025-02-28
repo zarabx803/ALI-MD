@@ -31,6 +31,8 @@ OWNER_NUMBER: process.env.OWNER_NUMBER || "923574XXXX",
 // add your bot owner number
 OWNER_NAME: process.env.OWNER_NAME || "ALI",
 // add bot owner name
+ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
+// maks true for always online 
 DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ALI*",
 // add bot owner name    
 ALIVE_IMG: process.env.ALIVE_IMG || "https://cdn.ironman.my.id/i/2du3i5.jpg",
