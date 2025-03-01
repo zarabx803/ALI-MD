@@ -17,7 +17,7 @@ let warnCount = {}; // Track warnings per user
 cmd({
     pattern: "auto-typing",
     description: "Enable or disable auto-typing feature.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 },    
 async (conn, mek, m, { from, args, isOwner, reply }) => {
@@ -38,7 +38,7 @@ cmd({
     pattern: "always-online",
     alias: ["alwaysonline"],
     description: "Set bot status to always online or offline.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 },    
 async (conn, mek, m, { from, args, isOwner, reply }) => {
@@ -60,7 +60,7 @@ cmd({
     pattern: "auto-recording",
     alias: ["autorecoding"],
     description: "Enable or disable auto-recording feature.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 },    
 async (conn, mek, m, { from, args, isOwner, reply }) => {
@@ -87,7 +87,7 @@ cmd({
     pattern: "auto-seen",
     alias: ["autostatusview"],
     desc: "Enable or disable auto-viewing of statuses",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Default value for AUTO_VIEW_STATUS is "false"
@@ -108,7 +108,7 @@ cmd({
     pattern: "status-react",
     alias: ["statusreaction"],
     desc: "Enable or disable auto-liking of statuses",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Default value for AUTO_LIKE_STATUS is "false"
@@ -126,7 +126,7 @@ cmd({
     pattern: "anti-call",
     alias: ["statusreaction"],
     desc: "Enable or disable anti-call of statuses",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Default value for AUTO_LIKE_STATUS is "false"
@@ -147,7 +147,7 @@ cmd({
     pattern: "read-message",
     alias: ["autoread"],
     desc: "enable or disable readmessage.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Check the argument for enabling or disabling the anticall feature
@@ -168,7 +168,7 @@ cmd({
     pattern: "anti-bad",
     alias: ["antibad"],
     desc: "enable or disable antibad.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Check the argument for enabling or disabling the anticall feature
@@ -189,7 +189,7 @@ cmd({
     pattern: "auto-sticker",
     alias: ["autosticker"],
     desc: "enable or disable auto-sticker.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Check the argument for enabling or disabling the anticall feature
@@ -210,7 +210,7 @@ cmd({
     pattern: "auto-reply",
     alias: ["autoreply"],
     desc: "enable or disable auto-reply.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Check the argument for enabling or disabling the anticall feature
@@ -232,7 +232,7 @@ cmd({
     pattern: "auto-react",
     alias: ["autoreact"],
     desc: "Enable or disable the autoreact feature",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Check the argument for enabling or disabling the anticall feature
@@ -253,7 +253,7 @@ cmd({
     pattern: "status-reply",
     alias: ["autostatusreply"],
     desc: "enable or disable status-reply.",
-    category: "settings",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, args, q, pushname, reply }) => {
     // Check the argument for enabling or disabling the anticall feature
@@ -273,7 +273,7 @@ cmd({
 cmd({
     pattern: "antilink1",
     desc: "Enable Antilink (warn/delete/kick) or turn off",
-    category: "group",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { q, reply }) => {
     if (!q) {
@@ -323,7 +323,7 @@ cmd({
     pattern: "anti-bot",
     alias: ["antibot"],
     desc: "Enable Antibot and set action (off/warn/delete/kick)",
-    category: "group",
+    category: "owner",
     filename: __filename
 }, async (conn, mek, m, { q, reply }) => {
     if (!q) {
@@ -375,7 +375,7 @@ cmd({
 cmd({
   pattern: "acceptall",
   alias: ["approve"],
-  category: "group",
+  category: "owner",
   desc: "Accept all participant requests in the group.",
   filename: __filename,
 }, async (conn, mek, m, { from, isGroup, body, sender, groupMetadata, participants, config, reply }) => {
@@ -408,7 +408,7 @@ cmd({
 cmd({
   pattern: "rejectall",
   alias: ["rejects"],
-  category: "group",
+  category: "owner",
   desc: "Reject all participant requests in the group.",
   filename: __filename,
 }, async (conn, mek, m, { from, isGroup, body, sender, groupMetadata, participants, config, reply }) => {
@@ -442,7 +442,7 @@ cmd({
   pattern: "ant-ilink",
   alias: ["antilink"],
   desc: "Enable or disable anti-link feature in groups",
-  category: "group",
+  category: "owner",
   react: "🚫",
   filename: __filename
 }, async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
@@ -574,7 +574,7 @@ cmd({
 cmd({
   pattern: "exit",
   desc: "Leaves the current group",
-  category: "group",
+  category: "owner",
 }, async (conn, mek, m, { from, reply }) => {
   try {
     // `from` is the group chat ID
@@ -675,7 +675,7 @@ ${adminList}
 //--------------------------------------------
 cmd({
   pattern: "broadcast",
-  category: "group",
+  category: "owner",
   desc: "Bot makes a broadcast in all groups",
   filename: __filename,
   use: "<text for broadcast.>"
