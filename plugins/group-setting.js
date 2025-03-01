@@ -81,37 +81,6 @@ reply(`❌ *Error Accurated !!*\n\n${e}`)
 
 
 cmd({
-    pattern: "kick",
-    react: "🦶🏻",
-    alias: ["remove"],
-    desc: "To Remove a participant from Group",
-    category: "group",
-    use: '.kick',
-    filename: __filename
-},
-async(conn, mek, m,{from, l, quoted, body, isCmd, command, mentionByTag , args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isCreator ,isDev, isAdmins, reply}) => {
-try{
-const msr = (await fetchJson('https://raw.githubusercontent.com/JawadYTX/KHAN-DATA/refs/heads/main/MSG/mreply.json')).replyMsg
-
-if (!isGroup) return reply(msr.only_gp)
-if (!isAdmins) { if (!isDev) return reply(msr.you_adm),{quoted:mek }} 
-if (!isBotAdmins) return reply(msr.give_adm)
-  
-		let users = mek.mentionedJid ? mek.mentionedJid[0] : mek.msg.contextInfo.participant || false;
-			if (!users) return reply("*Couldn't find any user in context* ❌")
-
-			await conn.groupParticipantsUpdate(from, [users], "remove")
-			await conn.sendMessage(from,{text:`_*Successfully Removed ✅*_`},{quoted:mek })
-	
-} catch (e) {
-await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
-console.log(e)
-reply(`❌ *Error Accurated !!*\n\n${e}`)
-}
-} )
-
-
-cmd({
     pattern: "promote",
     react: "🥏",
     alias: ["addadmin"],
