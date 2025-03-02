@@ -381,50 +381,6 @@ async (conn, mek, m, { from, isGroup, isAdmins, isBotAdmins, args, q, reply }) =
 });
 
 cmd({
-    pattern: "kick",
-    react: "✈️",
-    alias: ["k", "remove"],
-    desc: "To Remove a participant from Group",
-    category: "group",
-    use: '.kick',
-    filename: __filename
-},
-async(conn, mek, m, { from, quoted, isGroup, senderNumber, botNumber, groupAdmins, isBotAdmins, reply }) => {
-    try {
-        if (!isGroup) return reply("*📛 This command can only be used in groups.*");
-
-        // Ensure only group admins can use this command
-        if (!groupAdmins.includes(senderNumber + "@s.whatsapp.net")) {
-            return reply("*📛 ᴏɴʟʏ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴs ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.*");
-        }
-
-        if (!isBotAdmins) return reply("*📛 ɪ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴋɪᴄᴋ ᴍᴇᴍʙᴇʀs.*");
-
-        // Fetch mentioned user or replied user
-        let users = quoted ? quoted.sender : (m.mentionedJid ? m.mentionedJid[0] : false);
-        if (!users) return reply("*📛 ᴘʟᴇᴀsᴇ ᴍᴇɴᴛɪᴏɴ ᴀ ɢᴀʏ ᴇxᴀᴍᴘʟᴇ .ᴋɪᴄᴋ @⁨ᴜsᴇʀ*");
-
-        // Prevent kicking bot itself
-        if (users === botNumber) return reply("❌ I can't kick myself!");
-
-        // Extract bot owner's number
-        const botOwner = conn.user.id.split(":")[0];
-
-        // Prevent kicking the owner
-        if (users === botOwner + "@s.whatsapp.net") return reply("*📛 You cannot kick the bot owner!*");
-
-        // Kick the user
-        await conn.groupParticipantsUpdate(from, [users], "remove");
-        await conn.sendMessage(from, { text: "_*Successfully Removed ✅_*" }, { quoted: mek });
-
-    } catch (e) {
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-        console.log(e);
-        reply(`❌ *Error Occurred !!*\n\n${e}`);
-    }
-});
-
-cmd({
     pattern: "leave",
     alias: ["left", "leftgc", "leavegc"],
     desc: "Leave the group",
