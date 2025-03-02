@@ -73,7 +73,7 @@
     "AUTO_STATUS_REPLY": {
       "description": "Make it true for auto reply msg on status seen.",
       "required": true,
-      "value": "true"
+      "value": "false"
     }, 
 
     "AUTO_STATUS_MSG": {
@@ -89,6 +89,11 @@
       "value": "𓆩ု᪳𝐀𝐋𝐈-𝐌𝐃ှ᪳𓆪"
 
       }, 
+    
+    "ALIVE_IMG": {
+      "description": "put here the bot Menu url if you don't have you can use this public url.",
+      "required": true,
+      "value": "https://cdn.ironman.my.id/i/2du3i5.jpg"
 
     "ANTI_LINK": {
       "description": "Make it true if you want bot auto remove group link.",
