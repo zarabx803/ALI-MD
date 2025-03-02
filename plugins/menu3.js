@@ -1,8 +1,3 @@
-/*created by Kgtech 🕵
-contact dev1 237656520674 ♻️
-contact dev2 237650564445 ♻️
-© Copy coder alert ⚠
-*/
 
 
 
@@ -163,12 +158,21 @@ let madeMenu = `❁ ════ ❃•◯•❃ ════ ❁
 
 > *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀʟɪ🐍*
 
-╰━❁ ═══ ❃•⇆•❃ ═══ ❁━╯
-`
+╰━❁ ═══ ❃•⇆•❃ ═══ ❁━╯`
 
-await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:madeMenu},{quoted:mek})
-
-}catch(e){
+await conn.sendMessage(from,{image:{url: config.ALIVE_IMG},caption:madeMenu,
+                             contextInfo: {
+    mentionedJid: [m.sender],
+    forwardingScore: 999,
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363318387454868@newsletter',
+      newsletterName: '☇ 𝐀ɭι̇ι̇ 𝐌Ɗ  ⃪🤖͎᪳᪳𝆺𝅥',
+      serverMessageId: 999
+    }
+  }
+}, { quoted: mek });
+} catch (e) {
 console.log(e)
 reply(`${e}`)
 }
