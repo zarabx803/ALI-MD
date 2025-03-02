@@ -2,7 +2,7 @@ const { cmd } = require("../command");
 
 cmd({
     pattern: "family",
-    desc: "Kerm Family",
+    desc: "ali Family",
     category: "fun",
     react: "👨‍👩‍👧‍👦",
     filename: __filename
