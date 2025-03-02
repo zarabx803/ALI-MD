@@ -14,7 +14,7 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         let dec = `*╭══〘〘 ${config.BOT_NAME} 〙〙*
-*┃❍ ʀᴜɴ : ${runtime(process.uptime())}*
+*┃❍ ʀᴜɴ : ${runtime(process.uptime}*
 *┃❍ ᴍᴏᴅᴇ* : *${config.MODE}*
 *┃❍ ᴘʀᴇғɪx* : *${config.PREFIX}*
 *┃❍ ʀᴀᴍ* : *34.56 ɢʙ/60.79*
