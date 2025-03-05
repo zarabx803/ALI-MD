@@ -20,7 +20,10 @@ async (conn,mek, m, { from, body, isGroup, isAdmins, isBotAdmins, reply, sender 
         
         if (containsBadWord & config.ANTI_BAD_WORD === 'true') {
           await conn.sendMessage(from, { delete: mek.key }, { quoted: mek });
-          await conn.sendMessage(from, { text: "🚫 ⚠️BAD WORDS NOT ALLOWED⚠️ 🚫" }, { quoted: mek });
+          await conn.sendMessage(from, {
+        'text': `*⚠️𝐖αʀɴιɴg 𝐏σʀи,𝐁α∂ 𝐖σʀ∂,𝐍υ∂є 𝐏ι¢ 𝐀ɴ∂.@${sender.split('@')[0]} 𝐕ι∂єσѕ 𝐍σт 𝐀ℓℓσωє∂ 𝐇єʀє📛*`,
+        'mentions': [sender]
+      }, { 'quoted': m });
         }
     } catch (error) {
         console.error(error)
@@ -46,25 +49,30 @@ const linkPatterns = [
 ];
 
 cmd({
-    on: "body"
-}, async (conn, mek, m, { from, body, sender, isGroup, isAdmins, isBotAdmins, reply }) => {
-    try {
-        if (!isGroup || isAdmins || !isBotAdmins) return; // Skip if not in group, or sender is admin, or bot is not admin
-
-        const containsLink = linkPatterns.some(pattern => pattern.test(body));
-
-        if (containsLink && config.ANTI_LINK === 'true') {
-            // Delete the message
-            await conn.sendMessage(from, { delete: mek.key }, { quoted: mek });
-
-            // Warn the user
-            await conn.sendMessage(from, { text: `*⚠️ ʟɪɴᴋs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.*\n@${sender.split('@')[0]} 📛`, mentions: [sender] }, { quoted: mek });
-
-            // Remove the user from the group
-            await conn.groupParticipantsUpdate(from, [sender], 'delete');
-        }
-    } catch (error) {
-        console.error(error);
-        reply("*_ʟɪɴᴋ ᴅᴇʟᴇᴛᴇ sᴜᴄᴄᴇssғᴜʟ✓_*");
+  on: 'body'
+}, async (conn, m, store, {
+  from,
+  body,
+  sender,
+  isGroup,
+  isAdmins,
+  isBotAdmins
+}) => {
+  try {
+    if (!isGroup || isAdmins || !isBotAdmins) {
+      return;
     }
+
+    const containsLink = linkPatterns.some(pattern => pattern.test(body));
+
+    if (containsLink && config.ANTI_LINK === 'true') {
+      await conn.sendMessage(from, { 'delete': m.key }, { 'quoted': m });
+      await conn.sendMessage(from, {
+        'text': `*⚠️𝐋ιɴкѕ 𝐀ʀє 𝐍σт 𝐀ℓℓσωє∂ 𝐈ɴ 𝐓нιѕ 𝐆ʀσυρ.@${sender.split('@')[0]} 𝐏ℓєαѕє 𝐀νσι∂ 𝐒єɴ∂ιиg 𝐋ιɴкѕ.📛*`,
+        'mentions': [sender]
+      }, { 'quoted': m });
+    }
+  } catch (error) {
+    console.error(error);
+  }
 });
