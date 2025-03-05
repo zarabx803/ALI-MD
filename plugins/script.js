@@ -88,28 +88,27 @@ async (conn, mek, m, { from, reply }) => {
         // Format the repository information
         const formattedInfo = `*𝐇𝐄𝐋𝐋𝐎 𝐓𝐇𝐄𝐑𝐄 𝐀𝐋𝐈-𝐌𝐃 𝐖.𝐀 𝐁𝐎𝐓 𝐔𝐒𝐄𝐑!😇👑* 
 
-> *sɪᴍᴘʟᴇ, ɪᴄʏ, ᴄᴏʟᴅ  & ʀɪᴄʜ ʟᴏᴀᴅᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ᴀᴍᴀᴢɪɴɢ ғᴇᴀᴛᴜʀᴇs, ᴋᴇʀᴍ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ.*❄️
+> *sɪᴍᴘʟᴇ, ɪᴄʏ, ᴄᴏʟᴅ  & ʀɪᴄʜ ʟᴏᴀᴅᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ᴀᴍᴀᴢɪɴɢ ғᴇᴀᴛᴜʀᴇs, ᴅᴏɴ'ᴛ ғᴏʀɢᴇᴛ ᴛᴏ sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ🌟🍴*
 
-*𝐓𝐇𝐀𝐍𝐊𝐒 𝐅𝐎𝐑 𝐔𝐒𝐄𝐈𝐍𝐆 𝐀𝐋𝐈-𝐌𝐃🫶* 
+*\`REPO LINK:\`📮*
+> https://github.com/itx-alii-raza/ALI-MD/fork
 
-> *ᴅᴏɴ'ᴛ ғᴏʀɢᴇᴛ ᴛᴏ sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ🌟🍴*
+*\`BOT GC LINK:\`🪀*
+> https://tinyurl.com/2acmqaqz
 
-https://github.com/itx-alii-raza/ALI-MD
-──────────────────
-${readMore}
-\`BOT NAME:\`❄️
+*\`BOT NAME:\`🤖*
 > ${repoData.name}
 
-\`OWNER NAME:\`👨‍💻
-> ${repoData.owner.login}
+*\`OWNER NAME:\`👨‍💻*
+> 𝐀ɭīī 𝐈ƞ̄x̷īīɖ𝛆̽
 
-\`STARS:\`🌟
+*\`STARS:\`🌟*
 > ${repoData.stargazers_count}
 
-\`FORKS:\`🍴
+*\`FORKS:\`🍴*
 > ${repoData.forks_count}
 
-\`DESCRIPTION:\`📃
+*\`DESCRIPTION:\`📑*
 > ${repoData.description || 'No description'}\n
 ──────────────────
 \n> *© POWERED BY ALI* 🎐`;
@@ -152,3 +151,4 @@ ${readMore}
         reply("Sorry, something went wrong while fetching the repository information. Please try again later.");
     }
 });
+                
