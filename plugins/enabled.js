@@ -182,7 +182,7 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
 //--------------------------------------------
 cmd({
     pattern: "anti-bad",
-    alias: ["antibad"],
+    alias: ["antibadword"],
     desc: "enable or disable antibad.",
     category: "settings",
     filename: __filename
@@ -193,11 +193,11 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
     const status = args[0]?.toLowerCase();
     // Check the argument for enabling or disabling the anticall feature
     if (args[0] === "on") {
-        config.AUTO_REPLY = "true";
-        return reply("*antibad  is now enabled.*");
+        config.ANTI_BAD_WORD = "true";
+        return reply("*anti bad word is now enabled.*");
     } else if (args[0] === "off") {
-        config.AUTO_REPLY = "false";
-        return reply("*antibad feature is now disabled*");
+        config.ANTI_BAD_WORD = "false";
+        return reply("*anti bad word feature is now disabled*");
     } else {
         return reply(`_example:  .antibad on_`);
     }
