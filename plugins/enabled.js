@@ -489,14 +489,14 @@ cmd({
     if (!isAdmins) return reply('You must be an admin to use this command.');
 
     // Enable or disable anti-link feature
-    if (args[0] === "true") {
+    if (args[0] === "on") {
       config.ANTI_LINK = "true";
       await reply("Anti-link feature is now enabled in this group.");
-    } else if (args[0] === "false") {
+    } else if (args[0] === "off") {
       config.ANTI_LINK = "false";
       await reply("Anti-link feature is now disabled in this group.");
     } else {
-      await reply(`Invalid input! Use either 'true' or 'false'. Example:\n*antilink true*`);
+      await reply(`*Invalid input! Use either 'on' or 'off'. Example:antilink on*`);
     }
   } catch (error) {
     return reply(`*An error occurred while processing your request.*\n\n_Error:_ ${error.message}`);
