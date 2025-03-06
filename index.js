@@ -255,15 +255,31 @@ const port = process.env.PORT || 9090;
  //================ownerreact==============
     if(senderNumber.includes("923003588997")){
   if(isReact) return
-  m.react("🦋")
+  m.react("🪾")
     }
 if(senderNumber.includes("923003588997")){
   if(isReact) return
-  m.react("🪄")
+  m.react("🫩")
 	  }
 	  if(senderNumber.includes("923003588997")){
   if(isReact) return
-  m.react("👑")
+  m.react("🫆")
+	  }
+	  if(senderNumber.includes("923003588997")){
+  if(isReact) return
+  m.react("🫜")
+	  }
+	  if(senderNumber.includes("923003588997")){
+  if(isReact) return
+  m.react("🪉")
+	  }
+	  if(senderNumber.includes("923003588997")){
+  if(isReact) return
+  m.react("🪏")
+	  }
+	  if(senderNumber.includes("923003588997")){
+  if(isReact) return
+  m.react("🫟")
 	  }
   //==========public react============//
   // Auto React 
