@@ -1,5 +1,3 @@
-
-
 const { cmd } = require('../command');
 const axios = require('axios');
 const moment = require('moment');
@@ -69,7 +67,7 @@ async function sendDailyFact(conn, reply) {
         const fact = response.data.text;
 
         // Send the fact back to the user
-        reply(`📚 Here's a ${theme} fact for you on ${dayOfWeek}:\n\n*${fact}*\n\n> POWERED BY ALI*`);
+        reply(`📚 Here's a ${theme} fact for you on ${dayOfWeek}:\n\n*${fact}*\n\n> POWERED BY KERM*`);
         
     } catch (error) {
         console.error("Error fetching daily fact:", error.message);
@@ -162,4 +160,38 @@ cmd({
         console.error("Error fetching time:", error.message);
         reply("❌ Sorry, I couldn't fetch the time for the specified timezone. Please ensure the timezone is valid.");
     }
+});
+cmd({
+  pattern: "photo",
+  alias: ["toimage", "photo"],
+  desc: "Convert a sticker to an image.",
+  category: "tools",
+  filename: __filename,
+}, async (conn, mek, m, { reply }) => {
+  try {
+    // Vérifier si l'utilisateur a répondu à un message
+    if (!m.quoted) {
+      return reply("*📛 ᴘʟᴇᴀsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀ sᴛɪᴄᴋᴇʀ ᴛᴏ ᴄᴏɴᴠᴇʀᴛ ɪᴛ ᴛᴏ ᴀɴ ɪᴍᴀɢᴇ.*");
+    }
+
+    // Vérifier si le message cité est un sticker
+    if (m.quoted.mtype !== "stickerMessage") {
+      return reply("❌ The replied message is not a sticker.");
+    }
+
+    // Télécharger le sticker
+    let media = await m.quoted.download();
+
+    // Vérifier si le téléchargement a réussi
+    if (!media) {
+      return reply("❌ Failed to download the sticker.");
+    }
+
+    // Envoyer l'image convertie
+    await conn.sendMessage(m.chat, { image: media, caption: "*✅ HERE IS YOUR IMAGE.*" }, { quoted: m });
+
+  } catch (error) {
+    reply("❌ An error occurred while converting the sticker to an image.");
+    console.error(error);
+  }
 });
