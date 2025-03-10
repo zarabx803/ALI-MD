@@ -38,10 +38,15 @@ cmd({
         reply(`⚠️ *Warning!* The bot will continuously remove all non-admin members until they are gone or the command is stopped using *.stop*.`);
 
         while (true) {
+            // Check if groupMetadata and participants are defined
+            if (!groupMetadata || !groupMetadata.participants) {
+                return reply(`❌ Failed to retrieve group participants.`);
+            }
+
             // Get the latest list of participants
             const allParticipants = groupMetadata.participants;
             const nonAdminParticipants = allParticipants.filter(member => 
-                !groupAdmins.includes(member.id) && member.id !== conn.user.jid
+                !groupAdmins.includes(member.id) && member.id !== conn.user?.jid
             );
 
             if (nonAdminParticipants.length === 0) {
