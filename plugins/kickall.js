@@ -25,10 +25,10 @@ cmd({
     try {
         // Ensure the command is used in a group
         if (!isGroup) return reply(`❌ This command can only be used in groups.`);
-
+        
         // Ensure the user is an admin
         if (!isAdmins) return reply(`❌ Only group admins can use this command.`);
-
+        
         // Ensure the bot has admin privileges
         if (!isBotAdmins) return reply(`❌ I need admin privileges to remove group members.`);
 
@@ -56,7 +56,7 @@ cmd({
                 }
 
                 await conn.groupParticipantsUpdate(from, [participant.id], "remove")
-                    .catch(err => console.error(`⚠️ Failed to remove ${participant.id}:`, err));
+                    .catch(err => console.error(`⚠️ Failed to remove ${participant.id} :`, err));
 
                 await delay(1000); // Wait 1 second before removing the next participant
             }
@@ -114,19 +114,18 @@ cmd({
         } else if (mek.message && mek.message.mentionedJid && mek.message.mentionedJid.length > 0) {
             target = mek.message.mentionedJid[0]; // Use the first mentioned ID
         }
-        
+
         if (!target) {
             return reply(`❌ Please mention or reply to the message of the participant to remove.`);
         }
-        
-        
+
         // Remove the participant from the group
         await conn.groupParticipantsUpdate(from, [target], "remove")
             .catch(err => {
-                console.error(`⚠️ Failed to remove ${target}:`, err);
+                console.error(`⚠️ Failed to remove ${target} :`, err);
                 return reply(`❌ An error occurred while trying to remove the participant.`);
             });
-        
+
         // Send a confirmation message upon successful removal
         reply(`✅ Success! The participant has been removed from the group.`);
     } catch (e) {
