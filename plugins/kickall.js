@@ -1,6 +1,6 @@
-const config = require('../config');
-const { cmd } = require('../command');
-
+const config = require('../config')
+const { cmd, commands } = require('../command')
+  
 let stopKickall = false; // Flag to stop the kickall command
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
