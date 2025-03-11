@@ -94,7 +94,7 @@ async(conn, mek, m,{from, quoted, isGroup, isAdmins, isBotAdmins, participants, 
         if (!isAdmins) return reply("❌ Only group admins can use this command.");
         if (!isBotAdmins) return reply("❌ I need admin privileges to promote participants.");
 
-        // ➡️ Fonction pour récupérer le JID de l'utilisateur
+        // ➡️ Fonction pour récupérer l'utilisateur cible
         const getUser = () => {
             if (quoted) return quoted.sender; // Si le message est cité
             if (m.mentionedJid && m.mentionedJid.length > 0) return m.mentionedJid[0]; // Si une mention est faite
@@ -102,13 +102,12 @@ async(conn, mek, m,{from, quoted, isGroup, isAdmins, isBotAdmins, participants, 
             return null;
         };
 
-        // ➡️ Récupérer l'utilisateur cible
         let userToPromote = getUser();
         if (!userToPromote) return reply("❌ Please reply to a user or mention a user to promote.");
 
         // ➡️ Vérification si l'utilisateur est déjà admin
-        const groupAdmins = participants.filter(p => p.admin).map(p => p.id);
-        if (groupAdmins.includes(userToPromote)) return reply("❗ User is already an admin.");
+        const isAlreadyAdmin = participants.some(p => p.id === userToPromote && p.admin !== null);
+        if (isAlreadyAdmin) return reply("❗ User is already an admin.");
 
         // ➡️ Promotion de l'utilisateur
         await conn.groupParticipantsUpdate(from, [userToPromote], "promote");
