@@ -48,7 +48,7 @@ cmd({
         
         // Extraire le tag à partir du JID (ex: "1234567890" sans "@s.whatsapp.net")
         const tag = target.split('@')[0];
-        reply(`_*@${tag} kicked successfully*_`, { mentions: [target] });
+        reply(`User @${userToKick.split('@')[0]} has been kicked.`, null, { mentions: [userToKick] });
     } catch (error) {
         console.error('Error while executing kick:', error);
         reply('❌ An error occurred while executing the command.');
