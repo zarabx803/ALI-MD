@@ -95,7 +95,10 @@ async(conn, mek, m,{from, quoted, isGroup, isAdmins, isBotAdmins, participants, 
         if (!isBotAdmins) return reply("❌ I need admin privileges to promote participants.");
 
         // Get the target from quoted message or mentioned user
-        let users = quoted ? quoted.sender : (m.mentionedJid && m.mentionedJid.length > 0) ? m.mentionedJid[0] : false;
+        let users = quoted ? quoted.sender : (m.message.extendedTextMessage && m.message.extendedTextMessage.contextInfo && m.message.extendedTextMessage.contextInfo.mentionedJid) 
+            ? m.message.extendedTextMessage.contextInfo.mentionedJid[0] 
+            : false;
+
         if (!users) return reply("❌ Please reply to a user or mention a user to promote.");
 
         const groupAdmins = participants.filter(p => p.admin).map(p => p.id);
