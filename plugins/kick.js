@@ -1,33 +1,56 @@
 const config = require('../config');
 const { cmd } = require('../command');
 
-module.exports = {
-    name: 'kick',
-    description: 'Kick a user from the group',
-    async execute(conn, message, { from, isOwner, isAdmins, isGroup, args, reply }) {
-        // Check if the message is from a group
-        if (!isGroup) {
-            return reply('This command can only be used in groups.');
+cmd({
+  pattern: "kick",
+  desc: "Removes a participant by replying to or mentioning their message. (Admins can also be kicked)",
+  react: "🚪",
+  category: "group",
+  filename: __filename,
+}, async (conn, mek, m, {
+    from,
+    quoted,
+    isGroup,
+    isAdmins,
+    isOwner,
+    participants,
+    isBotAdmins,
+    reply
+}) => {
+    try {
+        // Check if the command is used in a group
+        if (!isGroup) return reply("❌ This command can only be used in groups.");
+        // Only admins or the owner can use this command
+        if (!isAdmins && !isOwner) return reply("❌ Only group admins or the owner can use this command.");
+        // Check if the bot has admin privileges
+        if (!isBotAdmins) return reply("❌ I need admin privileges to remove group members.");
+        
+        // Determine the target user using reply or mention
+        let target;
+        if (m.quoted) {
+            target = m.quoted.sender;
+        } else if (m.mentionedJid && m.mentionedJid.length > 0) {
+            target = m.mentionedJid[0];
+        } else if (m.msg && m.msg.contextInfo && m.msg.contextInfo.mentionedJid && m.msg.contextInfo.mentionedJid.length > 0) {
+            target = m.msg.contextInfo.mentionedJid[0];
         }
-
-        // Check if the user has permission to use the command
-        if (!isOwner && !isAdmins) {
-            return reply('Only owners and admins can use this command.');
+        
+        if (!target) {
+            return reply("❌ Please mention or reply to the message of the participant to remove.");
         }
-
-        // Ensure a user is mentioned to be kicked
-        if (args.length === 0) {
-            return reply('Please mention a user to kick.');
-        }
-
-        const userToKick = args[0].replace('@', '') + '@s.whatsapp.net';
-
-        // Kick the user
-        try {
-            await conn.groupParticipantsUpdate(from, [userToKick], 'remove');
-            reply(`User @${userToKick.split('@')[0]} has been kicked.`, null, { mentions: [userToKick] });
-        } catch (error) {
-            reply('An error occurred while trying to kick the user.');
-        }
-    },
-};
+        
+        // Remove the participant from the group (admins can also be kicked)
+        await conn.groupParticipantsUpdate(from, [target], "remove")
+          .catch(err => {
+              console.error(`⚠️ Failed to remove ${target}:`, err);
+              return reply("❌ An error occurred while trying to remove the participant.");
+          });
+        
+        // Extraire le tag à partir du JID (ex: "1234567890" sans "@s.whatsapp.net")
+        const tag = target.split('@')[0];
+        reply(`User @${userToKick.split('@')[0]} has been kicked.`, null, { mentions: [userToKick] });
+    } catch (error) {
+        console.error('Error while executing kick:', error);
+        reply('❌ An error occurred while executing the command.');
+    }
+});
