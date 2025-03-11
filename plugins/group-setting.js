@@ -94,26 +94,25 @@ async(conn, mek, m,{from, quoted, isGroup, isAdmins, isBotAdmins, participants, 
         if (!isAdmins) return reply("❌ Only group admins can use this command.");
         if (!isBotAdmins) return reply("❌ I need admin privileges to promote participants.");
 
-        // ➡️ Récupérer l'utilisateur cible depuis quoted, mention ou contextInfo
-        let users = null;
-        if (quoted) {
-            users = quoted.sender; // Utilisateur du message cité
-        } else if (m.mentionedJid && m.mentionedJid.length > 0) {
-            users = m.mentionedJid[0]; // Premier utilisateur mentionné
-        } else if (m.message && m.message.extendedTextMessage && m.message.extendedTextMessage.contextInfo) {
-            users = m.message.extendedTextMessage.contextInfo.participant; // Utilisateur depuis contextInfo
-        }
+        // ➡️ Fonction pour récupérer le JID de l'utilisateur
+        const getUser = () => {
+            if (quoted) return quoted.sender; // Si le message est cité
+            if (m.mentionedJid && m.mentionedJid.length > 0) return m.mentionedJid[0]; // Si une mention est faite
+            if (m.message?.extendedTextMessage?.contextInfo?.participant) return m.message.extendedTextMessage.contextInfo.participant; // Si le contexte est disponible
+            return null;
+        };
 
-        // ➡️ Vérification si l'utilisateur est valide
-        if (!users) return reply("❌ Please reply to a user or mention a user to promote.");
+        // ➡️ Récupérer l'utilisateur cible
+        let userToPromote = getUser();
+        if (!userToPromote) return reply("❌ Please reply to a user or mention a user to promote.");
 
         // ➡️ Vérification si l'utilisateur est déjà admin
         const groupAdmins = participants.filter(p => p.admin).map(p => p.id);
-        if (groupAdmins.includes(users)) return reply("❗ User is already an admin.");
+        if (groupAdmins.includes(userToPromote)) return reply("❗ User is already an admin.");
 
         // ➡️ Promotion de l'utilisateur
-        await conn.groupParticipantsUpdate(from, [users], "promote");
-        reply(`✅ _*@${users.split('@')[0]} promoted to admin successfully._`, null, { mentions: [users] });
+        await conn.groupParticipantsUpdate(from, [userToPromote], "promote");
+        reply(`✅ _*@${userToPromote.split('@')[0]} promoted to admin successfully._`, null, { mentions: [userToPromote] });
 
     } catch (e) {
         console.error(e);
