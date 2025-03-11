@@ -94,26 +94,24 @@ async(conn, mek, m,{from, quoted, isGroup, isAdmins, isBotAdmins, participants, 
         if (!isAdmins) return reply("❌ Only group admins can use this command.");
         if (!isBotAdmins) return reply("❌ I need admin privileges to promote participants.");
 
-        // Get the target from:
-        // - Quoted message
-        // - Mentioned user
-        // - ContextInfo
-        let users;
+        // ➡️ Récupérer l'utilisateur cible depuis quoted, mention ou contextInfo
+        let users = null;
         if (quoted) {
-            users = quoted.sender; // From quoted message
+            users = quoted.sender; // Utilisateur du message cité
         } else if (m.mentionedJid && m.mentionedJid.length > 0) {
-            users = m.mentionedJid[0]; // From mentioned user
-        } else if (m.message.extendedTextMessage && m.message.extendedTextMessage.contextInfo) {
-            users = m.message.extendedTextMessage.contextInfo.participant; // From contextInfo
+            users = m.mentionedJid[0]; // Premier utilisateur mentionné
+        } else if (m.message && m.message.extendedTextMessage && m.message.extendedTextMessage.contextInfo) {
+            users = m.message.extendedTextMessage.contextInfo.participant; // Utilisateur depuis contextInfo
         }
 
+        // ➡️ Vérification si l'utilisateur est valide
         if (!users) return reply("❌ Please reply to a user or mention a user to promote.");
 
-        // Get the list of group admins
+        // ➡️ Vérification si l'utilisateur est déjà admin
         const groupAdmins = participants.filter(p => p.admin).map(p => p.id);
         if (groupAdmins.includes(users)) return reply("❗ User is already an admin.");
 
-        // Promote the user
+        // ➡️ Promotion de l'utilisateur
         await conn.groupParticipantsUpdate(from, [users], "promote");
         reply(`✅ _*@${users.split('@')[0]} promoted to admin successfully._`, null, { mentions: [users] });
 
