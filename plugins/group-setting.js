@@ -79,39 +79,37 @@ reply(`❌ *Error Accurated !!*\n\n${e}`)
 }
 } )
 
-
 cmd({
     pattern: "promote",
     react: "🥏",
     alias: ["addadmin"],
-    desc: "To Add a participatant as a Admin",
+    desc: "To Add a participant as an Admin",
     category: "group",
     use: '.promote',
     filename: __filename
 },
-async(conn, mek, m,{from, l, quoted, body, isCmd, command, mentionByTag , args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isCreator ,isDev, isAdmins, reply}) => {
-try{
-const msr = (await fetchJson('https://raw.githubusercontent.com/JawadYTX/KHAN-DATA/refs/heads/main/MSG/mreply.json')).replyMsg
+async(conn, mek, m,{from, quoted, isGroup, isAdmins, isBotAdmins, participants, reply}) => {
+    try {
+        if (!isGroup) return reply("❌ This command can only be used in groups.");
+        if (!isAdmins) return reply("❌ Only group admins can use this command.");
+        if (!isBotAdmins) return reply("❌ I need admin privileges to promote participants.");
 
-if (!isGroup) return reply(msr.only_gp)
-if (!isAdmins) { if (!isDev) return reply(msr.you_adm),{quoted:mek }} 
-if (!isBotAdmins) return reply(msr.give_adm)   
-	
-		let users = mek.mentionedJid ? mek.mentionedJid[0] : mek.msg.contextInfo.participant || false;
-	
-	if (!users) return reply("*Couldn't find any user in context* ❌")
-	
-		const groupAdmins = await getGroupAdmins(participants) 
-		if  ( groupAdmins.includes(users)) return reply('❗ *User Already an Admin*  ✔️')
-		    await conn.groupParticipantsUpdate(from, [users], "promote")
-			await conn.sendMessage(from,{text:`*_User promoted as an Admin_*`},{quoted:mek })
-	
-} catch (e) {
-await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
-console.log(e)
-reply(`❌ *Error Accurated !!*\n\n${e}`)
-}
-} )
+        // Get the target from quoted message or mentioned user
+        let users = quoted ? quoted.sender : (m.mentionedJid && m.mentionedJid.length > 0) ? m.mentionedJid[0] : false;
+        if (!users) return reply("❌ Please reply to a user or mention a user to promote.");
+
+        const groupAdmins = participants.filter(p => p.admin).map(p => p.id);
+        if (groupAdmins.includes(users)) return reply("❗ User is already an admin.");
+
+        // Promote the user
+        await conn.groupParticipantsUpdate(from, [users], "promote");
+        reply(`✅ _*@${users.split('@')[0]} promoted to admin successfully._`, null, { mentions: [users] });
+
+    } catch (e) {
+        console.error(e);
+        reply(`❌ *An error occurred:* ${e.message}`);
+    }
+});
 
 cmd({
     pattern: "demote",
