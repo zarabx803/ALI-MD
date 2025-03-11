@@ -83,39 +83,54 @@ cmd({
     pattern: "promote",
     react: "🥏",
     alias: ["addadmin"],
-    desc: "To Add a participant as an Admin",
+    desc: "Promote a user to admin.",
     category: "group",
-    use: '.promote',
     filename: __filename
-},
-async(conn, mek, m,{from, quoted, isGroup, isAdmins, isBotAdmins, participants, reply}) => {
+}, async (conn, mek, m, {
+    from,
+    quoted,
+    isGroup,
+    isAdmins,
+    isOwner,
+    participants,
+    isBotAdmins,
+    reply
+}) => {
     try {
         if (!isGroup) return reply("❌ This command can only be used in groups.");
-        if (!isAdmins) return reply("❌ Only group admins can use this command.");
-        if (!isBotAdmins) return reply("❌ I need admin privileges to promote participants.");
+        if (!isAdmins && !isOwner) return reply("❌ Only group admins or the owner can use this command.");
+        if (!isBotAdmins) return reply("❌ I need admin privileges to promote members.");
 
-        // ➡️ Fonction pour récupérer l'utilisateur cible
-        const getUser = () => {
-            if (quoted) return quoted.sender; // Si le message est cité
-            if (m.mentionedJid && m.mentionedJid.length > 0) return m.mentionedJid[0]; // Si une mention est faite
-            if (m.message?.extendedTextMessage?.contextInfo?.participant) return m.message.extendedTextMessage.contextInfo.participant; // Si le contexte est disponible
-            return null;
-        };
+        // ➡️ Détecter le participant à promouvoir (en réponse ou mention)
+        let target;
+        if (m.quoted) {
+            target = m.quoted.sender;
+        } else if (m.mentionedJid && m.mentionedJid.length > 0) {
+            target = m.mentionedJid[0];
+        } else if (m.msg && m.msg.contextInfo && m.msg.contextInfo.mentionedJid && m.msg.contextInfo.mentionedJid.length > 0) {
+            target = m.msg.contextInfo.mentionedJid[0];
+        }
 
-        let userToPromote = getUser();
-        if (!userToPromote) return reply("❌ Please reply to a user or mention a user to promote.");
+        if (!target) return reply("❌ Please mention or reply to a user to promote.");
 
-        // ➡️ Vérification si l'utilisateur est déjà admin
-        const isAlreadyAdmin = participants.some(p => p.id === userToPromote && p.admin !== null);
+        // ➡️ Vérifier si l'utilisateur est déjà admin
+        const isAlreadyAdmin = participants.some(p => p.id === target && p.admin !== null);
         if (isAlreadyAdmin) return reply("❗ User is already an admin.");
 
-        // ➡️ Promotion de l'utilisateur
-        await conn.groupParticipantsUpdate(from, [userToPromote], "promote");
-        reply(`✅ _*@${userToPromote.split('@')[0]} promoted to admin successfully._`, null, { mentions: [userToPromote] });
+        // ➡️ Promouvoir le participant
+        await conn.groupParticipantsUpdate(from, [target], "promote")
+            .catch(err => {
+                console.error(`⚠️ Failed to promote ${target}:`, err);
+                return reply("❌ An error occurred while promoting the participant.");
+            });
 
-    } catch (e) {
-        console.error(e);
-        reply(`❌ *An error occurred:* ${e.message}`);
+        // ➡️ Extraire le tag à partir du JID
+        const tag = target.split('@')[0];
+        reply(`*_@${tag} promoted successfully_*`, { mentions: [target] });
+
+    } catch (error) {
+        console.error('Error while executing promote:', error);
+        reply('❌ An error occurred while executing the command.');
     }
 });
 
