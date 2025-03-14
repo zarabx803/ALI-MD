@@ -41,6 +41,7 @@ cmd({
 });
 cmd({
     pattern: "auto-typing",
+    alias: ["autotyping"],
     description: "Enable or disable auto-typing feature.",
     category: "settings",
     filename: __filename
@@ -135,7 +136,7 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
 //--------------------------------------------
 cmd({
     pattern: "status-react",
-    alias: ["statusreaction"],
+    alias: ["statusreact"],
     desc: "Enable or disable auto-liking of statuses",
     category: "settings",
     filename: __filename
@@ -157,7 +158,7 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
 });
 cmd({
     pattern: "anti-call",
-    alias: ["statusreaction"],
+    alias: ["anticall"],
     desc: "Enable or disable anti-call of statuses",
     category: "settings",
     filename: __filename
@@ -182,7 +183,7 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
 //--------------------------------------------
 cmd({
     pattern: "read-message",
-    alias: ["autoread"],
+    alias: ["autoreadmessage"],
     desc: "enable or disable readmessage.",
     category: "settings",
     filename: __filename
