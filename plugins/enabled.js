@@ -691,46 +691,6 @@ cmd({
     }
 });
 
-//--------------------------------------------
-//  GINFO COMMANDS
-//--------------------------------------------
-cmd({
-    pattern: "ginfo",
-    desc: "Get group information.",
-    category: "group",
-    filename: __filename,
-}, async (conn, mek, m, { from, quoted, body, args, q, isGroup, sender, reply }) => {
-    try {
-        if (!isGroup) return reply("𝐓𝐡𝐢𝐬 𝐅𝐞𝐚𝐭𝐮𝐫𝐞 𝐈𝐬 𝐎𝐧𝐥𝐲 𝐅𝐨𝐫 𝐆𝐫𝐨𝐮𝐩❗");
-
-        // Get group metadata
-        const groupMetadata = await conn.groupMetadata(from);
-        const groupName = groupMetadata.subject;
-        const groupAdmins = groupMetadata.participants.filter(member => member.admin);
-        const memberCount = groupMetadata.participants.length;
-        const adminList = groupAdmins.map(admin => `│ ∘  @${admin.id.split('@')[0]}`).join("\n") || "│ ∘ No admins";
-
-        // Format the output
-        let textt = `
-╭───「 ᴀʟɪ ᴍᴅ 」───◆  
-│ ∘ ɢʀᴏᴜᴘ: ${groupName}  
-│ ∘ ɢʀᴏᴜᴘ ɪᴅ: ${from}  
-│ ∘ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs: ${memberCount}  
-│ ∘ ─────────────────  
-${adminList}
-`;
-
-        // Send the group information
-        await conn.sendMessage(from, {
-            text: textt,
-            mentions: groupAdmins.map(a => a.id),
-        }, { quoted: mek });
-
-    } catch (error) {
-        console.error("Error in ginfo command:", error);
-        reply("An error occurred while retrieving the group information.");
-    }
-});
 
 //--------------------------------------------
 //           BROADCAST COMMANDS
