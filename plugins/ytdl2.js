@@ -68,7 +68,7 @@ cmd({
 cmd({ 
      pattern: "mp3", 
      alias: ["yta", "play"], 
-     react: "🎶", 
+     react: "🎧", 
      desc: "Download Youtube song",
      category: "main", 
      use: '.song < Yt url or Name >', 
@@ -90,8 +90,7 @@ const yt = await ytsearch(q);
         return reply("Failed to fetch the audio. Please try again later.");
     }
     
-    let ytmsg = `*PLAYING ${yts.title}*
-    > *© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀʟɪ-ᴍᴅ🫟*`;
+    let ytmsg = `*PLAYING: ${yts.title}*\n> *© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀʟɪ-ᴍᴅ🫟*`;
 
 
 
