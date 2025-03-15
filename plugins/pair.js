@@ -20,12 +20,12 @@ async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
 
         // Validate input
         if (!q) {
-            return await reply("*Example : .Pair 9230035XXX*");
+            return await reply("*Example : .Pair 92300358800*");
         }
 
         // Fetch pairing code
         //const fetch = require("node-fetch");
-        const response = await fetch(`https://ali-md.onrender.com/code?number=${q}`);
+        const response = await fetch(`https://ali-md-web-qr-pair-z8r2.onrender.com/code?number=${q}`);
         const pair = await response.json();
 
         // Check for errors in response
