@@ -13,6 +13,7 @@ cmd(
     {
         pattern: 'take',
         alias: ['rename', 'stake'],
+        react: "🐍",
         desc: 'Create a sticker with a custom pack name.',
         category: 'sticker',
         use: '<reply media or URL>',
@@ -38,7 +39,7 @@ cmd(
             const buffer = await sticker.toBuffer();
             return conn.sendMessage(mek.chat, { sticker: buffer }, { quoted: mek });
         } else {
-            return reply("*Uhh, Please reply to an image.*");
+            return reply("*Uhh, Please reply to an sticker.*");
         }
     }
 );
@@ -49,13 +50,14 @@ cmd(
     {
         pattern: 'sticker',
         alias: ['s', 'stickergif'],
+        react: "🔮",
         desc: 'Create a sticker from an image, video, or URL.',
         category: 'sticker',
         use: '<reply media or URL>',
         filename: __filename,
     },
     async (conn, mek, m, { quoted, args, q, reply, from }) => {
-        if (!mek.quoted) return reply(`*Reply to any Image or Video,*`);
+        if (!mek.quoted) return reply(`*ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ, ᴠɪᴅᴇᴏ ғᴏʀ .ᴠs*`);
         let mime = mek.quoted.mtype;
         let pack = Config.STICKER_NAME || "𓆩ု᪳𝐀𝐋𝐈-𝐌𝐃ှ᪳𓆪";
         
@@ -72,7 +74,7 @@ cmd(
             const buffer = await sticker.toBuffer();
             return conn.sendMessage(mek.chat, { sticker: buffer }, { quoted: mek });
         } else {
-            return reply("*Uhh, Please reply to an image.*");
+            return reply("*ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ, ᴠɪᴅᴇᴏ ғᴏʀ .ᴠs*");
         }
     }
 );
