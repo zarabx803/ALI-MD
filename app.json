@@ -96,12 +96,18 @@
       "value": "https://cdn.ironman.my.id/i/2du3i5.jpg" 
       },
 
-    "ANTI_LINK": {
+    "DELETE_LINK": {
       "description": "Make it true if you want bot auto remove group link.",
       "required": false,
       "value": "false"
     }, 
-
+    
+    "ANTI_LINK_KICK": {
+      "description": "Make it true if you want bot auto remove group link.",
+      "required": false,
+      "value": "false"
+    }, 
+    
     "ANTI_BAD_WORD": {
       "description": "Make it true if you want bot auto delete bad words.",
       "required": false,
