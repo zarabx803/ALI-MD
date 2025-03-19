@@ -67,7 +67,7 @@ async function sendDailyFact(conn, reply) {
         const fact = response.data.text;
 
         // Send the fact back to the user
-        reply(`📚 Here's a ${theme} fact for you on ${dayOfWeek}:\n\n*${fact}*\n\n> POWERED BY KERM*`);
+        reply(`📚 Here's a ${theme} fact for you on ${dayOfWeek}:\n\n*${fact}*\n\n> POWERED BY ALI*`);
         
     } catch (error) {
         console.error("Error fetching daily fact:", error.message);
@@ -78,7 +78,7 @@ async function sendDailyFact(conn, reply) {
 // Function to calculate the time until 6 AM and set the interval
 function sendDailyFactAt6AM(conn, reply) {
     const now = moment();
-    const targetTime = moment().set({ hour: 6, minute: 0, second: 0, millisecond: 0 }); // 6 AM Cameroon time
+    const targetTime = moment().set({ hour: 6, minute: 0, second: 0, millisecond: 0 }); // 6 AM time
 
     if (now.isAfter(targetTime)) {
         // If it's already past 6 AM today, set the time for 6 AM tomorrow
@@ -139,7 +139,7 @@ cmd({
 }, async (conn, mek, m, { args, reply }) => {
     try {
         if (args.length === 0) {
-            return reply("❌ Please provide a timezone. Example: `.timezone Europe/Paris`");
+            return reply("❌ Please provide a timezone. Example: `.timezone Asia/Islamabad`");
         }
 
         // Get the timezone input from the user
