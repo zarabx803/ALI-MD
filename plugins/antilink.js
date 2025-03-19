@@ -1,160 +1,53 @@
-const axios = require('axios');
-const config = require('../config');
-const { cmd, commands } = require('../command');
+const { cmd } = require('../command')
+const fs = require('fs');
+const path = require('path');
+const config = require('../config')
 
+const linkPatterns = [
+    /https?:\/\/(?:chat\.whatsapp\.com|wa\.me)\/\S+/gi,   // WhatsApp group or chat links
+    /wa\.me\/\S+/gi,                                      // wa.me links without https
+    /https?:\/\/(?:t\.me|telegram\.me)\/\S+/gi,           // Telegram links
+    /https?:\/\/(?:www\.)?\.com\/\S+/gi,         // channel links
+    /https?:\/\/(?:www\.)?twitter\.com\/\S+/gi,           // Twitter links
+    /https?:\/\/(?:www\.)?linkedin\.com\/\S+/gi,          // LinkedIn links
+    /https?:\/\/(?:whatsapp\.com|channel\.me)\/\S+/gi,          // Snapchat links
+    /https?:\/\/(?:www\.)?reddit\.com\/\S+/gi,            // Reddit links
+    /https?:\/\/(?:www\.)?discord\.com\/\S+/gi,           // Discord links
+    /https?:\/\/(?:www\.)?twitch\.tv\/\S+/gi,             // Twitch links
+    /https?:\/\/(?:www\.)?vimeo\.com\/\S+/gi,             // Vimeo links
+    /https?:\/\/(?:www\.)?dailymotion\.com\/\S+/gi,       // Dailymotion links
+    /https?:\/\/(?:www\.)?medium\.com\/\S+/gi             // Medium links
+];
 
-/*
 cmd({
-    pattern: "vv",
-    react : "🦠",
-    alias: ['retrive', "viewonce"],
-    desc: "Fetch and resend a ViewOnce message content (image/video/voice).",
-    category: "misc",
-    use: '<query>',
-    filename: __filename
-},
-async (conn, mek, m, { from, reply }) => {
-    try {
-        const quotedMessage = m.msg.contextInfo.quotedMessage; // Get quoted message
-
-        if (quotedMessage && quotedMessage.viewOnceMessageV2) {
-            const quot = quotedMessage.viewOnceMessageV2;
-            if (quot.message.imageMessage) {
-                let cap = quot.message.imageMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(quot.message.imageMessage);
-                return conn.sendMessage(from, { image: { url: anu }, caption: cap }, { quoted: mek });
-            }
-            if (quot.message.videoMessage) {
-                let cap = quot.message.videoMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(quot.message.videoMessage);
-                return conn.sendMessage(from, { video: { url: anu }, caption: cap }, { quoted: mek });
-            }
-            if (quot.message.audioMessage) {
-                let anu = await conn.downloadAndSaveMediaMessage(quot.message.audioMessage);
-                return conn.sendMessage(from, { audio: { url: anu } }, { quoted: mek });
-            }
-        }
-
-        // If there is no quoted message or it's not a ViewOnce message
-        if (!m.quoted) return reply("Please reply to a ViewOnce message.");
-        if (m.quoted.mtype === "viewOnceMessage") {
-            if (m.quoted.message.imageMessage) {
-                let cap = m.quoted.message.imageMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(m.quoted.message.imageMessage);
-                return conn.sendMessage(from, { image: { url: anu }, caption: cap }, { quoted: mek });
-            }
-            else if (m.quoted.message.videoMessage) {
-                let cap = m.quoted.message.videoMessage.caption;
-                let anu = await conn.downloadAndSaveMediaMessage(m.quoted.message.videoMessage);
-                return conn.sendMessage(from, { video: { url: anu }, caption: cap }, { quoted: mek });
-            }
-        } else if (m.quoted.message.audioMessage) {
-            let anu = await conn.downloadAndSaveMediaMessage(m.quoted.message.audioMessage);
-            return conn.sendMessage(from, { audio: { url: anu } }, { quoted: mek });
-        } else {
-            return reply("> *This is not a ViewOnce message.*");
-        }
-    } catch (e) {
-        console.log("Error:", e);
-        reply("An error occurred while fetching the ViewOnce message.");
-    }
-});
-*/
-cmd({
-  'pattern': 'vv',
-  'alias': ['retrive', 'viewonce'],
-  'desc': "Fetch and resend a ViewOnce message content (image/video/voice).",
-  'category': 'misc',
-  'use': "<query>",
-  'filename': __filename
-}, async (_0x5a104f, _0x1d2e0c, _0x1759df, {
-  from: _0x4d7a74,
-  reply: _0x5545e9
+  'on': "body"
+}, async (conn, m, store, {
+  from,
+  body,
+  sender,
+  isGroup,
+  isAdmins,
+  isBotAdmins,
+  reply
 }) => {
   try {
-    const _0x1c9e5c = _0x1759df.msg.contextInfo.quotedMessage;
-    if (_0x1c9e5c && _0x1c9e5c.viewOnceMessageV2) {
-      const _0x3798cf = _0x1c9e5c.viewOnceMessageV2;
-      if (_0x3798cf.message.imageMessage) {
-        let _0x18b540 = _0x3798cf.message.imageMessage.caption;
-        let _0x345d25 = await _0x5a104f.downloadAndSaveMediaMessage(_0x3798cf.message.imageMessage);
-        return _0x5a104f.sendMessage(_0x4d7a74, {
-          'image': {
-            'url': _0x345d25
-          },
-          'caption': _0x18b540
-        }, {
-          'quoted': _0x1d2e0c
-        });
-      }
-      if (_0x3798cf.message.videoMessage) {
-        let _0x4fb901 = _0x3798cf.message.videoMessage.caption;
-        let _0x2e752e = await _0x5a104f.downloadAndSaveMediaMessage(_0x3798cf.message.videoMessage);
-        return _0x5a104f.sendMessage(_0x4d7a74, {
-          'video': {
-            'url': _0x2e752e
-          },
-          'caption': _0x4fb901
-        }, {
-          'quoted': _0x1d2e0c
-        });
-      }
-      if (_0x3798cf.message.audioMessage) {
-        let _0x137019 = await _0x5a104f.downloadAndSaveMediaMessage(_0x3798cf.message.audioMessage);
-        return _0x5a104f.sendMessage(_0x4d7a74, {
-          'audio': {
-            'url': _0x137019
-          }
-        }, {
-          'quoted': _0x1d2e0c
-        });
-      }
+    if (!isGroup || isAdmins || !isBotAdmins) {
+      return;
     }
-    if (!_0x1759df.quoted) {
-      return _0x5545e9("Please reply to a ViewOnce message.");
+
+    const containsLink = linkPatterns.some(pattern => pattern.test(body));
+
+    if (containsLink && config.ANTI_LINK_KICK === 'true') {
+      await conn.sendMessage(from, { 'delete': m.key }, { 'quoted': m });
+      await conn.sendMessage(from, {
+        'text': `*📛 𝐋ιɴкѕ 𝐀ʀє 𝐍σт 𝐀ℓℓσωє∂ 𝐈ɴ*\n*𝐓нιѕ 𝐆ʀσυρ.@${sender.split('@')[0]}* \n*𝐇αѕ 𝐁єєи 𝐊ιᴄкє∂ 𝐒ᴜᴄᴄєss.🐍*`,
+        'mentions': [sender]
+      }, { 'quoted': m });
+
+      await conn.groupParticipantsUpdate(from, [sender], "remove");
     }
-    if (_0x1759df.quoted.mtype === "viewOnceMessage") {
-      if (_0x1759df.quoted.message.imageMessage) {
-        let _0x4e23b1 = _0x1759df.quoted.message.imageMessage.caption;
-        let _0x14d7c9 = await _0x5a104f.downloadAndSaveMediaMessage(_0x1759df.quoted.message.imageMessage);
-        return _0x5a104f.sendMessage(_0x4d7a74, {
-          'image': {
-            'url': _0x14d7c9
-          },
-          'caption': _0x4e23b1
-        }, {
-          'quoted': _0x1d2e0c
-        });
-      } else {
-        if (_0x1759df.quoted.message.videoMessage) {
-          let _0x4cf2b0 = _0x1759df.quoted.message.videoMessage.caption;
-          let _0x5655fd = await _0x5a104f.downloadAndSaveMediaMessage(_0x1759df.quoted.message.videoMessage);
-          return _0x5a104f.sendMessage(_0x4d7a74, {
-            'video': {
-              'url': _0x5655fd
-            },
-            'caption': _0x4cf2b0
-          }, {
-            'quoted': _0x1d2e0c
-          });
-        }
-      }
-    } else {
-      if (_0x1759df.quoted.message.audioMessage) {
-        let _0x5dfa37 = await _0x5a104f.downloadAndSaveMediaMessage(_0x1759df.quoted.message.audioMessage);
-        return _0x5a104f.sendMessage(_0x4d7a74, {
-          'audio': {
-            'url': _0x5dfa37
-          }
-        }, {
-          'quoted': _0x1d2e0c
-        });
-      } else {
-        return _0x5545e9("> *This is not a ViewOnce message.*");
-      }
-    }
-  } catch (_0x23e307) {
-    console.log('Error:', _0x23e307);
-    _0x5545e9("An error occurred while fetching the ViewOnce message.");
+  } catch (error) {
+    console.error(error);
+    reply("An error occurred while processing the message.");
   }
 });
