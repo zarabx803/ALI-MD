@@ -1,13 +1,79 @@
-
-
 const {
   cmd,
   commands
 } = require('../command');
 const axios = require('axios');
+
 cmd({
-  'pattern': "img",
-  'alias': ["image", "pinterest", "pinimg"],
+  pattern: 'imgsearch',
+  alias: ['img','pin','image'],
+  react: '🔍',
+  desc: 'Search for images on Google',
+  category: 'image',
+  filename: __filename
+}, async (conn, mek, m, {
+  body,
+  from,
+  quoted,
+  isCmd,
+  command,
+  args,
+  q,
+  isGroup,
+  sender,
+  senderNumber,
+  botNumber2,
+  botNumber,
+  pushname,
+  isMe,
+  isOwner,
+  groupMetadata,
+  groupName,
+  participants,
+  groupAdmins,
+  isBotAdmins,
+  isAdmins,
+  reply
+}) => {
+    const text = body.trim().replace(command, '').trim();
+    if (!text) {
+        return reply(`*🔎 ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ sᴇᴀʀᴄʜ ᴋᴇʏᴡᴏʀᴅs ᴇxᴀᴍᴘʟᴇ: .ɪᴍᴀɢᴇ ᴄᴀᴛ*`);
+    }
+
+    try {
+        await conn.sendMessage(m.chat, { react: { text: "🔍", key: m.key } });
+
+        const apiResponse = await axios.get(`https://apis.davidcyriltech.my.id/googleimage`, {
+            params: { query: text }
+        });
+
+        const { success, results } = apiResponse.data;
+
+        if (!success || !results || results.length === 0) {
+            return reply(`❌ No images found for "${text}". Try another search.`);
+        }
+
+        const maxImages = Math.min(results.length, 5);
+        for (let i = 0; i < maxImages; i++) {
+            await conn.sendMessage(m.chat, {
+                image: { url: results[i] },
+                caption: `🖼️ *ɪᴍᴀɢᴇ sᴇᴀʀᴄʜ*\n\n🔎 *ǫᴜᴇʀʏ:* "${text}"\n📄 *ʀᴇsᴜʟᴛ:* ${i + 1}/${maxImages}\n\n> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀʟɪ ᴍᴅ*`,
+            }, { quoted: m });
+        }
+
+        await conn.sendMessage(m.chat, { react: { text: "✅", key: m.key } });
+
+    } catch (error) {
+        console.error("Error in Image Search:", error);
+        reply(`❌ *Error fetching images. Try again later.*`);
+    }
+});
+
+
+//########
+cmd({
+  'pattern': "img2",
+  'alias': ["image2", "pinterest2", "pinimg2"],
   'react': '🖼️',
   'desc': "Search and download images from Pinterest using keywords.",
   'category': "image",
@@ -21,10 +87,10 @@ cmd({
   try {
     const _0x3207b0 = _0x12b1f7.join(" ");
     if (!_0x3207b0) {
-      return _0x2ac5cb("*Please provide search keywords for the image. Eg Kerm*");
+      return _0x2ac5cb("*🔎 ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ sᴇᴀʀᴄʜ ᴋᴇʏᴡᴏʀᴅs ᴇxᴀᴍᴘʟᴇ: .ɪᴍᴀɢᴇ2 ᴄᴀᴛ*");
     }
     _0x2ac5cb("*🔍 Showing Results For - " + _0x3207b0 + "...*");
-    const _0x2f5556 = 'https://rubenbot-subzero-api.hf.space/download/piniimg?text=' + encodeURIComponent(_0x3207b0);
+    const _0x2f5556 = 'https://apis.davidcyriltech.my.id/googleimage?query=' + encodeURIComponent(_0x3207b0);
     const _0x530cac = await axios.get(_0x2f5556);
     if (!_0x530cac.data || !_0x530cac.data.result || _0x530cac.data.result.length === 0x0) {
       return _0x2ac5cb("❌ No images found for \"" + _0x3207b0 + "\".");
@@ -37,7 +103,7 @@ cmd({
           'image': {
             'url': _0x58b5b7.images_url
           },
-          'caption': "*© 𝖦𝖤𝖭𝖤𝖱𝖠𝖳𝖤𝖣 𝖡𝖸 ALI*" 
+          'caption': "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀʟɪ ᴍᴅ*" 
         }, {
           'quoted': _0x59fdb9
         });
@@ -51,57 +117,3 @@ cmd({
     _0x2ac5cb("❌ An error occurred while processing your request.");
   }
 });
-
-/*
-const GOOGLE_API_KEY = 'AIzaSyDMbI3nvmQUrfjoCJYLS69Lej1hSXQjnWI'; // Replace with your Google API key
-const GOOGLE_CX = 'baf9bdb0c631236e5'; // Replace with your Google Custom Search Engine ID
-//const apiKey = "AIzaSyDMbI3nvmQUrfjoCJYLS69Lej1hSXQjnWI"; // Votre clé API Google
-// const cx = "baf9bdb0c631236e5"; /
-cmd({
-    pattern: "img",
-    desc: "Search and send images from Google.",
-    react: "🖼️",
-    category: "media",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        if (!q) return reply("Please provide a search query for the image.");
-
-        // Fetch image URLs from Google Custom Search API
-        const searchQuery = encodeURIComponent(q);
-        const url = `https://www.googleapis.com/customsearch/v1?q=${searchQuery}&cx=${GOOGLE_CX}&key=${GOOGLE_API_KEY}&searchType=image&num=5`;
-        
-        const response = await axios.get(url);
-        const data = response.data;
-
-        if (!data.items || data.items.length === 0) {
-            return reply("No images found for your query.");
-        }
-
-        // Send images
-        for (let i = 0; i < data.items.length; i++) {
-            const imageUrl = data.items[i].link;
-
-            // Download the image
-            const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
-            const buffer = Buffer.from(imageResponse.data, 'binary');
-
-            // Send the image with a footer
-            await conn.sendMessage(from, {
-                image: buffer,
-                caption: `
-*💗 Image ${i + 1} from your search! 💗*
-
- *©  𝖦𝖤𝖭𝖤𝖱𝖠𝖳𝖤𝖣 𝖡𝖸 ALI 👾*
-
-> 🥷🏽 ALI MD V1 🥷🏽`
-}, { quoted: mek });
-}
-
-    } catch (e) {
-        console.error(e);
-        reply(`Error: ${e.message}`);
-    }
-});
-*/
