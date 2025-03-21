@@ -132,7 +132,7 @@ cmd({
 
 cmd({
     pattern: "timezone",
-    desc: "Get the current time in a specific timezone.",
+    desc: "Get the current time in a specific country or timezone.",
     react: "🕰️",
     category: "utility",
     use: ".timezone <country or timezone>",
@@ -140,36 +140,43 @@ cmd({
 }, async (conn, mek, m, { args, reply }) => {
     try {
         if (args.length === 0) {
-            return reply("❌ Please provide a country or timezone. Example: `.timezone Cameroon` or `.timezone Africa/Douala`");
+            return reply("❌ Please provide a country or timezone. Example: `.timezone Cameroon` or `.timezone Asia/Karachi`");
         }
 
-        let input = args.join(" ").toLowerCase(); 
+        let input = args.join(" ").toLowerCase();
 
-        // Convertir certains noms de pays en fuseaux horaires
-        const countryToTimezone = {
-            "cameroon": "Africa/Douala",
-            "france": "Europe/Paris",
-            "canada": "America/Toronto",
-            "usa": "America/New_York",
-            "united states": "America/New_York",
-            "germany": "Europe/Berlin",
-            "brazil": "America/Sao_Paulo",
-            "pakistan": "Asia/Karachi"  // ✅ Ajout du Pakistan
-        };
+        // Étape 1 : Récupérer la liste des fuseaux horaires disponibles
+        const allTimezones = await axios.get("http://worldtimeapi.org/api/timezone");
+        const timezones = allTimezones.data;
 
-        // Vérifier si l'entrée est un pays et le convertir
-        const timezone = countryToTimezone[input] || input; 
+        // Étape 2 : Vérifier si l'entrée correspond directement à un fuseau horaire valide
+        let timezone = timezones.find(tz => tz.toLowerCase().includes(input));
 
-        // API pour récupérer l'heure
+        // Étape 3 : Si l'entrée est un pays, essayer de deviner le fuseau horaire
+        if (!timezone) {
+            const countryToTimezone = {
+                "cameroon": "Africa/Douala",
+                "pakistan": "Asia/Karachi",
+                "france": "Europe/Paris",
+                "canada": "America/Toronto",
+                "usa": "America/New_York",
+                "germany": "Europe/Berlin",
+                "brazil": "America/Sao_Paulo"
+            };
+            timezone = countryToTimezone[input]; 
+        }
+
+        if (!timezone) {
+            return reply("❌ Invalid timezone or country. Please try again.");
+        }
+
+        // Étape 4 : Récupérer l'heure actuelle pour ce fuseau horaire
         const response = await axios.get(`http://worldtimeapi.org/api/timezone/${timezone}`);
-
-        // Extraire les données de l'heure
         const timeData = response.data;
         const currentTime = timeData.datetime;
-        const timezoneName = timeData.timezone;
 
-        // Envoyer l'heure au user
-        reply(`🕰️ The current time in ${timezoneName} is: ${currentTime}`);
+        // Répondre avec l'heure exacte
+        reply(`🕰️ The current time in ${timezone} is: ${currentTime}`);
 
     } catch (error) {
         console.error("Error fetching time:", error.message);
