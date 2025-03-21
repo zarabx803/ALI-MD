@@ -129,7 +129,7 @@ cmd({
         reply("❌ An error occurred while calculating your age. Please try again later.");
     }
 });
-/*
+
 cmd({
     pattern: "timezone",
     desc: "Get the current time in a specific country or timezone.",
@@ -183,7 +183,7 @@ cmd({
         reply("❌ Sorry, I couldn't fetch the time. Please check your input and try again.");
     }
 });
-*/
+
 cmd({
   pattern: "photo",
   alias: ["toimage", "photo"],
