@@ -131,57 +131,39 @@ cmd({
 });
 
 cmd({
-    pattern: "timezone",
-    desc: "Get the current time in a specific country or timezone.",
-    react: "🕰️",
-    category: "utility",
-    use: ".timezone <country or timezone>",
-    filename: __filename
+  pattern: "timezone",
+  desc: "Get the current time for a specific country.",
+  react: "🕰️",
+  category: "utility",
+  use: ".timezone <country>",
+  filename: __filename,
 }, async (conn, mek, m, { args, reply }) => {
-    try {
-        if (args.length === 0) {
-            return reply("❌ Please provide a country or timezone. Example: `.timezone Cameroon` or `.timezone Asia/Karachi`");
-        }
-
-        let input = args.join(" ").toLowerCase();
-
-        // Étape 1 : Récupérer la liste des fuseaux horaires disponibles
-        const allTimezones = await axios.get("http://worldtimeapi.org/api/timezone");
-        const timezones = allTimezones.data;
-
-        // Étape 2 : Vérifier si l'entrée correspond directement à un fuseau horaire valide
-        let timezone = timezones.find(tz => tz.toLowerCase().includes(input));
-
-        // Étape 3 : Si l'entrée est un pays, essayer de deviner le fuseau horaire
-        if (!timezone) {
-            const countryToTimezone = {
-                "cameroon": "Africa/Douala",
-                "pakistan": "Asia/Karachi",
-                "france": "Europe/Paris",
-                "canada": "America/Toronto",
-                "usa": "America/New_York",
-                "germany": "Europe/Berlin",
-                "brazil": "America/Sao_Paulo"
-            };
-            timezone = countryToTimezone[input]; 
-        }
-
-        if (!timezone) {
-            return reply("❌ Invalid timezone or country. Please try again.");
-        }
-
-        // Étape 4 : Récupérer l'heure actuelle pour ce fuseau horaire
-        const response = await axios.get(`http://worldtimeapi.org/api/timezone/${timezone}`);
-        const timeData = response.data;
-        const currentTime = timeData.datetime;
-
-        // Répondre avec l'heure exacte
-        reply(`🕰️ The current time in ${timezone} is: ${currentTime}`);
-
-    } catch (error) {
-        console.error("Error fetching time:", error.message);
-        reply("❌ Sorry, I couldn't fetch the time. Please check your input and try again.");
+  try {
+    if (args.length === 0) {
+      return reply("❌ Please provide a country. Example: `.timezone Pakistan`");
     }
+    
+    const country = args.join(" ");
+    const apiKey = process.env.IPGEO_API_KEY || "d6ca7264dd77441cbee974717ded084d";
+    const url = `https://api.ipgeolocation.io/timezone?apiKey=${apiKey}&country=${encodeURIComponent(country)}`;
+    
+    const response = await axios.get(url);
+    const data = response.data;
+    
+    if (!data || !data.date_time) {
+      return reply("❌ Unable to fetch time for the specified country. Please check your input.");
+    }
+    
+    const message = `🕰️ *Current Time in ${data.country_name}*\n\n` +
+                    `📅 Date & Time: ${data.date_time}\n` +
+                    `⌚ Time Zone: ${data.timezone}`;
+                    
+    reply(message);
+    
+  } catch (error) {
+    console.error("Error fetching time:", error.message);
+    reply("❌ Sorry, I couldn't fetch the time. Please check your input and try again.");
+  }
 });
 
 cmd({
