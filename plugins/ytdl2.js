@@ -86,7 +86,7 @@ const yt = await ytsearch(q);
     let response = await fetch(apiUrl);
     let data = await response.json();
     
-    if (data.status !== 300 || !data.success || !data.result.downloadUrl) {
+    if (data.status !== 200 || !data.success || !data.result.downloadUrl) {
         return reply("Failed to fetch the audio. Please try again later.");
     }
     
