@@ -5,7 +5,7 @@
 const axios = require('axios');
 const config = require('../config');
 const { cmd, commands } = require('../command');
-const { downloadMediaMessage } = require('../lib/msg');
+const { downloadMediaMessage } = require('../lib/msg2');
 const fs = require("fs");
 
 cmd({
