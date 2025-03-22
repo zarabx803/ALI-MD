@@ -53,7 +53,7 @@ async (conn, mek, m, { from, reply, q, text, isCreator, fromMe }) => {
                 return reply(`*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ sᴛᴀᴛᴜs*\n\n*ᴅᴍ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ:* ${currentDmStatus ? '*ᴇɴᴀʙʟᴇᴅ*' : '*ᴅɪsᴀʙʟᴇᴅ*'}\n*ɢʀᴏᴜᴘ ᴄʜᴀᴛ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ:* ${currentGcStatus ? '*ᴇɴᴀʙʟᴇᴅ*' : '*ᴅɪsᴀʙʟᴇᴅ*'}`);
 
             default:
-                const helpMessage = `.*╭───━━━━───━━━━──┉┈⚆*\n*│ీ𝐀𝐍𝐓𝐈𝐃𝐄𝐋𝐄𝐓𝐄 𝐂𝐌𝐃 𝐆𝐔𝐈𝐃𝐄ీ*\n*│• ANTIDELETE ON:*\n*│☇ ᴇɴᴀʙʟᴇ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴄʜᴀᴛs*\n*│• ANTIDELETE OFF:*\n*│☇ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴄʜᴀᴛs*\n*│• ANTIDELETE SET GC:*\n*│☇ ᴛᴏ ᴇɴᴀʙʟᴇ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ɢᴄ ᴄʜᴀᴛ*\n*│• ANTIDELETE SET DM:*\n*│☇ ᴛᴏ ᴇɴᴀʙʟᴇ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴅᴍ ᴄʜᴀᴛs*\n*│• ANTIDELETE OFF GC:*\n*│☇ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ɢᴄ ᴄʜᴀᴛs*\n*│• ANTIDELETE OFF DM:*\n*│☇ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ᴘᴍ ᴍᴇsɢ*\n*┗───━━━━───━━━━──┉┈⚆*`;
+                const helpMessage = `*╭───━━━━───━━━━──┉┈⚆*\n*│ీ𝐀𝐍𝐓𝐈𝐃𝐄𝐋𝐄𝐓𝐄 𝐂𝐌𝐃 𝐆𝐔𝐈𝐃𝐄ీ*\n*│• ANTIDELETE ON:*\n*│☇ ᴇɴᴀʙʟᴇ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴄʜᴀᴛs*\n*│• ANTIDELETE OFF:*\n*│☇ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴄʜᴀᴛs*\n*│• ANTIDELETE SET GC:*\n*│☇ ᴛᴏ ᴇɴᴀʙʟᴇ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ɢᴄ ᴄʜᴀᴛ*\n*│• ANTIDELETE SET DM:*\n*│☇ ᴛᴏ ᴇɴᴀʙʟᴇ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴅᴍ ᴄʜᴀᴛs*\n*│• ANTIDELETE OFF GC:*\n*│☇ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ɢᴄ ᴄʜᴀᴛs*\n*│• ANTIDELETE OFF DM:*\n*│☇ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ᴘᴍ ᴍᴇsɢ*\n*┗───━━━━───━━━━──┉┈⚆*`;
 
                 return reply(helpMessage);
         }
