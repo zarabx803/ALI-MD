@@ -19,38 +19,38 @@ async (conn, mek, m, { from, reply, q, text, isCreator, fromMe }) => {
         const command = q?.toLowerCase();
 
         switch (command) {
-            case 'on':
+            case 'off':
                 await setAnti('gc', false);
                 await setAnti('dm', false);
-                return reply('_AntiDelete is now off for Group Chats and Direct Messages._');
+                return reply('*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ɪs ɴᴏᴡ ᴏғғ ɢʀᴏᴜᴘ ᴄʜᴀᴛs ᴀɴᴅ ᴅɪʀᴇᴄᴛ ᴍᴇssᴀɢᴇs.*');
 
             case 'off gc':
                 await setAnti('gc', false);
-                return reply('_AntiDelete for Group Chats is now disabled._');
+                return reply('*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ɢʀᴏᴜᴘ ᴄʜᴀᴛs ɪs ɴᴏᴡ ᴅɪsᴀʙʟᴇᴅ.*');
 
             case 'off dm':
                 await setAnti('dm', false);
-                return reply('_AntiDelete for Direct Messages is now disabled._');
+                return reply('*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ᴅɪʀᴇᴄᴛ ᴍᴇssᴀɢᴇs ɪs ɴᴏᴡ ᴅɪsᴀʙʟᴇᴅ.*');
 
-            case 'set gc':
+            case 'gc':
                 const gcStatus = await getAnti('gc');
                 await setAnti('gc', !gcStatus);
-                return reply(`_AntiDelete for Group Chats ${!gcStatus ? 'enabled' : 'disabled'}._`);
+                return reply(`*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ɢʀᴏᴜᴘ ᴄʜᴀᴛs ${!gcStatus ? 'ᴇɴᴀʙʟᴇᴅ' : 'ᴅɪsᴀʙʟᴇᴅ'}.*`);
 
-            case 'set dm':
+            case 'dm':
                 const dmStatus = await getAnti('dm');
                 await setAnti('dm', !dmStatus);
-                return reply(`_AntiDelete for Direct Messages ${!dmStatus ? 'enabled' : 'disabled'}._`);
+                return reply(`*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ғᴏʀ ᴅɪʀᴇᴄᴛ ᴍᴇssᴀɢᴇs ${!dmStatus ? 'ᴇɴᴀʙʟᴇᴅ' : 'ᴅɪsᴀʙʟᴇᴅ'}.*`);
 
-            case 'set all':
+            case 'on':
                 await setAnti('gc', true);
                 await setAnti('dm', true);
-                return reply('_AntiDelete set for all chats._');
+                return reply('*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴍᴇsɢ sᴇᴛ ғᴏʀ ᴀʟʟ ᴄʜᴀᴛs.*');
 
             case 'status':
                 const currentDmStatus = await getAnti('dm');
                 const currentGcStatus = await getAnti('gc');
-                return reply(`_AntiDelete Status_\n\n*DM AntiDelete:* ${currentDmStatus ? 'Enabled' : 'Disabled'}\n*Group Chat AntiDelete:* ${currentGcStatus ? 'Enabled' : 'Disabled'}`);
+                return reply(`*ᴀɴᴛɪᴅᴇʟᴇᴛᴇ sᴛᴀᴛᴜs*\n\n*ᴅᴍ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ:* ${currentDmStatus ? '*ᴇɴᴀʙʟᴇᴅ*' : '*ᴅɪsᴀʙʟᴇᴅ*'}\n*ɢʀᴏᴜᴘ ᴄʜᴀᴛ ᴀɴᴛɪᴅᴇʟᴇᴛᴇ:* ${currentGcStatus ? '*ᴇɴᴀʙʟᴇᴅ*' : '*ᴅɪsᴀʙʟᴇᴅ*'}`);
 
             default:
                 const helpMessage = `❒ *ᴀɴᴛɪᴅᴇʟᴇᴛᴇ ᴄᴏᴍᴍᴀɴᴅ ɢᴜɪᴅᴇ ❒*
