@@ -53,7 +53,7 @@
     "dotenv": "^16.4.7",
     "google-tts-api": "^2.0.2",
     "path": "^0.12.7",
-    "node-fetch": "^3.3.2",
+    "node-fetch": "^2.6.1",
     "btch-downloader": "^2.2.9",
     "megajs": "^1.1.0",
     "wa_set_pkg": "1.0.5",
