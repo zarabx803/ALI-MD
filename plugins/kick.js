@@ -21,7 +21,7 @@ cmd({
         // Check if the command is used in a group
         if (!isGroup) return reply("❌ This command can only be used in groups.");
         // Only admins or the owner can use this command
-        if (!isAdmins && !isOwner) return reply("❌ Only group admins or the owner can use this command.");
+        if (!isAdmins && !isOwner) return reply("*📛 σɴℓʏ gʀσᴜᴘ α∂мιɴs σʀ тнє σωɴєʀ ᴄαɴ ᴜsє тнιѕ ᴄσммαɴ∂.*");
         // Check if the bot has admin privileges
         if (!isBotAdmins) return reply("❌ I need admin privileges to remove group members.");
         
