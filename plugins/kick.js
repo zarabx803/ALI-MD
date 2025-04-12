@@ -3,6 +3,7 @@ const { cmd } = require('../command');
 
 cmd({
   pattern: "kick",
+  alias: ["k", "💀"],
   desc: "Removes a participant by replying to or mentioning their message. (Admins can also be kicked)",
   react: "🚪",
   category: "group",
@@ -23,7 +24,7 @@ cmd({
         // Only admins or the owner can use this command
         if (!isAdmins && !isOwner) return reply("*📛 σɴℓʏ gʀσᴜᴘ α∂мιɴs σʀ тнє σωɴєʀ ᴄαɴ ᴜsє тнιѕ ᴄσммαɴ∂.*");
         // Check if the bot has admin privileges
-        if (!isBotAdmins) return reply("❌ I need admin privileges to remove group members.");
+        if (!isBotAdmins) return reply("*📛 ι ɴєє∂ тσ вє αɴ α∂мιɴ тσ кι¢к мємвєʀs.*");
         
         // Determine the target user using reply or mention
         let target;
@@ -48,7 +49,7 @@ cmd({
         
         // Extraire le tag à partir du JID (ex: "1234567890" sans "@s.whatsapp.net")
         const tag = target.split('@')[0];
-        reply(`*@${tag} kicked Successfully*`, { mentions: [target] });
+        reply(`*@${tag} kicked Successfully!*`, { mentions: [target] });
     } catch (error) {
         console.error('Error while executing kick:', error);
         reply('❌ An error occurred while executing the command.');
