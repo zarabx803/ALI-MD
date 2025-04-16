@@ -78,13 +78,5 @@
     "@mrnima/tiktok-downloader":"1.0.0",
     "@mrnima/facebook-downloader":"1.0.0",
     "mrnima-moviedl":"1.0.0"
-  },
-  "_moduleAliases": {
-    "@lib": "./lib",
-    "@ai": "./lib/functions/ai.js",
-    "@search": "./lib/functions/search.js",
-    "@anime": "./lib/functions/anime.js",
-    "@start": "./lib/haki.js",
-    "@config": "./config.js"
   }
 }
