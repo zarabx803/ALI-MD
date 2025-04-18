@@ -15,6 +15,29 @@ let antilinkAction = "off"; // Default state
 let warnCount = {}; // Track warnings per user
 
 cmd({
+     pattern: "mention-reply",
+     alias: ["menetion", "mee"],
+     description: "Set bot status to always online or offline.",
+     category: "settings",
+     filename: __filename
+ },    
+ async (conn, mek, m, { from, args, isCreator, reply }) => {
+     if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+ 
+     const status = args[0]?.toLowerCase();
+     // Check the argument for enabling or disabling the anticall feature
+     if (args[0] === "on") {
+         config.MENTION_REPLY = "true";
+         return reply("Mention Reply feature is now enabled.");
+     } else if (args[0] === "off") {
+         config.MENTION_REPLY = "false";
+         return reply("Mention Reply feature is now disabled.");
+     } else {
+         return reply(`_example:  .mee on_`);
+     }
+ });
+
+cmd({
     pattern: "mode",
     desc: "Set bot mode to private or public.",
     category: "settings",
@@ -615,13 +638,15 @@ cmd({
 //--------------------------------------------
 cmd({
   pattern: "exit",
+  alias: ["left"],
   desc: "Leaves the current group",
   category: "group",
-}, async (conn, mek, m, { from, reply }) => {
-  try {
+}, async (conn, mek, m, { from, args, isOwner, reply }) => {
+    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+
     // `from` is the group chat ID
     await conn.groupLeave(from);
-    reply("Successfully left the group🙂.");
+    reply("Goodbye.👋🏻");
   } catch (error) {
     console.error(error);
     reply("Failed to leave the group.🤦🏽‍♂️");
