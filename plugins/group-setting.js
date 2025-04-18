@@ -189,32 +189,6 @@ cmd({
     }
 });
 
-cmd({
-    pattern: "hidetag",
-    react: "🔊",
-    desc: "To Tag all Members for Message",
-    category: "group",
-    use: '.tag Hi',
-    filename: __filename
-},
-async(conn, mek, m,{from, l, quoted, body, isCmd, command, mentionByTag , args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isCreator ,isDev, isAdmins, reply}) => {
-try{
-const msr = (await fetchJson('https://raw.githubusercontent.com/JawadYTX/KHAN-DATA/refs/heads/main/MSG/mreply.json')).replyMsg
-
-if (!isGroup) return reply(msr.only_gp)
-if (!isAdmins) { if (!isDev) return reply(msr.you_adm),{quoted:mek }} 
-if (!isBotAdmins) return reply(msr.give_adm)
-	
-		if(!q) return reply('*Please add a Message* ℹ️')
-		let teks = `${q}`
-                conn.sendMessage(from, { text: teks, mentions: participants.map(a => a.id) }, { quoted: mek })
-                
-} catch (e) {
-await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
-console.log(e)
-reply(`❌ *Error Accurated !!*\n\n${e}`)
-}
-} )
 
 cmd({
     pattern: "taggp",
@@ -241,7 +215,7 @@ reply(`❌ *Error Accurated !!*\n\n${e}`)
 } )
 
 cmd({
-    pattern: "ginfo",
+    pattern: "gginfo",
     desc: "Get group information.",
     category: "group",
     filename: __filename,
@@ -451,38 +425,6 @@ async (conn, mek, m, { from, isGroup, isAdmins, isBotAdmins, args, q, reply }) =
     }
 });
 
-cmd({
-    pattern: "leave",
-    alias: ["left", "leftgc", "leavegc"],
-    desc: "Leave the group",
-    react: "🎉",
-    category: "owner",
-    filename: __filename
-},
-async (conn, mek, m, {
-    from, quoted, body, isCmd, command, args, q, isGroup, senderNumber, reply
-}) => {
-    try {
-
-        if (!isGroup) {
-            return reply("This command can only be used in groups.");
-        }
-        
-
-        const botOwner = conn.user.id.split(":")[0]; 
-        if (senderNumber !== botOwner) {
-            return reply("*📛 Only the bot owner can use this command.*");
-        }
-
-        reply("*Leaving group...*");
-        await sleep(1500);
-        await conn.groupLeave(from);
-        reply("*Goodbye! 👋*");
-    } catch (e) {
-        console.error(e);
-        reply(`❌ Error: ${e}`);
-    }
-});
 
 cmd({
     pattern: "lockgc",
@@ -571,30 +513,3 @@ async (conn, mek, m, { from, isGroup, isAdmins, isBotAdmins, reply }) => {
         reply("❌ Failed to unlock the group. Please try again.");
     }
 });
-
-cmd({
-    pattern: "tag",
-    react: "🔊",
-    desc: "To tag all members with a message",
-    category: "group",
-    use: '.tag Hi',
-    filename: __filename
-}, async (conn, mek, m, { from, senderNumber, participants, q, reply }) => {
-    try {
-        // Get the bot owner's number dynamically from conn.user.id
-        const botOwner = conn.user.id.split(":")[0]; // Extract the bot owner's number
-        if (senderNumber !== botOwner) {
-            return reply("*📛 Only the bot owner can use this command.*");
-        }
-
-        if (!q) return reply('*Please provide a message to send.* ℹ️');
-
-        conn.sendMessage(from, { text: q, mentions: participants.map(a => a.id), linkPreview: true }, { quoted: mek });
-
-    } catch (e) {
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-        console.log(e);
-        reply(`❌ *Error Occurred !!*\n\n${e}`);
-    }
-});
-			       
