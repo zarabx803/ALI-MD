@@ -102,13 +102,13 @@
       },
 
     "DELETE_LINK": {
-      "description": "Make it true if you want bot auto remove group link.",
+      "description": "Make it true if you want bot auto delete group link.",
       "required": false,
       "value": "false"
     }, 
     
     "ANTI_LINK": {
-      "description": "Make it true if you want bot auto remove group link.",
+      "description": "Make it true if you want bot auto wearing group link.",
       "required": false,
       "value": "false"
     }, 
@@ -151,7 +151,7 @@
     }, 
     
     "ANTI_DEL_PATH": {
-      "description": "change it to -same- if you want to resend deleted message in same chat",
+      "description": "if you want true make it your bot number .antidelete on",
       "required": false,
       "value": "log"
     }, 
