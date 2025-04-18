@@ -31,8 +31,7 @@
       "value": "public"
       
     },
-    
-    
+        
     "ALWAYS_ONLINE": {
       "description": "Make it true if want always online.",
       "required": false,
@@ -62,6 +61,12 @@
       "description": "Make it true for automatic status seen.",
       "required": true,
       "value": "true"
+    }, 
+    
+       "MENTION_REPLY": {
+      "description": "make it true if want mention reply if someone menetion you.",
+      "required": false,
+      "value": "false"
     }, 
 
     "AUTO_STATUS_REACT": {
