@@ -13,8 +13,8 @@ cmd({
     category: "misc",
     filename: __filename
 },
-async (conn, mek, m, { from, reply, q, text, isCreator, fromMe }) => {
-    if (!isCreator) return reply('*📛 ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴏɴʟʏ ғᴏʀ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ*');
+async (conn, mek, m, { from, reply, q, text, isOwner, fromMe }) => {
+    if (!isOwner) return reply('*📛 ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴏɴʟʏ ғᴏʀ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ*');
     try {
         const command = q?.toLowerCase();
 
