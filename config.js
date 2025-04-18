@@ -33,6 +33,8 @@ OWNER_NAME: process.env.OWNER_NAME || "ALI",
 // add bot owner name
 ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
 // maks true for always online 
+MENTION_REPLY: process.env.MENTION_REPLY || "false",
+// maks true for always online 
 DESCRIPTION: process.env.DESCRIPTION || "*© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽💀*",
 // add bot owner name    
 ALIVE_IMG: process.env.ALIVE_IMG || "https://cdn.ironman.my.id/i/2du3i5.jpg",
