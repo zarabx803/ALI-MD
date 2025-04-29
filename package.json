@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "pm2 start index.js --deep-monitoring --attach --name ALI-MD",
-    "stop": "pm2 stop VORTEX-XMD",
+    "stop": "pm2 stop ALI-MD",
     "restart": "pm2 restart ALI-MD"
   },
 "dependencies": {
