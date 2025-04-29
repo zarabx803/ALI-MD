@@ -30,7 +30,15 @@ DELETE_LINKS: process.env.DELETE_LINKS || "false",
 OWNER_NUMBER: process.env.OWNER_NUMBER || "923003588997",
 // add your bot owner number
 OWNER_NAME: process.env.OWNER_NAME || "ALI",
-// add bot owner name
+// add bot owner name 
+OWNER_REACT: process.env.OWNER_REACT || "false",
+// make this true or false for auto react on all msgs
+WELCOME: process.env.WELCOME || "true",
+// true if want welcome msg in groups
+GOODBYE: process.env.GOODBYE || "true",
+// true if want goodbye msg in groups
+ADMIN_STATUS: process.env.ADMIN_STATUS || "false",
+// make true to know who dismiss or promoted a member in group
 ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
 // maks true for always online 
 MENTION_REPLY: process.env.MENTION_REPLY || "false",
