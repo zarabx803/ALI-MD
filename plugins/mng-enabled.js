@@ -11,6 +11,126 @@ const { cmd, commands } = require("../command");
 let antilinkAction = "off"; // Default state
 let warnCount = {}; // Track warnings per user
 
+cmd({
+    pattern: "admin-status",
+    alias: ["adminstatus"],
+    desc: "Enable or disable admin event notifications",
+    category: "settings",
+    filename: __filename
+},
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+
+    const status = args[0]?.toLowerCase();
+    if (status === "on") {
+        config.ADMIN_STATUS = "true";
+        return reply("*✅ Admin status notifications are now enabled.*");
+    } else if (status === "off") {
+        config.ADMIN_STATUS = "status";
+        return reply("*❌ Admin event notifications are now disabled.*");
+    } else {
+        return reply(`*Example: .admin-status on*`);
+    }
+});
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
+cmd({
+    pattern: "welcome",
+    alias: ["welcomeset"],
+    desc: "Enable or disable welcome messages for new members",
+    category: "settings",
+    filename: __filename
+},
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+
+    const status = args[0]?.toLowerCase();
+    if (status === "on") {
+        config.WELCOME = "true";
+        return reply("*✅ Welcome messages are now enabled.*");
+    } else if (status === "off") {
+        config.WELCOME = "false";
+        return reply("*❌ Welcome messages are now disabled.*");
+    } else {
+        return reply(`*Example: .welcome on*`);
+    }
+});
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
+cmd({
+    pattern: "good-bye",
+    alias: ["goodbye"],
+    desc: "Enable or disable goodbye messages for new members",
+    category: "settings",
+    filename: __filename
+},
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+
+    const status = args[0]?.toLowerCase();
+    if (status === "on") {
+        config.GOODBYE = "true";
+        return reply("*✅ goodbye messages are now enabled.*");
+    } else if (status === "off") {
+        config.GOODBYE = "false";
+        return reply("*❌ goodbye messages are now disabled.*");
+    } else {
+        return reply(`*Example: .goodbye on*`);
+    }
+});
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
+cmd({
+    pattern: "auto-react",
+    alias: ["autoreact"],
+    desc: "Enable or disable autoreact",
+    category: "settings",
+    filename: __filename
+},
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+
+    const status = args[0]?.toLowerCase();
+    if (status === "on") {
+        config.AUTO_REACT = "true";
+        return reply("*✅ autoreact feature is now enabled.*");
+    } else if (status === "off") {
+        config.AUTO_REACT = "false";
+        return reply("*❌ autoreact feature is now disabled.*");
+    } else {
+        return reply(`*Example: .autoreact on*`);
+    }
+});
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
+cmd({
+    pattern: "owner-react",
+    alias: ["ownerreact"],
+    desc: "Enable or disable owner react",
+    category: "settings",
+    filename: __filename
+},
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+
+    const status = args[0]?.toLowerCase();
+    if (status === "on") {
+        config.OWNER_REACT = "true";
+        return reply("*✅ owner-react feature is now enabled.*");
+    } else if (status === "off") {
+        config.OWNER_REACT = "false";
+        return reply("*❌ owner-react feature is now disabled.*");
+    } else {
+        return reply(`*Example: .owner-react on*`);
+    }
+});
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({ 
   pattern: "setprefix", 
   alias: ["prefix"], 
@@ -20,10 +140,10 @@ cmd({
 }, async (conn, mek, m, { 
   from, 
   args, 
-  isOwner, 
+  isCreator, 
   reply 
 }) => { 
-  if (!isOwner) return reply("*📛 Only the owner can use this command!*"); 
+  if (!isCreator) return reply("*📛 Only the owner can use this command!*"); 
   if (!args[0]) return reply("❌ Please provide a new prefix."); 
   const newPrefix = args[0]; 
   config.PREFIX = newPrefix; 
@@ -36,8 +156,9 @@ cmd({
   exec("pm2 restart all"); 
   reply("*_ALI-MD STARTED NOW...🚀_*"); 
 });
-
-//========mode
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
      pattern: "mention-reply",
      alias: ["menetionreply", "mee"],
@@ -45,8 +166,8 @@ cmd({
      category: "settings",
      filename: __filename
  },    
- async (conn, mek, m, { from, args, isOwner, reply }) => {
-     if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+ async (conn, mek, m, { from, args, isCreator, reply }) => {
+     if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
  
      const status = args[0]?.toLowerCase();
      // Check the argument for enabling or disabling the anticall feature
@@ -60,7 +181,9 @@ cmd({
          return reply(`_example:  .mee on_`);
      }
  });
- 
+ //---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
  cmd({
      pattern: "auto-voice",
      alias: ["autovoice"],
@@ -68,8 +191,8 @@ cmd({
      category: "settings",
      filename: __filename
  },    
- async (conn, mek, m, { from, args, isOwner, reply }) => {
-     if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+ async (conn, mek, m, { from, args, isCreator, reply }) => {
+     if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
  
      const status = args[0]?.toLowerCase();
      // Check the argument for enabling or disabling the anticall feature
@@ -83,14 +206,16 @@ cmd({
          return reply(`_example:  .auto-voice on_`);
      }
  });
- 
+ //---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
     pattern: "mode",
     desc: "Set bot mode to private or public.",
     category: "settings",
     filename: __filename,
-}, async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 Only the owner can use this command!*");
+}, async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 Only the owner can use this command!*");
 
     // Si aucun argument n'est fourni, afficher le mode actuel et l'usage
     if (!args[0]) {
@@ -114,7 +239,9 @@ reply("*_ALI-MD STARTED NOW...🚀_*");
         return reply("❌ Invalid mode. Please use `.mode private` or `.mode public`.");
     }
 });
-
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
     pattern: "auto-typing",
     alias: ["autotyping"],
@@ -122,8 +249,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     if (!["on", "off"].includes(status)) {
@@ -133,9 +260,9 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
     config.AUTO_TYPING = status === "on" ? "true" : "false";
     return reply(`Auto typing has been turned ${status}.`);
 });
-//--------------------------------------------
-// ALWAYS_ONLINE COMMANDS
-//--------------------------------------------
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
     pattern: "always-online",
     alias: ["alwaysonline"],
@@ -143,8 +270,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     if (!["on", "off"].includes(status)) {
@@ -155,9 +282,9 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
     await conn.sendPresenceUpdate(status === "on" ? "available" : "unavailable", from);
     return reply(`Bot is now ${status === "on" ? "online" : "offline"}.`);
 });
-//--------------------------------------------
-//  AUTO_RECORDING COMMANDS
-//--------------------------------------------
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
     pattern: "auto-recording",
     alias: ["autorecoding"],
@@ -165,8 +292,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     if (!["on", "off"].includes(status)) {
@@ -192,8 +319,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Default value for AUTO_VIEW_STATUS is "false"
@@ -217,8 +344,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Default value for AUTO_LIKE_STATUS is "false"
@@ -232,6 +359,9 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
         return reply(`Example: . status-react on`);
     }
 });
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
     pattern: "anti-call",
     alias: ["anticall"],
@@ -239,8 +369,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Default value for AUTO_LIKE_STATUS is "false"
@@ -264,8 +394,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Check the argument for enabling or disabling the anticall feature
@@ -289,8 +419,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Check the argument for enabling or disabling the anticall feature
@@ -314,8 +444,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Check the argument for enabling or disabling the anticall feature
@@ -339,8 +469,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Check the argument for enabling or disabling the anticall feature
@@ -356,32 +486,7 @@ async (conn, mek, m, { from, args, isOwner, reply }) => {
 });
 
 //--------------------------------------------
-//   AUTO-REACT COMMANDS
-//--------------------------------------------
-cmd({
-    pattern: "auto-react",
-    alias: ["autoreact"],
-    desc: "Enable or disable the autoreact feature",
-    category: "settings",
-    filename: __filename
-},    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
-
-    const status = args[0]?.toLowerCase();
-    // Check the argument for enabling or disabling the anticall feature
-    if (args[0] === "on") {
-        config.AUTO_REACT = "true";
-        
-    } else if (args[0] === "off") {
-        config.AUTO_REACT = "false";
-        await reply("autoreact feature is now disabled.");
-    } else {
-        await reply(`*🫟 ᴇxᴀᴍᴘʟᴇ: .ᴀᴜᴛᴏ-ʀᴇᴀᴄᴛ ᴏɴ*`);
-    }
-});
-//--------------------------------------------
-//  STATUS-REPLY COMMANDS
+//  STATUS-REPLY COMMANDS owner-react
 //--------------------------------------------
 cmd({
     pattern: "status-reply",
@@ -390,8 +495,8 @@ cmd({
     category: "settings",
     filename: __filename
 },    
-async (conn, mek, m, { from, args, isOwner, reply }) => {
-    if (!isOwner) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
+async (conn, mek, m, { from, args, isCreator, reply }) => {
+    if (!isCreator) return reply("*📛 ᴏɴʟʏ ᴛʜᴇ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!*");
 
     const status = args[0]?.toLowerCase();
     // Check the argument for enabling or disabling the anticall feature
@@ -415,7 +520,7 @@ cmd({
   category: "group",
   react: "🚫",
   filename: __filename
-}, async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+}, async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isCreator, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
   try {
     // Check for group, bot admin, and user admin permissions
     if (!isGroup) return reply('This command can only be used in a group.');
@@ -436,7 +541,9 @@ cmd({
     return reply(`*An error occurred while processing your request.*\n\n_Error:_ ${error.message}`);
   }
 });
-
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
     pattern: "anti-bot",
     alias: ["antibot"],
@@ -456,7 +563,9 @@ cmd({
         return reply("*🫟 ᴇxᴀᴍᴘʟᴇ: . ᴀɴᴛɪ-ʙᴏᴛ ᴏғғ/ᴡᴀʀɴ/ᴅᴇʟᴇᴛᴇ/ᴋɪᴄᴋ*");
     }
 });
-
+//---------------------------------------------------------------------------
+//  ⚠️ DO NOT MODIFY THIS FILE ⚠️  
+//---------------------------------------------------------------------------
 cmd({
     on: "body"
 }, async (conn, mek, m, { from, isGroup, sender, isBotAdmins, isAdmins, reply }) => {
@@ -563,7 +672,7 @@ cmd({
   category: "group",
   react: "🚫",
   filename: __filename
-}, async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+}, async (conn, mek, m, { from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isCreator, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
   try {
     // Check for group, bot admin, and user admin permissions
     if (!isGroup) return reply('This command can only be used in a group.');
@@ -704,7 +813,7 @@ cmd({
   }
 });
 //--------------------------------------------
-//  AUTO_RECORDING COMMANDS
+//  ALI-MD 
 //--------------------------------------------
 cmd({
     pattern: "invite",
@@ -746,8 +855,6 @@ cmd({
         reply(`An error occurred: ${error.message || "Unknown error"}`);
     }
 });
-
-
 //--------------------------------------------
 //           BROADCAST COMMANDS
 //--------------------------------------------
@@ -784,9 +891,7 @@ cmd({
     await m.error(`❌ Error: ${err}\n\nCommand: broadcast`, err);
   }
 });
-//--------------------------------------------
-//  AUTO_RECORDING COMMANDS
-//--------------------------------------------
+
 cmd({
     pattern: "setgpp",
     desc: "Set full-screen profile picture for groups.",
