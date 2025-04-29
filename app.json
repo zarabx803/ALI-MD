@@ -16,7 +16,7 @@
     "ANTI_CALL": {
        "description": "Make it true if you want bot auto call rejected.",
        "required": false,
-       "value": "true"
+       "value": "false"
        
      }, 
     
@@ -34,7 +34,7 @@
     
     "MODE": {
       "description": "select your bot work type public-private-inbox-group.",
-      "required": false,
+      "required": true,
       "value": "public"
       
     },
@@ -56,13 +56,30 @@
       "required": false,
       "value": "false"
     }, 
+    
+    "ADMIN_STATUS": {
+      "description": "make it true if want know who promote or demote a member .",
+      "required": false,
+      "value": "false"
+    },
 
+    "WELCOME": {
+      "description": "make it true if want welcome message in groups.",
+      "required": false,
+      "value": "true"
+    },
+    
+   "GOODBYE": {
+      "description": "make it true if want goodbye message in groups.",
+      "required": false,
+      "value": "false"
+    },
+    
     "AUTO_STICKER": {
       "description": "Make it true if you want automatic sticker.",
       "required": false,
       "value": "false"
     }, 
-
 
     "AUTO_STATUS_SEEN": {
       "description": "Make it true for automatic status seen.",
@@ -70,7 +87,7 @@
       "value": "true"
     }, 
     
-       "MENTION_REPLY": {
+     "MENTION_REPLY": {
       "description": "make it true if want mention reply if someone menetion you.",
       "required": false,
       "value": "false"
@@ -84,7 +101,7 @@
 
     "AUTO_STATUS_REPLY": {
       "description": "Make it true for auto reply msg on status seen.",
-      "required": true,
+      "required": false,
       "value": "false"
     }, 
 
@@ -140,6 +157,12 @@
 
     "AUTO_REACT": {
       "description": "Make it true if you want react on every message.",
+      "required": false,
+      "value": "false"
+    },
+
+    "OWNER_REACT": {
+      "description": "Make it true if you want react on bot number.",
       "required": false,
       "value": "false"
     },
