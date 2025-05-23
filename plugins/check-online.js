@@ -19,7 +19,7 @@ async (conn, mek, m, { from, quoted, isGroup, isAdmins, isCreator, fromMe, reply
         }
 
         // Inform user that we're checking
-       // await reply("🔄 Scanning for online members... This may take 15-20 seconds.");
+        await reply("*♻️ Scanning for online members...*");
 
         const onlineMembers = new Set();
         const groupData = await conn.groupMetadata(from);
@@ -72,7 +72,7 @@ async (conn, mek, m, { from, quoted, isGroup, isAdmins, isCreator, fromMe, reply
                     `✑ @${member.split('@')[0]}`
                 ).join('\n');
                 
-                const message = `*🎗️ ONLINE MEMBERS ${onlineArray.length}/${groupData.participants.length}\n\n${onlineList}*`;
+                const message = `*🎗️ ONLINE MEMBERS ${onlineArray.length}/${groupData.participants.length}*\n\n${onlineList}`;
                 
                 await conn.sendMessage(from, { 
                     text: message,
