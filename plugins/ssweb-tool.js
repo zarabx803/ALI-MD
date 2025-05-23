@@ -23,9 +23,9 @@ async (conn, mek, m, {
 
   try {
     
-    const response = await axios.get(`https://bk9.fun/tools/screenshot?device=tablet&url= ${q}`);
+  
+const response = await axios.get(`https://api.davidcyriltech.my.id/ssweb?url=${q}`);
     const screenshotUrl = response.data.screenshotUrl;
-
     // give credit and use
     const imageMessage = {
       image: { url: screenshotUrl },
