@@ -41,9 +41,9 @@ ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
 // maks true for always online 
 MENTION_REPLY: process.env.MENTION_REPLY || "false",
 // maks true for always online 
-//ANTI_CALL: process.env.ANTI_CALL || "true",
+ANTI_CALL: process.env.ANTI_CALL || "true",
 //maks anticall true, false for calls
-//REJECT_MSG: process.env.REJECT_MSG || "*📞 ᴄαℓℓ ɴσт αℓℓσωє∂ ιɴ тнιѕ ɴᴜмвєʀ уσυ ∂σɴт нανє ᴘєʀмιѕѕισɴ 📵*", 
+REJECT_MSG: process.env.REJECT_MSG || "*📞 ᴄαℓℓ ɴσт αℓℓσωє∂ ιɴ тнιѕ ɴᴜмвєʀ уσυ ∂σɴт нανє ᴘєʀмιѕѕισɴ 📵*", 
 // add anticall message 
 DESCRIPTION: process.env.DESCRIPTION || "*© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽💀*",
 // add bot owner name    
@@ -81,8 +81,10 @@ DEV: process.env.DEV || "923003588997",
 //replace with your whatsapp number        
 ANTI_VV: process.env.ANTI_VV || "true",
 // true for anti once view 
-ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "log", 
-// change it to 'same' if you want to resend deleted message in same chat 
+ANTI_DELETE: process.env.ANTI_DELETE || "true",
+// set true false for anti delete     
+ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "inbox", 
+// change it to 'same' if you want to resend deleted message in same chat     
 AUTO_RECORDING: process.env.AUTO_RECORDING || "false"
 // make it true for auto recoding 
 };
