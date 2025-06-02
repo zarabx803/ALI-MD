@@ -297,13 +297,13 @@ cmd({
       if (warningCount < 1) {
         // Send warning message
         await conn.sendMessage(from, {
-         // text: `‎*⚠️ ℓιɴкѕ αʀє ɴσт αℓℓσωє∂ ⚠️*\n*╭────⬡ ᴡαʀɴιɴg ⬡────*\n*├▢ ᴜsєʀ :* @${sender.split('@')[0]}!\n*├▢ ᴄσᴜɴᴛ : ${warningCount}*\n*├▢ ʀєαѕσɴ : ℓιɴᴋ ѕєɴ∂ιɴg*\n*├▢ ᴡαʀɴ ℓιмιт : 3*\n*╰────────────────*`,
+          text: `‎*⚠️ ℓιɴкѕ αʀє ɴσт αℓℓσωє∂ ⚠️*\n*╭────⬡ ᴡαʀɴιɴg ⬡────*\n*├▢ ᴜsєʀ :* @${sender.split('@')[0]}!\n*├▢ ᴄσᴜɴᴛ : ${warningCount}*\n*├▢ ʀєαѕσɴ : ℓιɴᴋ ѕєɴ∂ιɴg*\n*├▢ ᴡαʀɴ ℓιмιт : 3*\n*╰────────────────*`,
           mentions: [sender]
         });
       } else {
         // Remove user if they exceed warning limit
         await conn.sendMessage(from, {
-          text: `@${sender.split('@')[0]} *нαѕ вєєи ʀємσνє∂ ᴡαʀɴ ℓιмιт єχᴄєє∂є∂!*`,
+       //   text: `@${sender.split('@')[0]} *нαѕ вєєи ʀємσνє∂ ᴡαʀɴ ℓιмιт єχᴄєє∂є∂!*`,
           mentions: [sender]
         });
         await conn.groupParticipantsUpdate(from, [sender], "remove");
