@@ -136,7 +136,7 @@ cmd({
     if (containsLink && config.ANTI_LINK_DELETE === 'true') {
       await conn.sendMessage(from, { delete: m.key }, { quoted: m });
       await conn.sendMessage(from, {
-        'text': `*⚠️ ℓιɴкѕ αʀє ɴσт αℓℓσωє∂ ιɴ тнιѕ gʀσυρ* @⁨${sender.split('@')[0]}̄⁩ *ρℓєαѕє ανσι∂ ѕєɴ∂ιиg ℓιɴкѕ.🚫*`,
+        'text': `*⚠️ ℓιɴкѕ αʀє ɴσт αℓℓσωє∂ ιɴ тнιѕ gʀσυρ* @${sender.split('@')[0]}̄⁩ *ρℓєαѕє ανσι∂ ѕєɴ∂ιиg ℓιɴкѕ.🚫*`,
         'mentions': [sender]
       }, { 'quoted': m });
     }
