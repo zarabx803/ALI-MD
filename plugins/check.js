@@ -241,9 +241,17 @@ cmd({
   reply
 }) => {
   try {
+    // Initialize warnings if not exists
+    if (!global.warnings) {
+      global.warnings = {};
+    }
+
+    // Only act in groups where bot is admin and sender isn't admin
     if (!isGroup || isAdmins || !isBotAdmins) {
       return;
     }
+
+    // List of link patterns to detect
     const linkPatterns = [
   /https?:\/\/(?:chat\.whatsapp\.com|wa\.me)\/\S+/gi,
   /^https?:\/\/(www\.)?whatsapp\.com\/channel\/([a-zA-Z0-9_-]+)$/,
@@ -251,11 +259,7 @@ cmd({
   /https?:\/\/(?:t\.me|telegram\.me)\/\S+/gi,
   /https?:\/\/(?:www\.)?youtube\.com\/\S+/gi,
   /https?:\/\/youtu\.be\/\S+/gi,
-  /https?:\/\/(?:www\.)?facebook\.com\/\S+/gi,
-  /https?:\/\/fb\.me\/\S+/gi,
-  /https?:\/\/(?:www\.)?instagram\.com\/\S+/gi,
   /https?:\/\/(?:www\.)?twitter\.com\/\S+/gi,
-  /https?:\/\/(?:www\.)?tiktok\.com\/\S+/gi,
   /https?:\/\/(?:www\.)?linkedin\.com\/\S+/gi,
   /https?:\/\/(?:www\.)?snapchat\.com\/\S+/gi,
   /https?:\/\/(?:www\.)?pinterest\.com\/\S+/gi,
@@ -267,23 +271,44 @@ cmd({
   /https?:\/\/(?:www\.)?dailymotion\.com\/\S+/gi,
   /https?:\/\/(?:www\.)?medium\.com\/\S+/gi
 ];
+
+    // Check if message contains any forbidden links
     const containsLink = linkPatterns.some(pattern => pattern.test(body));
 
+    // Only proceed if anti-link is enabled and link is detected
     if (containsLink && config.ANTI_LINK_KICK === 'true') {
-      await conn.sendMessage(from, { 'delete': m.key }, { 'quoted': m });
-      await conn.sendMessage(from, {
-        'text': `*⌈⚠️ ℓιɴк ∂єтє¢тє∂ ⌋*\n*╭────────────────┄┈┈*\n*│🫩 υѕєʀ:* @${sender.split('@')[0]}\n*│🛩️ кι¢кє∂: ѕυ¢¢єѕѕfυℓℓу!*\n*│📑 ʀєαѕσɴ: ℓιикѕ ɴσт αℓℓσωє∂*\n*╰────────────────┄┈┈*`,
-        'mentions': [sender]
-      }, { 'quoted': m });
+      console.log(`Link detected from ${sender}: ${body}`);
 
-      await conn.groupParticipantsUpdate(from, [sender], "remove");
+      // Try to delete the message
+      try {
+        await conn.sendMessage(from, {
+          delete: m.key
+        });
+        console.log(`Message deleted: ${m.key.id}`);
+      } catch (error) {
+        console.error("Failed to delete message:", error);
+      }
+
+      // Update warning count for user
+      global.warnings[sender] = (global.warnings[sender] || 0) + 1;
+      const warningCount = global.warnings[sender];
+
+      // Handle warnings
+      if (warningCount < 1) {
+    // Remove user if they exceed warning limit
+        await conn.sendMessage(from, {
+          text: `*⌈⚠️ ℓιɴк ∂єтє¢тє∂ ⌋*\n*╭────────────────┄┈┈*\n*│🫩 υѕєʀ:* @${sender.split('@')[0]}\n*│🛩️ кι¢кє∂: ѕυ¢¢єѕѕfυℓℓу!*\n*│📑 ʀєαѕσɴ: ℓιикѕ ɴσт αℓℓσωє∂*\n*╰────────────────┄┈┈*`,
+          mentions: [sender]
+        });
+        await conn.groupParticipantsUpdate(from, [sender], "remove");
+        delete global.warnings[sender];
+      }
     }
   } catch (error) {
-    console.error(error);
-    reply("An error occurred while processing the message.");
+    console.error("Anti-link error:", error);
+    reply("❌ An error occurred while processing the message.");
   }
 });
-
 cmd({
     pattern: "anti-bad",
     alias: ["antibadword","abw"],
