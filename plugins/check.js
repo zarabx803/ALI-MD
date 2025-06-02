@@ -230,7 +230,7 @@ cmd({
 });
 //
 cmd({
-  'on': "body"
+  on: "body"
 }, async (conn, m, store, {
   from,
   body,
@@ -241,17 +241,9 @@ cmd({
   reply
 }) => {
   try {
-    // Initialize warnings if not exists
-    if (!global.warnings) {
-      global.warnings = {};
-    }
+    if (!isGroup || isAdmins || !isBotAdmins) return;
 
-    // Only act in groups where bot is admin and sender isn't admin
-    if (!isGroup || isAdmins || !isBotAdmins) {
-      return;
-    }
-
-    // List of link patterns to detect
+    // Detect link in message
     const linkPatterns = [
   /https?:\/\/(?:chat\.whatsapp\.com|wa\.me)\/\S+/gi,
   /^https?:\/\/(www\.)?whatsapp\.com\/channel\/([a-zA-Z0-9_-]+)$/,
@@ -271,50 +263,33 @@ cmd({
   /https?:\/\/(?:www\.)?dailymotion\.com\/\S+/gi,
   /https?:\/\/(?:www\.)?medium\.com\/\S+/gi
 ];
-
-    // Check if message contains any forbidden links
     const containsLink = linkPatterns.some(pattern => pattern.test(body));
 
-    // Only proceed if anti-link is enabled and link is detected
     if (containsLink && config.ANTI_LINK_KICK === 'true') {
       console.log(`Link detected from ${sender}: ${body}`);
 
-      // Try to delete the message
+      // Delete the message
       try {
-        await conn.sendMessage(from, {
-          delete: m.key
-        });
+        await conn.sendMessage(from, { delete: m.key });
         console.log(`Message deleted: ${m.key.id}`);
-      } catch (error) {
-        console.error("Failed to delete message:", error);
+      } catch (deleteError) {
+        console.error("Failed to delete message:", deleteError);
       }
 
-      // Update warning count for user
-      global.warnings[sender] = (global.warnings[sender] || 0) + 1;
-      const warningCount = global.warnings[sender];
+      // Inform group and remove user
+      await conn.sendMessage(from, {
+        text: `*⌈⚠️ ℓιɴк ∂єтє¢тє∂ ⌋*\n*╭────────────────┄┈┈*\n*│🫩 υѕєʀ:* @${sender.split('@')[0]}\n*│🛩️ кι¢кє∂: ѕυ¢¢єѕѕfυℓℓу!*\n*│📑 ʀєαѕσɴ: ℓιɴкѕ ɴσт αℓℓσωє∂*\n*╰────────────────┄┈┈*`,
+        mentions: [sender]
+      });
 
-      // Handle warnings
-      if (warningCount < 1) {
-        // Send warning message
-        await conn.sendMessage(from, {
-          text: `‎*⚠️ ℓιɴкѕ αʀє ɴσт αℓℓσωє∂ ⚠️*\n*╭────⬡ ᴡαʀɴιɴg ⬡────*\n*├▢ ᴜsєʀ :* @${sender.split('@')[0]}!\n*├▢ ᴄσᴜɴᴛ : ${warningCount}*\n*├▢ ʀєαѕσɴ : ℓιɴᴋ ѕєɴ∂ιɴg*\n*├▢ ᴡαʀɴ ℓιмιт : 3*\n*╰────────────────*`,
-          mentions: [sender]
-        });
-      } else {
-        // Remove user if they exceed warning limit
-        await conn.sendMessage(from, {
-       //   text: `@${sender.split('@')[0]} *нαѕ вєєи ʀємσνє∂ ᴡαʀɴ ℓιмιт єχᴄєє∂є∂!*`,
-          mentions: [sender]
-        });
-        await conn.groupParticipantsUpdate(from, [sender], "remove");
-        delete global.warnings[sender];
-      }
+      await conn.groupParticipantsUpdate(from, [sender], "remove");
     }
   } catch (error) {
     console.error("Anti-link error:", error);
-    reply("❌ An error occurred while processing the message.");
+    reply("❌ An error occurred while processing the anti-link command.");
   }
 });
+
 cmd({
     pattern: "anti-bad",
     alias: ["antibadword","abw"],
