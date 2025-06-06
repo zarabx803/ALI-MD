@@ -1,29 +1,105 @@
-const config = require('../config');
-const { cmd, commands } = require('../command');
-const { fetchJson } = require('../lib/functions');
-
+const { cmd } = require("../command");
+const axios = require("axios");
+const fs = require("fs");
 
 cmd({
-  pattern: 'fluxpro',
-  alias: 'flux',
-  react: '🧩',
-  desc: 'Generate an image using Flux',
-  category: 'image',
+  pattern: "fluxai",
+  alias: ["flux", "imagine"],
+  react: "🚀",
+  desc: "Generate an image using AI.",
+  category: "ai",
   filename: __filename
-}, async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-    const text = body.trim().replace(command, '').trim();
-    if (!text) {
-      return reply(`*Usage:* <prompt>\n\n*Example:* cat`);
+}, async (conn, mek, m, { q, reply }) => {
+  try {
+    if (!q) return reply("Please provide a prompt for the image.");
+
+    await reply("> *CREATING IMAGINE ...🔥*");
+
+    const apiUrl = `https://api.siputzx.my.id/api/ai/flux?prompt=${encodeURIComponent(q)}`;
+
+    const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
+
+    if (!response || !response.data) {
+      return reply("Error: The API did not return a valid image. Try again later.");
     }
 
-    await reply('> *ALI-MD PROCESSING IMAGE...*');
+    const imageBuffer = Buffer.from(response.data, "binary");
 
-    const apiUrl = `https://apis.davidcyriltech.my.id/flux?prompt=${encodeURIComponent(text)}`;
+    await conn.sendMessage(m.chat, {
+      image: imageBuffer,
+      caption: `*© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽🐍*\n*✨ ρʀσмρт: ${q}*`
+    });
 
-    await conn.sendMessage(m.chat, { image: { url: apiUrl }, caption: `🎨 *FLUX IMAGE GENERATOR*\n\n📄 *PROMPT:* ${text}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀʟɪ ᴍᴅ` }, { quoted: m });
   } catch (error) {
-    console.error('Error in Flux command:', error);
-    reply(`*AN ERROR OCCURRED!! MESSAGE :*\n\n> ${error.message}`);
+    console.error("FluxAI Error:", error);
+    reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
+  }
+});
+
+cmd({
+  pattern: "stablediffusion",
+  alias: ["sdiffusion", "imagine2"],
+  react: "🚀",
+  desc: "Generate an image using AI.",
+  category: "ai",
+  filename: __filename
+}, async (conn, mek, m, { q, reply }) => {
+  try {
+    if (!q) return reply("Please provide a prompt for the image.");
+
+    await reply("> *CREATING IMAGINE ...🔥*");
+
+    const apiUrl = `https://api.siputzx.my.id/api/ai/stable-diffusion?prompt=${encodeURIComponent(q)}`;
+
+    const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
+
+    if (!response || !response.data) {
+      return reply("Error: The API did not return a valid image. Try again later.");
+    }
+
+    const imageBuffer = Buffer.from(response.data, "binary");
+
+    await conn.sendMessage(m.chat, {
+      image: imageBuffer,
+      caption: `*© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽🐍*\n*✨ ρʀσмρт: ${q}*`
+    });
+
+  } catch (error) {
+    console.error("FluxAI Error:", error);
+    reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
+  }
+});
+
+cmd({
+  pattern: "stabilityai",
+  alias: ["stability", "imagine3"],
+  react: "🚀",
+  desc: "Generate an image using AI.",
+  category: "ai",
+  filename: __filename
+}, async (conn, mek, m, { q, reply }) => {
+  try {
+    if (!q) return reply("Please provide a prompt for the image.");
+
+    await reply("> *CREATING IMAGINE ...🔥*");
+
+    const apiUrl = `https://api.siputzx.my.id/api/ai/stabilityai?prompt=${encodeURIComponent(q)}`;
+
+    const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
+
+    if (!response || !response.data) {
+      return reply("Error: The API did not return a valid image. Try again later.");
+    }
+
+    const imageBuffer = Buffer.from(response.data, "binary");
+
+    await conn.sendMessage(m.chat, {
+      image: imageBuffer,
+      caption: `*© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽🐍*\n*✨ ρʀσмρт: ${q}*`
+    });
+
+  } catch (error) {
+    console.error("FluxAI Error:", error);
+    reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
   }
 });
