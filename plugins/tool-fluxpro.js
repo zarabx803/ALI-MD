@@ -40,7 +40,7 @@ cmd({
       return reply(`*Usage:* <prompt>\n\n*Example:* cat`);
     }
 
-   // await reply('> *ALI-MD PROCESSING IMAGE...*');
+    await reply('> *ALI-MD PROCESSING IMAGE...*');
 
     const apiUrl = `https://apis.davidcyriltech.my.id/flux?prompt=${encodeURIComponent(text)}`;
 
