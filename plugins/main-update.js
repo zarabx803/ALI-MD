@@ -74,3 +74,20 @@ cmd({
     reply("❌ Update failed: " + err.message);
   }
 });
+
+cmd({
+  pattern: "setprefix",
+  desc: "Set the bot's command prefix",
+  category: "owner",
+  react: "✅",
+  filename: __filename
+}, async (conn, mek, m, { args, isCreator, reply }) => {
+  if (!isCreator) return reply("❗ Only the bot owner can use this command.");
+  const newPrefix = args[0]?.trim();
+  if (!newPrefix || newPrefix.length > 2) return reply("❌ Provide a valid prefix (1–2 characters).");
+
+  await setConfig("PREFIX", newPrefix);
+
+  await reply(`✅ Prefix updated to: *${newPrefix}*\n\n♻️ Restarting...`);
+  setTimeout(() => exec("pm2 restart all"), 2000);
+});
