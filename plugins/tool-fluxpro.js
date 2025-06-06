@@ -37,10 +37,10 @@ cmd({
   try {
     const text = body.trim().replace(command, '').trim();
     if (!text) {
-      return reply(`*Usage:* ${command} <prompt>\n\n*Example:* ${command} cat`);
+      return reply(`*Usage:* <prompt>\n\n*Example:* cat`);
     }
 
-    await reply('> *ALI-MD PROCESSING IMAGE...*');
+   // await reply('> *ALI-MD PROCESSING IMAGE...*');
 
     const apiUrl = `https://apis.davidcyriltech.my.id/flux?prompt=${encodeURIComponent(text)}`;
 
