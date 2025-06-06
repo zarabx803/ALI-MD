@@ -10,31 +10,8 @@ cmd({
   desc: 'Generate an image using Flux',
   category: 'image',
   filename: __filename
-}, async (conn, mek, m, {
-  body,
-  from,
-  quoted,
-  isCmd,
-  command,
-  args,
-  q,
-  isGroup,
-  sender,
-  senderNumber,
-  botNumber2,
-  botNumber,
-  pushname,
-  isMe,
-  isOwner,
-  groupMetadata,
-  groupName,
-  participants,
-  groupAdmins,
-  isBotAdmins,
-  isAdmins,
-  reply
-}) => {
-  try {
+}, async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
     const text = body.trim().replace(command, '').trim();
     if (!text) {
       return reply(`*Usage:* <prompt>\n\n*Example:* cat`);
